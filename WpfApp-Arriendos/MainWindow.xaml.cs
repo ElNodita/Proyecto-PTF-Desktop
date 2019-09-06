@@ -40,8 +40,11 @@ namespace WpfApp_Arriendos
             OracleDataReader lector = sql.ExecuteReader();
             if (lector.Read())
             {
+                Dashboard dash = new Dashboard();
+                dash.Show();
                 lblmensaje.Content = "Conexión correcta";
                 conexion.Close();
+                this.Close();
             }
             else
             {
