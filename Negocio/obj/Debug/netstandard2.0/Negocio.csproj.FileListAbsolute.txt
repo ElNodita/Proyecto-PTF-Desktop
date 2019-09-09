@@ -7,3 +7,6 @@ C:\Users\joser\Desktop\Proyectos\Proyecto-PTF-Desktop\Negocio\obj\Debug\netstand
 C:\Users\joser\Desktop\Proyectos\Proyecto-PTF-Desktop\Negocio\bin\Debug\netstandard2.0\Negocio.pdb
 C:\Users\joser\Desktop\Proyectos\Proyecto-PTF-Desktop\Negocio\obj\Debug\netstandard2.0\Negocio.dll
 C:\Users\joser\Desktop\Proyectos\Proyecto-PTF-Desktop\Negocio\obj\Debug\netstandard2.0\Negocio.pdb
+C:\Users\joser\Desktop\Proyectos\Proyecto-PTF-Desktop\Negocio\bin\Debug\netstandard2.0\Datos.dll
+C:\Users\joser\Desktop\Proyectos\Proyecto-PTF-Desktop\Negocio\bin\Debug\netstandard2.0\Datos.pdb
+C:\Users\joser\Desktop\Proyectos\Proyecto-PTF-Desktop\Negocio\obj\Debug\netstandard2.0\Negocio.csproj.CopyComplete

@@ -9,6 +9,7 @@
     ".NETStandard,Version=v2.0/": {
       "Negocio/1.0.0": {
         "dependencies": {
+          "Datos": "1.0.0",
           "NETStandard.Library": "2.0.3",
           "Oracle.ManagedDataAccess": "19.3.1"
         },
@@ -28,6 +29,14 @@
             "assemblyVersion": "4.122.19.1",
             "fileVersion": "4.122.19.1"
           }
+        }
+      },
+      "Datos/1.0.0": {
+        "dependencies": {
+          "Oracle.ManagedDataAccess": "19.3.1"
+        },
+        "runtime": {
+          "Datos.dll": {}
         }
       }
     }
@@ -58,6 +67,11 @@
       "sha512": "sha512-kLw4iJ2cHyz0H2m3TIwOvx+RYH1sobgi+sMZYMyYmCiCkJQKdoU3nQZm0YjX+BSCwF5vGfF0sh79Ea/xDTGFbQ==",
       "path": "oracle.manageddataaccess/19.3.1",
       "hashPath": "oracle.manageddataaccess.19.3.1.nupkg.sha512"
+    },
+    "Datos/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     }
   }
 }

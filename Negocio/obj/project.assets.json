@@ -34,6 +34,19 @@
         "runtime": {
           "lib/net40/Oracle.ManagedDataAccess.dll": {}
         }
+      },
+      "Datos/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "dependencies": {
+          "Oracle.ManagedDataAccess": "19.3.1"
+        },
+        "compile": {
+          "bin/placeholder/Datos.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Datos.dll": {}
+        }
       }
     }
   },
@@ -204,10 +217,16 @@
         "oracle.manageddataaccess.nuspec",
         "readme.txt"
       ]
+    },
+    "Datos/1.0.0": {
+      "type": "project",
+      "path": "../Datos/Datos.csproj",
+      "msbuildProject": "../Datos/Datos.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.0": [
+      "Datos >= 1.0.0",
       "NETStandard.Library >= 2.0.3",
       "Oracle.ManagedDataAccess >= 19.3.1"
     ]
@@ -241,7 +260,11 @@
       },
       "frameworks": {
         "netstandard2.0": {
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\joser\\Desktop\\Proyectos\\Proyecto-PTF-Desktop\\Datos\\Datos.csproj": {
+              "projectPath": "C:\\Users\\joser\\Desktop\\Proyectos\\Proyecto-PTF-Desktop\\Datos\\Datos.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

@@ -13,7 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-using Oracle.ManagedDataAccess.Client;
+using Negocio.Clases;
+//using Oracle.ManagedDataAccess.Client;
 
 
 namespace WpfApp_Arriendos
@@ -28,28 +29,25 @@ namespace WpfApp_Arriendos
             InitializeComponent();
         }
 
-        OracleConnection conexion = new OracleConnection("DATA SOURCE = localhost; PASSWORD = ptfBD ; USER ID = ptfBD");
-
         private void BtnIniciar_Click(object sender, RoutedEventArgs e)
         {
-            conexion.Open();
-            OracleCommand sql = new OracleCommand("select id_usuario from usuario where correo_usuario='"+txtCorreo.Text+"' and contrasena_usuario='"+txtPass.Text+"'",conexion);
-            //sql.Parameters.Add("correo",OracleDbType.Varchar2).Value=txtCorreo.Text;
-            //sql.Parameters.Add("pass",OracleDbType.Varchar2).Value=txtPass.Text;
+            UsuarioCollection usuario = new UsuarioCollection();
 
-            OracleDataReader lector = sql.ExecuteReader();
-            if (lector.Read())
+            string correo = txtCorreo.Text;
+            string pass = txtPass.Text;
+
+            var valida = usuario.IniciarSesion(correo,pass);
+
+            if (valida.Rows.Count>0)
             {
-                Dashboard dash = new Dashboard();
+               Dashboard dash = new Dashboard();
                 dash.Show();
-                lblmensaje.Content = "Conexión correcta";
-                conexion.Close();
                 this.Close();
             }
             else
             {
-                lblmensaje.Content = "Error de conexión";
-                conexion.Close();
+                lblmensaje.Content = "Usuario no válido.";
+                
             }
         }
     }

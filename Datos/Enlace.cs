@@ -5,10 +5,11 @@ using Oracle.ManagedDataAccess.Client;
 using System.Data;
 namespace Datos
 {
-    class Enlace
+    public class Enlace
     {
-        static private string cadena = "DATA SOURCE = localhost; PASSWORD = ptfBD ; USER ID = ptfBD";
-        
+        static private string cadena = "DATA SOURCE = 192.168.1.193; PASSWORD = ptfBD ; USER ID = ptfBD";
+
+
         public static OracleCommand ComandoSP()
         {
             OracleConnection _conexion = new OracleConnection();
