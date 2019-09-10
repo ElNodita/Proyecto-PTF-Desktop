@@ -15,20 +15,25 @@ using System.Windows.Shapes;
 namespace WpfApp_Arriendos
 {
     /// <summary>
-    /// Lógica de interacción para Dashboard.xaml
+    /// Lógica de interacción para Funcionario.xaml
     /// </summary>
-    public partial class Dashboard : Window
+    public partial class Funcionario : Window
     {
-        public Dashboard()
+        public Funcionario()
         {
             InitializeComponent();
         }
 
+        private void BtnInicio_Click(object sender, RoutedEventArgs e)
+        {
+            Dashboard home = new Dashboard();
+            home.Show();
+            this.Close();
+        }
+
         private void BtnFuncionario_Click(object sender, RoutedEventArgs e)
         {
-            Funcionario fun = new Funcionario();
-            fun.Show();
-            this.Close();
+
         }
     }
 }

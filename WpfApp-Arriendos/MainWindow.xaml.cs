@@ -14,7 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 using Negocio.Clases;
-//using Oracle.ManagedDataAccess.Client;
+
 
 
 namespace WpfApp_Arriendos
@@ -34,7 +34,7 @@ namespace WpfApp_Arriendos
             UsuarioCollection usuario = new UsuarioCollection();
 
             string correo = txtCorreo.Text;
-            string pass = txtPass.Text;
+            string pass = txtPass.Password;
 
             var valida = usuario.IniciarSesion(correo,pass);
 
