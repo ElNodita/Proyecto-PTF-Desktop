@@ -1,0 +1,20 @@
+﻿<Window x:Class="WpfApp_Arriendos.DirFuncionario.InicioRegistro"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp_Arriendos.DirFuncionario"
+        mc:Ignorable="d"
+        Title="InicioRegistro" Height="450" Width="335.779">
+    <Grid>
+        <Label x:Name="lblTitulo" Content="Ingresa los datos de la nueva cuenta" HorizontalAlignment="Left" Margin="52,49,0,0" VerticalAlignment="Top"/>
+
+        <Label x:Name="lblCorreo" Content="Correo:" HorizontalAlignment="Left" Margin="37,143,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblPass" Content="Contraseña" HorizontalAlignment="Left" Margin="37,214,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.211,-0.154"/>
+        <TextBox x:Name="txtCorreo" HorizontalAlignment="Left" Height="23" Margin="112,146,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165" />
+        <PasswordBox x:Name="txtPass" HorizontalAlignment="Left" Margin="112,220,0,0" VerticalAlignment="Top" Width="165"/>
+        <Button x:Name="btnValida" Content="Siguiente" HorizontalAlignment="Left" Margin="135,287,0,0" VerticalAlignment="Top" Width="99" Height="29" Click="BtnValida_Click"/>
+        <Label x:Name="lblmsj" Content="" HorizontalAlignment="Left" Margin="135,356,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>

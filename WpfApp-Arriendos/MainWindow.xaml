@@ -7,10 +7,10 @@
         mc:Ignorable="d"
         Title="Inicio de Sesión" Height="450" Width="800">
     <Grid>
-        <TextBox x:Name="txtCorreo" HorizontalAlignment="Left" Height="23" Margin="308,143,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="214"/>
+        <TextBox x:Name="txtCorreo" HorizontalAlignment="Left" Height="23" Margin="308,196,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="214"/>
+        <PasswordBox x:Name="txtPass" HorizontalAlignment="Left" Margin="308,246,0,0" VerticalAlignment="Top" Width="214"/>
+        <Button x:Name="btnIniciar" Content="Iniciar" HorizontalAlignment="Left" Margin="373,328,0,0" VerticalAlignment="Top" Width="75" Click="BtnIniciar_Click"/>
         <Label x:Name="lblmensaje" Content="" HorizontalAlignment="Left" Margin="532,275,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="btnIniciar" Content="Iniciar" HorizontalAlignment="Left" Margin="373,275,0,0" VerticalAlignment="Top" Width="75" Click="BtnIniciar_Click"/>
-        <PasswordBox x:Name="txtPass" HorizontalAlignment="Left" Margin="308,193,0,0" VerticalAlignment="Top" Width="214"/>
-
+        <Image x:Name="image" HorizontalAlignment="Left" Height="114" Margin="335,52,0,0" VerticalAlignment="Top" Width="163" Source="Assets/img/logo.png"/>
     </Grid>
 </Window>
