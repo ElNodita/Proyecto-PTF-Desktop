@@ -53,7 +53,7 @@ namespace Datos.Entidades
             try
             {
                 OracleCommand _sql = Enlace.ComandoSP();
-                _sql.CommandText = "sp_lstFuncionarios";
+                _sql.CommandText = "pkg_funcionario.sp_lstFuncionarios";
                 _sql.Parameters.Add("o_data",OracleDbType.RefCursor).Direction=ParameterDirection.Output;
 
                 return Enlace.RegresaDatos(_sql);
@@ -71,7 +71,7 @@ namespace Datos.Entidades
             try
             {
                 OracleCommand _sql = Enlace.ComandoSP();
-                _sql.CommandText = "sp_insertaDatosPersona";
+                _sql.CommandText = "pkg_comun.sp_insertaDatosPersona";
 
                 OracleParameter rut = _sql.CreateParameter();
                 rut.ParameterName = "rut";
@@ -147,7 +147,7 @@ namespace Datos.Entidades
             try
             {
                 OracleCommand _sql = Enlace.ComandoSP();
-                _sql.CommandText = "sp_actualizaDatosPersona";
+                _sql.CommandText = "pkg_funcionario.sp_actualizaDatosPersona";
 
                 OracleParameter id_usuario = _sql.CreateParameter();
                 id_usuario.ParameterName = "idUs";
@@ -186,7 +186,7 @@ namespace Datos.Entidades
             try
             {
                 OracleCommand _sql = Enlace.ComandoSP();
-                _sql.CommandText = "sp_eliminaDatosPersona";
+                _sql.CommandText = "pkg_funcionario.sp_eliminaDatosPersona";
 
                 OracleParameter id = _sql.CreateParameter();
                 id.ParameterName = "idUs";

@@ -44,7 +44,7 @@ namespace Datos.Entidades
             try
             {
                 OracleCommand _sql = Enlace.ComandoSP();
-                _sql.CommandText = "sp_loginAdministrador";
+                _sql.CommandText = "pkg_administrador.sp_loginAdministrador";
 
                 _sql.Parameters.Add("o_data",OracleDbType.RefCursor).Direction=ParameterDirection.Output;
 
@@ -74,7 +74,7 @@ namespace Datos.Entidades
             try
             {
                 OracleCommand _sql = Enlace.ComandoSP();
-                _sql.CommandText = "sp_validaExistencia";
+                _sql.CommandText = "pkg_comun.sp_validaExistencia";
                 _sql.Parameters.Add("o_data", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
 
                 OracleParameter mail = _sql.CreateParameter();
@@ -97,7 +97,7 @@ namespace Datos.Entidades
             try
             {
                 OracleCommand _sql = Enlace.ComandoSP();
-                _sql.CommandText = "sp_insertaUsuario";
+                _sql.CommandText = "pkg_comun.sp_insertaUsuario";
 
                 OracleParameter param = _sql.CreateParameter();
                 param.ParameterName = "correo";
@@ -137,7 +137,7 @@ namespace Datos.Entidades
             try
             {
                 OracleCommand _sql = Enlace.ComandoSP();
-                _sql.CommandText = "sp_actualizaUsuario";
+                _sql.CommandText = "pkg_funcionario.sp_actualizaUsuario";
 
                 OracleParameter id_usuario = _sql.CreateParameter();
                 id_usuario.ParameterName = "idUs";
@@ -177,7 +177,7 @@ namespace Datos.Entidades
             try
             {
                 OracleCommand _sql = Enlace.ComandoSP();
-                _sql.CommandText = "sp_eliminaUsuario";
+                _sql.CommandText = "pkg_funcionario.sp_eliminaUsuario";
 
                 OracleParameter id = _sql.CreateParameter();
                 id.ParameterName = "idUs";

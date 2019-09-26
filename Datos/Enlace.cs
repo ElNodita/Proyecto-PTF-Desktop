@@ -7,7 +7,7 @@ namespace Datos
 {
     public class Enlace
     {
-        static private string cadena = "DATA SOURCE = 192.168.1.193; PASSWORD = ptfBD ; USER ID = ptfBD";
+        static private string cadena = "User Id=admin;Password=Termicl1;Data Source=ptforacle18.cgduitd6w4ko.us-east-1.rds.amazonaws.com:1521/ORCL;";
 
 
         public static OracleCommand ComandoSP()
