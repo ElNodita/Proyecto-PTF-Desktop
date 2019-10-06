@@ -10,7 +10,7 @@
         <Label x:Name="label" Content="Bienvenido Adminsitrador" HorizontalAlignment="Left" Margin="336,65,0,0" VerticalAlignment="Top"/>
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="419" Stroke="Black" VerticalAlignment="Top" Width="116"/>
         <Button x:Name="btnInicio" Content="Inicio" HorizontalAlignment="Left" Margin="19,50,0,0" VerticalAlignment="Top" Width="86"/>
-        <Button x:Name="btnDepartamento" Content="Departamento" HorizontalAlignment="Left" Margin="19,110,0,0" VerticalAlignment="Top" Width="86"/>
+        <Button x:Name="btnDepartamento" Content="Departamento" HorizontalAlignment="Left" Margin="19,110,0,0" VerticalAlignment="Top" Width="86" Click="BtnDepartamento_Click"/>
         <Button x:Name="btnFuncionario" Content="Funcionarios" HorizontalAlignment="Left" Margin="19,172,0,0" VerticalAlignment="Top" Width="86" Click="BtnFuncionario_Click"/>
         <Button x:Name="btnServicios" Content="Servicios" HorizontalAlignment="Left" Margin="19,305,0,0" VerticalAlignment="Top" Width="86"/>
         <Button x:Name="btnFinanzas" Content="Finanzas" HorizontalAlignment="Left" Margin="19,237,0,0" VerticalAlignment="Top" Width="86" RenderTransformOrigin="-0.093,0.35"/>

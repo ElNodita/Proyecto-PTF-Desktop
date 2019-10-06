@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WpfApp_Arriendos.DirDepartamentos;
 
 namespace WpfApp_Arriendos
 {
@@ -28,6 +29,13 @@ namespace WpfApp_Arriendos
         {
             Funcionario fun = new Funcionario();
             fun.Show();
+            this.Close();
+        }
+
+        private void BtnDepartamento_Click(object sender, RoutedEventArgs e)
+        {
+            GestorDepartamentos depa = new GestorDepartamentos();
+            depa.Show();
             this.Close();
         }
     }

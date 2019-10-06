@@ -63,6 +63,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="DirDepartamentos\GestorDepartamentos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DirDepartamentos\RegistroDepartamento.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="DirFuncionario\FinRegistro.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -85,6 +93,12 @@
     </Compile>
     <Compile Include="Dashboard.xaml.cs">
       <DependentUpon>Dashboard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DirDepartamentos\GestorDepartamentos.xaml.cs">
+      <DependentUpon>GestorDepartamentos.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DirDepartamentos\RegistroDepartamento.xaml.cs">
+      <DependentUpon>RegistroDepartamento.xaml</DependentUpon>
     </Compile>
     <Compile Include="DirFuncionario\FinRegistro.xaml.cs">
       <DependentUpon>FinRegistro.xaml</DependentUpon>
@@ -136,5 +150,6 @@
   <ItemGroup>
     <Resource Include="Assets\img\logo.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
