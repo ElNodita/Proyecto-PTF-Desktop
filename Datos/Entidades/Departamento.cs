@@ -53,6 +53,38 @@ namespace Datos.Entidades
             }
         }
 
+        public bool CambiaEstado(int departamento, char estado)
+        {
+            bool resultado = false;
+            try
+            {
+                OracleCommand _sql = Enlace.ComandoSP();
+                _sql.CommandText = "pkg_departamento.sp_cambiaEstado";
+
+                OracleParameter id_departamento = _sql.CreateParameter();
+                id_departamento.ParameterName = "idDepartamento";
+                id_departamento.Value = departamento;
+                id_departamento.OracleDbType = OracleDbType.Int64;
+                id_departamento.Size = 4;
+                _sql.Parameters.Add(id_departamento);
+
+                OracleParameter estado_departamento = _sql.CreateParameter();
+                estado_departamento.ParameterName = "estado";
+                estado_departamento.Value =estado;
+                estado_departamento.OracleDbType = OracleDbType.Char;
+                estado_departamento.Size = 1;
+                _sql.Parameters.Add(estado_departamento);
+
+                Enlace.EjecutarSentencia(_sql);
+                resultado = true;
+            }
+            catch (OracleException ex)
+            {
+                throw ex;
+            }
+            return resultado;
+        }
+
         public bool Crear(Departamento departamento)
         {
             bool resultado = true;

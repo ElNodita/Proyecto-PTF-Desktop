@@ -7,12 +7,6 @@ namespace Negocio.Clases
 {
     public class DepartamentoCollection
     {
-        
-        public DataTable ListaDepartamento()
-        {
-            return new Departamento().ListaDepartamento();
-        }
-
         public DataTable ListaRegion()
         {
             return new Region().ListaRegion();
@@ -22,6 +16,12 @@ namespace Negocio.Clases
         {
             return new Comuna().ListaComunaPorRegion(region);
         }
+
+        public DataTable ListaDepartamento()
+        {
+            return new Departamento().ListaDepartamento();
+        }
+
         public bool InsertaDepartamento(int costo, string tipo, int comuna, string direccion)
         {
             Departamento depa = new Departamento();
@@ -51,6 +51,55 @@ namespace Negocio.Clases
             depa.Id = id;
 
             return depa.Eliminar(depa);
+        }
+
+        public bool CambiaEstado(int departamento, char estado)
+        {
+            Departamento depa = new Departamento();
+            return depa.CambiaEstado(departamento,estado);
+        }
+
+        public DataTable ListaInventario(int inventario)
+        {
+            return new Inventario().ListaInventario(inventario);
+        }
+
+        public bool InsertaInventario(int idDepartamento,char internet,int banio,int dormitorio,int tv,int mesa,int asiento,int mueble)
+        {
+            Inventario inv = new Inventario();
+            inv.IdDepa = idDepartamento;
+            inv.Internet = internet;
+            inv.Baño = banio;
+            inv.Dormitorio = dormitorio;
+            inv.Tv = tv;
+            inv.Mesa = mesa;
+            inv.Asiento = asiento;
+            inv.Mueble = mueble;
+
+            return inv.Crear(inv);
+        }
+
+        public bool ActualizaInventario(int inventario, char internet, int banio, int dormitorio, int tv, int mesa, int asiento, int mueble)
+        {
+            Inventario inv = new Inventario();
+            inv.Id = inventario;
+            inv.Internet = internet;
+            inv.Baño = banio;
+            inv.Dormitorio = dormitorio;
+            inv.Tv = tv;
+            inv.Mesa = mesa;
+            inv.Asiento = asiento;
+            inv.Mueble = mueble;
+
+            return inv.Actualizar(inv);
+        }
+
+        public bool EliminaInventario(int inventario)
+        {
+            Inventario inv = new Inventario();
+            inv.Id = inventario;
+
+            return inv.Eliminar(inv);
         }
     }
 }

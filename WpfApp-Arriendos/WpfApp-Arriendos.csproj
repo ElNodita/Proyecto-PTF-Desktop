@@ -67,6 +67,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="DirDepartamentos\RegistraInventario.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="DirDepartamentos\RegistroDepartamento.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -96,6 +100,9 @@
     </Compile>
     <Compile Include="DirDepartamentos\GestorDepartamentos.xaml.cs">
       <DependentUpon>GestorDepartamentos.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DirDepartamentos\RegistraInventario.xaml.cs">
+      <DependentUpon>RegistraInventario.xaml</DependentUpon>
     </Compile>
     <Compile Include="DirDepartamentos\RegistroDepartamento.xaml.cs">
       <DependentUpon>RegistroDepartamento.xaml</DependentUpon>

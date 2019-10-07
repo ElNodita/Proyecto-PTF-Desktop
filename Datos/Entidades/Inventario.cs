@@ -46,6 +46,202 @@ namespace Datos.Entidades
             Mueble = 0;
         }
 
+        public DataTable ListaInventario(int inventario)
+        {
+            try
+            {
+                OracleCommand _sql = Enlace.ComandoSP();
+                _sql.CommandText = "pkg_departamento.sp_listaInventario";
+
+                _sql.Parameters.Add("o_data", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
+
+                OracleParameter inv = _sql.CreateParameter();
+                inv.ParameterName = "idInventario";
+                inv.Value = inventario;
+                inv.OracleDbType = OracleDbType.Int64;
+                _sql.Parameters.Add(inv);
+
+                return Enlace.RegresaDatos(_sql);
+            }
+            catch (OracleException ex)
+            {
+                throw ex;
+            }
+        }
+
+        public bool Crear(Inventario inventario)
+        {
+            bool resultado = false;
+            try
+            {
+                OracleCommand _sql = Enlace.ComandoSP();
+                _sql.CommandText = "pkg_departamento.sp_registraInventario";
+
+                OracleParameter depa = _sql.CreateParameter();
+                depa.ParameterName = "idDepartamento";
+                depa.Value = inventario.IdDepa;
+                depa.OracleDbType = OracleDbType.Int64;
+                depa.Size = 4;
+                _sql.Parameters.Add(depa);
+
+                OracleParameter internet = _sql.CreateParameter();
+                internet.ParameterName = "internet";
+                internet.Value = inventario.Internet;
+                internet.OracleDbType = OracleDbType.Char;
+                internet.Size = 1;
+                _sql.Parameters.Add(internet);
+
+                OracleParameter baño = _sql.CreateParameter();
+                baño.ParameterName = "banio";
+                baño.Value = inventario.Baño;
+                baño.OracleDbType = OracleDbType.Int64;
+                baño.Size = 1;
+                _sql.Parameters.Add(baño);
+
+                OracleParameter dormitorio = _sql.CreateParameter();
+                dormitorio.ParameterName = "dormitorio";
+                dormitorio.Value = inventario.Dormitorio;
+                dormitorio.OracleDbType = OracleDbType.Int64;
+                dormitorio.Size = 1;
+                _sql.Parameters.Add(dormitorio);
+
+                OracleParameter tv = _sql.CreateParameter();
+                tv.ParameterName = "tv";
+                tv.Value = inventario.Tv;
+                tv.OracleDbType = OracleDbType.Int64;
+                tv.Size = 1;
+                _sql.Parameters.Add(tv);
+
+                OracleParameter mesa = _sql.CreateParameter();
+                mesa.ParameterName = "mesa";
+                mesa.Value = inventario.Mesa;
+                mesa.OracleDbType = OracleDbType.Int64;
+                mesa.Size = 1;
+                _sql.Parameters.Add(mesa);
+
+                OracleParameter asiento = _sql.CreateParameter();
+                asiento.ParameterName = "asiento";
+                asiento.Value = inventario.Asiento;
+                asiento.OracleDbType = OracleDbType.Int64;
+                asiento.Size = 2;
+                _sql.Parameters.Add(asiento);
+
+                OracleParameter mueble = _sql.CreateParameter();
+                mueble.ParameterName = "mueble";
+                mueble.Value = inventario.Mueble;
+                mueble.OracleDbType = OracleDbType.Int64;
+                mueble.Size = 2;
+                _sql.Parameters.Add(mueble);
+
+                Enlace.EjecutarSentencia(_sql);
+                resultado = true;
+            }
+            catch (OracleException ex)
+            {
+                throw ex;
+            }
+            return resultado;
+        }
+
+        public bool Actualizar(Inventario inventario)
+        {
+            bool resultado = false;
+            try
+            {
+                OracleCommand _sql = Enlace.ComandoSP();
+                _sql.CommandText = "pkg_departamento.sp_actualizaInventario";
+
+                OracleParameter inv = _sql.CreateParameter();
+                inv.ParameterName = "idInventario";
+                inv.Value = inventario.Id;
+                inv.OracleDbType = OracleDbType.Int64;
+                inv.Size = 4;
+                _sql.Parameters.Add(inv);
+
+                OracleParameter internet = _sql.CreateParameter();
+                internet.ParameterName = "internet";
+                internet.Value = inventario.Internet;
+                internet.OracleDbType = OracleDbType.Char;
+                internet.Size = 1;
+                _sql.Parameters.Add(internet);
+
+                OracleParameter baño = _sql.CreateParameter();
+                baño.ParameterName = "banio";
+                baño.Value = inventario.Baño;
+                baño.OracleDbType = OracleDbType.Int64;
+                baño.Size = 1;
+                _sql.Parameters.Add(baño);
+
+                OracleParameter dormitorio = _sql.CreateParameter();
+                dormitorio.ParameterName = "dormitorio";
+                dormitorio.Value = inventario.Dormitorio;
+                dormitorio.OracleDbType = OracleDbType.Int64;
+                dormitorio.Size = 1;
+                _sql.Parameters.Add(dormitorio);
+
+                OracleParameter tv = _sql.CreateParameter();
+                tv.ParameterName = "tv";
+                tv.Value = inventario.Tv;
+                tv.OracleDbType = OracleDbType.Int64;
+                tv.Size = 1;
+                _sql.Parameters.Add(tv);
+
+                OracleParameter mesa = _sql.CreateParameter();
+                mesa.ParameterName = "mesa";
+                mesa.Value = inventario.Mesa;
+                mesa.OracleDbType = OracleDbType.Int64;
+                mesa.Size = 1;
+                _sql.Parameters.Add(mesa);
+
+                OracleParameter asiento = _sql.CreateParameter();
+                asiento.ParameterName = "asiento";
+                asiento.Value = inventario.Asiento;
+                asiento.OracleDbType = OracleDbType.Int64;
+                asiento.Size = 2;
+                _sql.Parameters.Add(asiento);
+
+                OracleParameter mueble = _sql.CreateParameter();
+                mueble.ParameterName = "mueble";
+                mueble.Value = inventario.Mueble;
+                mueble.OracleDbType = OracleDbType.Int64;
+                mueble.Size = 2;
+                _sql.Parameters.Add(mueble);
+
+                Enlace.EjecutarSentencia(_sql);
+                resultado = true;
+            }
+            catch (OracleException ex)
+            {
+                throw ex;
+            }
+            return resultado;
+        }
+
+        public bool Eliminar(Inventario inventario)
+        {
+            bool resultado = false;
+            try
+            {
+                OracleCommand _sql = Enlace.ComandoSP();
+                _sql.CommandText = "pkg_departamento.sp_eliminaInventario";
+
+                OracleParameter inv = _sql.CreateParameter();
+                inv.ParameterName = "idInventario";
+                inv.Value = inventario.Id;
+                inv.OracleDbType = OracleDbType.Int64;
+                inv.Size = 4;
+                _sql.Parameters.Add(inv);
+
+                Enlace.EjecutarSentencia(_sql);
+                resultado = true;
+            }
+            catch (OracleException ex)
+            {
+                throw ex;
+            }
+            return resultado;
+        }
+
 
     }
 }
