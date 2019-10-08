@@ -41,6 +41,14 @@
       "frameworks": {
         "netstandard2.0": {
           "dependencies": {
+            "AWSSDK.Core": {
+              "target": "Package",
+              "version": "[3.3.103.45, )"
+            },
+            "AWSSDK.S3": {
+              "target": "Package",
+              "version": "[3.3.104.33, )"
+            },
             "NETStandard.Library": {
               "suppressParent": "All",
               "target": "Package",

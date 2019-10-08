@@ -99,6 +99,25 @@ namespace WpfApp_Arriendos.DirDepartamentos
                     lblMensajeInventario.Content = string.Empty;
                     btnRegistraInv.Visibility = Visibility.Hidden;
                     txtInventario.Text = inventario.ToString();
+
+                    DepartamentoCollection inv = new DepartamentoCollection();
+                    var listaInv = inv.ListaInventario(inventario);
+
+                    if (int.Parse(listaInv.Rows[0]["INTERNET"].ToString())==1)
+                    {
+                        chkInternet.IsChecked = true;
+                    }
+                    else
+                    {
+                        chkInternet.IsChecked = false;
+                    }
+                    txtBaño.Text =listaInv.Rows[0]["BANIO"].ToString();
+                    txtDormitorio.Text = listaInv.Rows[0]["DORMITORIO"].ToString();
+                    txtTv.Text = listaInv.Rows[0]["TV"].ToString();
+                    txtMesas.Text = listaInv.Rows[0]["MESA"].ToString();
+                    txtAsiento.Text =listaInv.Rows[0]["ASIENTO"].ToString();
+                    txtMuebles.Text = listaInv.Rows[0]["MUEBLE"].ToString();
+
                 }
                 else
                 {
@@ -241,6 +260,7 @@ namespace WpfApp_Arriendos.DirDepartamentos
             {
                 inv.CambiaEstado(int.Parse(txtId.Text),char.Parse(0.ToString()));
                 lblMensajeInventario.Content = "Eliminado corrrectamente!";
+                Datos();
             }
             else
             {
@@ -271,6 +291,7 @@ namespace WpfApp_Arriendos.DirDepartamentos
 
             inv.ActualizaInventario(id,internet,baños,dormitorio,tv,mesa,asiento,mueble);
 
+            Datos();
             lblMensajeInventario.Content = "Actualización correcta!";
 
         }
