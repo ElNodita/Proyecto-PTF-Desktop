@@ -45,10 +45,6 @@
               "target": "Package",
               "version": "[3.3.103.45, )"
             },
-            "AWSSDK.Glacier": {
-              "target": "Package",
-              "version": "[3.3.100.81, )"
-            },
             "AWSSDK.S3": {
               "target": "Package",
               "version": "[3.3.104.33, )"

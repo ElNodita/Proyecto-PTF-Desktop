@@ -11,20 +11,6 @@
           "lib/netstandard2.0/AWSSDK.Core.dll": {}
         }
       },
-      "AWSSDK.Glacier/3.3.100.81": {
-        "type": "package",
-        "dependencies": {
-          "AWSSDK.Core": "[3.3.103.45, 3.4.0)",
-          "AWSSDK.SQS": "[3.3.102.13, 3.4.0)",
-          "AWSSDK.SimpleNotificationService": "[3.3.101.70, 3.4.0)"
-        },
-        "compile": {
-          "lib/netstandard2.0/AWSSDK.Glacier.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/AWSSDK.Glacier.dll": {}
-        }
-      },
       "AWSSDK.S3/3.3.104.33": {
         "type": "package",
         "dependencies": {
@@ -35,30 +21,6 @@
         },
         "runtime": {
           "lib/netstandard2.0/AWSSDK.S3.dll": {}
-        }
-      },
-      "AWSSDK.SimpleNotificationService/3.3.101.70": {
-        "type": "package",
-        "dependencies": {
-          "AWSSDK.Core": "[3.3.103.45, 3.4.0)"
-        },
-        "compile": {
-          "lib/netstandard2.0/AWSSDK.SimpleNotificationService.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/AWSSDK.SimpleNotificationService.dll": {}
-        }
-      },
-      "AWSSDK.SQS/3.3.102.13": {
-        "type": "package",
-        "dependencies": {
-          "AWSSDK.Core": "[3.3.103.45, 3.4.0)"
-        },
-        "compile": {
-          "lib/netstandard2.0/AWSSDK.SQS.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/AWSSDK.SQS.dll": {}
         }
       },
       "Microsoft.NETCore.Platforms/1.1.0": {
@@ -146,46 +108,6 @@
         "tools/account-management.ps1"
       ]
     },
-    "AWSSDK.Glacier/3.3.100.81": {
-      "sha512": "KJRo3Fb30HtIsRQlUaWGCV2lYgS6IR4oG/bgUJ872NwGHJXd1DkVs7wHzaabu4PmhSlRFQFxeFB5pB+RITpqCQ==",
-      "type": "package",
-      "path": "awssdk.glacier/3.3.100.81",
-      "hasTools": true,
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "analyzers/dotnet/cs/AWSSDK.Glacier.CodeAnalysis.dll",
-        "awssdk.glacier.3.3.100.81.nupkg.sha512",
-        "awssdk.glacier.nuspec",
-        "lib/MonoAndroid10/AWSSDK.Glacier.XML",
-        "lib/MonoAndroid10/AWSSDK.Glacier.dll",
-        "lib/MonoTouch10/AWSSDK.Glacier.XML",
-        "lib/MonoTouch10/AWSSDK.Glacier.dll",
-        "lib/MonoTouch10/AWSSDK.Glacier.pdb",
-        "lib/Xamarin.iOS10/AWSSDK.Glacier.XML",
-        "lib/Xamarin.iOS10/AWSSDK.Glacier.dll",
-        "lib/net35/AWSSDK.Glacier.dll",
-        "lib/net35/AWSSDK.Glacier.pdb",
-        "lib/net35/AWSSDK.Glacier.xml",
-        "lib/net45/AWSSDK.Glacier.dll",
-        "lib/net45/AWSSDK.Glacier.pdb",
-        "lib/net45/AWSSDK.Glacier.xml",
-        "lib/netstandard1.3/AWSSDK.Glacier.dll",
-        "lib/netstandard1.3/AWSSDK.Glacier.pdb",
-        "lib/netstandard1.3/AWSSDK.Glacier.xml",
-        "lib/netstandard2.0/AWSSDK.Glacier.dll",
-        "lib/netstandard2.0/AWSSDK.Glacier.pdb",
-        "lib/netstandard2.0/AWSSDK.Glacier.xml",
-        "lib/portable-net45+win8+wpa81+wp8/AWSSDK.Glacier.XML",
-        "lib/portable-net45+win8+wpa81+wp8/AWSSDK.Glacier.dll",
-        "lib/portable-net45+win8+wpa81+wp8/AWSSDK.Glacier.pdb",
-        "lib/uap/AWSSDK.Glacier.XML",
-        "lib/uap/AWSSDK.Glacier.dll",
-        "lib/uap/AWSSDK.Glacier.pdb",
-        "tools/install.ps1",
-        "tools/uninstall.ps1"
-      ]
-    },
     "AWSSDK.S3/3.3.104.33": {
       "sha512": "RjbEJRwrsVaTuL7xVXC1lbFaT2ZF7n67XhGkhPDVHsU6f8xFDIwMlfecQAt+Bs/d0aCCiq3SxKfw1Yurjr0kMw==",
       "type": "package",
@@ -222,86 +144,6 @@
         "lib/uap/AWSSDK.S3.XML",
         "lib/uap/AWSSDK.S3.dll",
         "lib/uap/AWSSDK.S3.pdb",
-        "tools/install.ps1",
-        "tools/uninstall.ps1"
-      ]
-    },
-    "AWSSDK.SimpleNotificationService/3.3.101.70": {
-      "sha512": "gPcuCGzvAAgnOJfnrFc7LrF2ze98GLT2C9Lm3HlXwYeZCE6clBwhRwJfJuRq9V1cW6S3LnTSDMgPNdMVlZgTpA==",
-      "type": "package",
-      "path": "awssdk.simplenotificationservice/3.3.101.70",
-      "hasTools": true,
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "analyzers/dotnet/cs/AWSSDK.SimpleNotificationService.CodeAnalysis.dll",
-        "awssdk.simplenotificationservice.3.3.101.70.nupkg.sha512",
-        "awssdk.simplenotificationservice.nuspec",
-        "lib/MonoAndroid10/AWSSDK.SimpleNotificationService.XML",
-        "lib/MonoAndroid10/AWSSDK.SimpleNotificationService.dll",
-        "lib/MonoTouch10/AWSSDK.SimpleNotificationService.XML",
-        "lib/MonoTouch10/AWSSDK.SimpleNotificationService.dll",
-        "lib/MonoTouch10/AWSSDK.SimpleNotificationService.pdb",
-        "lib/Xamarin.iOS10/AWSSDK.SimpleNotificationService.XML",
-        "lib/Xamarin.iOS10/AWSSDK.SimpleNotificationService.dll",
-        "lib/net35/AWSSDK.SimpleNotificationService.dll",
-        "lib/net35/AWSSDK.SimpleNotificationService.pdb",
-        "lib/net35/AWSSDK.SimpleNotificationService.xml",
-        "lib/net45/AWSSDK.SimpleNotificationService.dll",
-        "lib/net45/AWSSDK.SimpleNotificationService.pdb",
-        "lib/net45/AWSSDK.SimpleNotificationService.xml",
-        "lib/netstandard1.3/AWSSDK.SimpleNotificationService.dll",
-        "lib/netstandard1.3/AWSSDK.SimpleNotificationService.pdb",
-        "lib/netstandard1.3/AWSSDK.SimpleNotificationService.xml",
-        "lib/netstandard2.0/AWSSDK.SimpleNotificationService.dll",
-        "lib/netstandard2.0/AWSSDK.SimpleNotificationService.pdb",
-        "lib/netstandard2.0/AWSSDK.SimpleNotificationService.xml",
-        "lib/portable-net45+win8+wpa81+wp8/AWSSDK.SimpleNotificationService.XML",
-        "lib/portable-net45+win8+wpa81+wp8/AWSSDK.SimpleNotificationService.dll",
-        "lib/portable-net45+win8+wpa81+wp8/AWSSDK.SimpleNotificationService.pdb",
-        "lib/uap/AWSSDK.SimpleNotificationService.XML",
-        "lib/uap/AWSSDK.SimpleNotificationService.dll",
-        "lib/uap/AWSSDK.SimpleNotificationService.pdb",
-        "tools/install.ps1",
-        "tools/uninstall.ps1"
-      ]
-    },
-    "AWSSDK.SQS/3.3.102.13": {
-      "sha512": "q/49U9dJUC/SGaWljcVo8ztqJC0NZDq5XGuF5fu5VT2HzTdyHFzR90St0+Rk/JK4R1OUJ60oPwRZaV1wjDgSUA==",
-      "type": "package",
-      "path": "awssdk.sqs/3.3.102.13",
-      "hasTools": true,
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "analyzers/dotnet/cs/AWSSDK.SQS.CodeAnalysis.dll",
-        "awssdk.sqs.3.3.102.13.nupkg.sha512",
-        "awssdk.sqs.nuspec",
-        "lib/MonoAndroid10/AWSSDK.SQS.XML",
-        "lib/MonoAndroid10/AWSSDK.SQS.dll",
-        "lib/MonoTouch10/AWSSDK.SQS.XML",
-        "lib/MonoTouch10/AWSSDK.SQS.dll",
-        "lib/MonoTouch10/AWSSDK.SQS.pdb",
-        "lib/Xamarin.iOS10/AWSSDK.SQS.XML",
-        "lib/Xamarin.iOS10/AWSSDK.SQS.dll",
-        "lib/net35/AWSSDK.SQS.dll",
-        "lib/net35/AWSSDK.SQS.pdb",
-        "lib/net35/AWSSDK.SQS.xml",
-        "lib/net45/AWSSDK.SQS.dll",
-        "lib/net45/AWSSDK.SQS.pdb",
-        "lib/net45/AWSSDK.SQS.xml",
-        "lib/netstandard1.3/AWSSDK.SQS.dll",
-        "lib/netstandard1.3/AWSSDK.SQS.pdb",
-        "lib/netstandard1.3/AWSSDK.SQS.xml",
-        "lib/netstandard2.0/AWSSDK.SQS.dll",
-        "lib/netstandard2.0/AWSSDK.SQS.pdb",
-        "lib/netstandard2.0/AWSSDK.SQS.xml",
-        "lib/portable-net45+win8+wpa81+wp8/AWSSDK.SQS.XML",
-        "lib/portable-net45+win8+wpa81+wp8/AWSSDK.SQS.dll",
-        "lib/portable-net45+win8+wpa81+wp8/AWSSDK.SQS.pdb",
-        "lib/uap/AWSSDK.SQS.XML",
-        "lib/uap/AWSSDK.SQS.dll",
-        "lib/uap/AWSSDK.SQS.pdb",
         "tools/install.ps1",
         "tools/uninstall.ps1"
       ]
@@ -477,7 +319,6 @@
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.0": [
       "AWSSDK.Core >= 3.3.103.45",
-      "AWSSDK.Glacier >= 3.3.100.81",
       "AWSSDK.S3 >= 3.3.104.33",
       "NETStandard.Library >= 2.0.3",
       "Oracle.ManagedDataAccess >= 19.3.1"
@@ -527,10 +368,6 @@
           "AWSSDK.Core": {
             "target": "Package",
             "version": "[3.3.103.45, )"
-          },
-          "AWSSDK.Glacier": {
-            "target": "Package",
-            "version": "[3.3.100.81, )"
           },
           "AWSSDK.S3": {
             "target": "Package",

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Text;
 using Oracle.ManagedDataAccess.Client;
 using System.Data;
-
 namespace Datos
 {
     public class Enlace
