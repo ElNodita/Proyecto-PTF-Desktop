@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\fespi\OneDrive\Documentos\Visual Studio 2019\Proyecto-PTF-Desktop\WpfApp-Arriendos\App.xaml
-586030449
+9-1532283633
 
-10467624836
+13-2020112097
 17444354064
-Dashboard.xaml;DirFuncionario\FinRegistro.xaml;DirFuncionario\InicioRegistro.xaml;DirFuncionario\Funcionario.xaml;MainWindow.xaml;
+Dashboard.xaml;DirFuncionario\FinRegistro.xaml;DirFuncionario\InicioRegistro.xaml;DirFuncionario\Funcionario.xaml;DirServicios\NuevoServicioExtra.xaml;DirServicios\NuevoTour.xaml;DirServicios\NuevoTransporte.xaml;DirServicios\Servicio.xaml;MainWindow.xaml;
 
-True
+False
 

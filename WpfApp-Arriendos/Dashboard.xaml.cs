@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WpfApp_Arriendos.DirServicios;
 
 namespace WpfApp_Arriendos
 {
@@ -28,6 +29,13 @@ namespace WpfApp_Arriendos
         {
             Funcionario fun = new Funcionario();
             fun.Show();
+            this.Close();
+        }
+
+        private void btnServicios_Click(object sender, RoutedEventArgs e)
+        {
+            Servicio serv = new Servicio();
+            serv.Show();
             this.Close();
         }
     }

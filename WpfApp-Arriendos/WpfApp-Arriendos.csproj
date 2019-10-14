@@ -75,6 +75,22 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="DirServicios\NuevoServicioExtra.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DirServicios\NuevoTour.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DirServicios\NuevoTransporte.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DirServicios\Servicio.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -94,6 +110,18 @@
     </Compile>
     <Compile Include="DirFuncionario\Funcionario.xaml.cs">
       <DependentUpon>Funcionario.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DirServicios\NuevoServicioExtra.xaml.cs">
+      <DependentUpon>NuevoServicioExtra.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DirServicios\NuevoTour.xaml.cs">
+      <DependentUpon>NuevoTour.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DirServicios\NuevoTransporte.xaml.cs">
+      <DependentUpon>NuevoTransporte.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DirServicios\Servicio.xaml.cs">
+      <DependentUpon>Servicio.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -136,5 +164,6 @@
   <ItemGroup>
     <Resource Include="Assets\img\logo.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

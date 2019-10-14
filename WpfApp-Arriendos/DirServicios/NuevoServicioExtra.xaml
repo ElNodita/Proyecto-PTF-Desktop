@@ -1,0 +1,23 @@
+﻿<Window x:Class="WpfApp_Arriendos.DirServicios.NuevoServicioExtra"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp_Arriendos.DirServicios"
+        mc:Ignorable="d"
+        Title="NuevoServicioExtra" Height="450" Width="315.463">
+    <Grid Margin="0,0,3.6,0" RenderTransformOrigin="0.638,0.493">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="0*"/>
+        </Grid.ColumnDefinitions>
+        <Label x:Name="lblDescripcionServicio" Content="Descripcion:" HorizontalAlignment="Left" Margin="25,90,0,0" VerticalAlignment="Top" Height="26" Width="79"/>
+        <Label x:Name="lblCosto" Content="Costo:" HorizontalAlignment="Left" Margin="25,257,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.48,0.16" Height="26" Width="56"/>
+        <Label x:Name="lblTitulo" Content="Ingrese todos los campos solicitados" HorizontalAlignment="Left" Margin="51,31,0,0" VerticalAlignment="Top" Height="26" Width="218"/>
+        <TextBox x:Name="txtDescripcionServicio" HorizontalAlignment="Left" Height="120" Margin="120,91,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="175"/>
+        <TextBox x:Name="txtCostoServicio" HorizontalAlignment="Left" Height="23" Margin="120,257,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="175"/>
+        <Button x:Name="btnRegistrarServicioExtra" Content="Registrar" HorizontalAlignment="Left" Margin="120,356,0,0" VerticalAlignment="Top" Width="75" Click="BtnRegistrarServicioExtra_Click" Height="19"/>
+        <Label x:Name="lblmensaje" Content="" HorizontalAlignment="Left" Margin="120,384,0,0" VerticalAlignment="Top" Height="26" Width="10"/>
+
+    </Grid>
+</Window>
