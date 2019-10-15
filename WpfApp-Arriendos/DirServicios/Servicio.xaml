@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp_Arriendos.DirServicios"
         mc:Ignorable="d"
-        Title="Servicio" Height="996.247" Width="1034.65">
-    <Grid Margin="0,0,-248.4,0">
+        Title="Servicio" Height="570.247" Width="1034.65">
+    <Grid Margin="0,0,2,0">
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="371" Stroke="Black" VerticalAlignment="Top" Width="116" Margin="1,109,0,0"/>
         <Button x:Name="btnInicio" Content="Inicio" HorizontalAlignment="Left" Margin="20,159,0,0" VerticalAlignment="Top" Width="86" Click="BtnInicio_Click"/>
         <Button x:Name="btnDepartamento" Content="Departamento" HorizontalAlignment="Left" Margin="20,219,0,0" VerticalAlignment="Top" Width="86"/>
@@ -29,19 +29,18 @@
         <DataGrid x:Name="dtgTransporte" AutoGenerateColumns="True" ItemsSource="{Binding}" HorizontalAlignment="Left" Height="89" Margin="122,427,0,0" VerticalAlignment="Top" Width="603" SelectionChanged="dtgTransporte_SelectionChanged" IsReadOnly="True"/>
 
         <!--Datos-->
-        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="345" Margin="754,147,0,0" Stroke="Black" VerticalAlignment="Top" Width="237"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="306" Margin="754,147,0,0" Stroke="Black" VerticalAlignment="Top" Width="237"/>
         <TextBox x:Name="txtIdServicio" HorizontalAlignment="Left" Height="23" Margin="822,216,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" IsEnabled="False"/>
         <TextBox x:Name="txt1" HorizontalAlignment="Left" Height="23" Margin="822,256,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="txt2" HorizontalAlignment="Left" Height="23" Margin="822,296,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="txt3" HorizontalAlignment="Left" Height="23" Margin="822,332,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
         <Label x:Name="lblDatos" Content="Datos" HorizontalAlignment="Left" Margin="861,168,0,0" VerticalAlignment="Top" Width="44"/>
-        <Button x:Name="btnActualizarServicio" Content="Actualizar" HorizontalAlignment="Left" Margin="786,377,0,0" VerticalAlignment="Top" Width="75" Click="btnActualizarServicio_Click" RenderTransformOrigin="0.533,-0.8"/>
-        <Button x:Name="btnEliminarServicio" Content="Eliminar" HorizontalAlignment="Left" Margin="900,377,0,0" VerticalAlignment="Top" Width="75" Click="btnEliminarServicio_Click"/>
+        <Button x:Name="btnActualizarServicio" Visibility="Hidden" Content="Actualizar" HorizontalAlignment="Left" Margin="786,382,0,0" VerticalAlignment="Top" Width="75" Click="btnActualizarServicio_Click" RenderTransformOrigin="0.533,-0.8"/>
+        <Button x:Name="btnEliminarServicio" Visibility="Hidden" Content="Eliminar" HorizontalAlignment="Left" Margin="900,382,0,0" VerticalAlignment="Top" Width="75" Click="btnEliminarServicio_Click"/>
         <Label x:Name="lblmensaje" Content="" HorizontalAlignment="Left" Margin="861,427,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="btnActualizarTour" Content="Actualizar" HorizontalAlignment="Left" Margin="786,412,0,0" VerticalAlignment="Top" Width="75" Click="btnActualizarTour_Click" RenderTransformOrigin="0.533,-0.8"/>
-        <Button x:Name="btnEliminarTour" Content="Eliminar" HorizontalAlignment="Left" Margin="900,412,0,0" VerticalAlignment="Top" Width="75" Click="btnEliminarTour_Click"/>
-        <Button x:Name="btnActualizarTransporte" Content="Actualizar" HorizontalAlignment="Left" Margin="786,453,0,0" VerticalAlignment="Top" Width="75" Click="btnActualizarTransporte_Click" RenderTransformOrigin="0.533,-0.8"/>
-        <Button x:Name="btnEliminarTransporte" Content="Eliminar" HorizontalAlignment="Left" Margin="900,453,0,0" VerticalAlignment="Top" Width="75" Click="btnEliminarTransporte_Click"/>
+        <Button x:Name="btnActualizarTour" Visibility="Hidden" Content="Actualizar" HorizontalAlignment="Left" Margin="786,382,0,0" VerticalAlignment="Top" Width="75" Click="btnActualizarTour_Click" RenderTransformOrigin="0.533,-0.8"/>
+        <Button x:Name="btnEliminarTour" Visibility="Hidden" Content="Eliminar" HorizontalAlignment="Left" Margin="900,382,0,0" VerticalAlignment="Top" Width="75" Click="btnEliminarTour_Click"/>
+        <Button x:Name="btnActualizarTransporte" Visibility="Hidden" Content="Actualizar" HorizontalAlignment="Left" Margin="786,382,0,0" VerticalAlignment="Top" Width="75" Click="btnActualizarTransporte_Click" RenderTransformOrigin="0.533,-0.8"/>
+        <Button x:Name="btnEliminarTransporte" Visibility="Hidden" Content="Eliminar" HorizontalAlignment="Left" Margin="900,382,0,0" VerticalAlignment="Top" Width="75" Click="btnEliminarTransporte_Click"/>
 
 
 

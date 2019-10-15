@@ -25,11 +25,11 @@ namespace Negocio.Clases
             return tour.Crear(tour);
         }
 
-        public bool ActualizaTourC(int id_tour, int id_servicio, string descripcion)
+        public bool ActualizaTourC(int id_tour, string descripcion)
         {
             Tour tour = new Tour();
             tour.IdTour = id_tour;
-            tour.IdServicio = id_servicio;
+            
             tour.Descripcion = descripcion;
 
 

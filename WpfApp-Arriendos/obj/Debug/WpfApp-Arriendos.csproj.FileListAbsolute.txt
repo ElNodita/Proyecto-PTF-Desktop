@@ -63,3 +63,11 @@ C:\Users\fespi\OneDrive\Documentos\Visual Studio 2019\Proyecto-PTF-Desktop\WpfAp
 C:\Users\fespi\OneDrive\Documentos\Visual Studio 2019\Proyecto-PTF-Desktop\WpfApp-Arriendos\obj\Debug\WpfApp_Arriendos.Properties.Resources.resources
 C:\Users\fespi\OneDrive\Documentos\Visual Studio 2019\Proyecto-PTF-Desktop\WpfApp-Arriendos\obj\Debug\WpfApp-Arriendos.csproj.GenerateResource.cache
 C:\Users\fespi\OneDrive\Documentos\Visual Studio 2019\Proyecto-PTF-Desktop\WpfApp-Arriendos\obj\Debug\WpfApp-Arriendos.csproj.CopyComplete
+C:\Users\joser\Desktop\Proyectos\Proyecto-PTF-Desktop\WpfApp-Arriendos\obj\Debug\DirServicios\NuevoServicioExtra.g.cs
+C:\Users\joser\Desktop\Proyectos\Proyecto-PTF-Desktop\WpfApp-Arriendos\obj\Debug\DirServicios\NuevoTour.g.cs
+C:\Users\joser\Desktop\Proyectos\Proyecto-PTF-Desktop\WpfApp-Arriendos\obj\Debug\DirServicios\NuevoTransporte.g.cs
+C:\Users\joser\Desktop\Proyectos\Proyecto-PTF-Desktop\WpfApp-Arriendos\obj\Debug\DirServicios\Servicio.g.cs
+C:\Users\joser\Desktop\Proyectos\Proyecto-PTF-Desktop\WpfApp-Arriendos\obj\Debug\DirServicios\NuevoServicioExtra.baml
+C:\Users\joser\Desktop\Proyectos\Proyecto-PTF-Desktop\WpfApp-Arriendos\obj\Debug\DirServicios\NuevoTour.baml
+C:\Users\joser\Desktop\Proyectos\Proyecto-PTF-Desktop\WpfApp-Arriendos\obj\Debug\DirServicios\NuevoTransporte.baml
+C:\Users\joser\Desktop\Proyectos\Proyecto-PTF-Desktop\WpfApp-Arriendos\obj\Debug\DirServicios\Servicio.baml

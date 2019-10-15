@@ -98,12 +98,12 @@ namespace Datos.Entidades
                 id.Size = 3;
                 _sql.Parameters.Add(id);
 
-                OracleParameter idServ = _sql.CreateParameter();
-                idServ.ParameterName = "idServicio";
-                idServ.Value = tour.IdServicio;
-                idServ.OracleDbType = OracleDbType.Int64;
-                idServ.Size = 3;
-                _sql.Parameters.Add(idServ);
+                //OracleParameter idServ = _sql.CreateParameter();
+                //idServ.ParameterName = "idServicio";
+                //idServ.Value = tour.IdServicio;
+                //idServ.OracleDbType = OracleDbType.Int64;
+                //idServ.Size = 3;
+                //_sql.Parameters.Add(idServ);
 
 
                 OracleParameter descripcion = _sql.CreateParameter();

@@ -75,7 +75,12 @@ namespace WpfApp_Arriendos.DirServicios
             {
                 txtIdServicio.Text = seleccionado.Row[0].ToString();
                 txt1.Text = seleccionado.Row[1].ToString();
+                txt2.IsEnabled = true;
                 txt2.Text = seleccionado.Row[2].ToString();
+
+
+                btnActualizarServicio.Visibility = Visibility.Visible;
+                btnEliminarServicio.Visibility = Visibility.Visible;
 
                 btnActualizarTour.Visibility = Visibility.Hidden;
                 btnActualizarTransporte.Visibility = Visibility.Hidden;
@@ -102,6 +107,9 @@ namespace WpfApp_Arriendos.DirServicios
                 txt1.Text = seleccionado.Row[1].ToString();
                 txt2.IsEnabled=false;
 
+                btnActualizarTour.Visibility = Visibility.Visible;
+                btnEliminarTour.Visibility = Visibility.Visible;
+
                 btnActualizarServicio.Visibility = Visibility.Hidden;
                 btnActualizarTransporte.Visibility = Visibility.Hidden;
                 btnEliminarServicio.Visibility = Visibility.Hidden;
@@ -124,7 +132,11 @@ namespace WpfApp_Arriendos.DirServicios
             {
                 txtIdServicio.Text = seleccionado.Row[0].ToString();
                 txt1.Text = seleccionado.Row[1].ToString();
+                txt2.IsEnabled = true;
                 txt2.Text = seleccionado.Row[2].ToString();
+
+                btnActualizarTransporte.Visibility = Visibility.Visible;
+                btnEliminarTransporte.Visibility=Visibility.Visible;
 
                 btnActualizarTour.Visibility = Visibility.Hidden;
                 btnActualizarServicio.Visibility = Visibility.Hidden;
@@ -185,7 +197,7 @@ namespace WpfApp_Arriendos.DirServicios
 
             TourCollection tc = new TourCollection();
 
-            tc.ActualizaTourC(int.Parse(txtIdServicio.Text), int.Parse(txt1.Text), txt2.Text);
+            tc.ActualizaTourC(int.Parse(txtIdServicio.Text), txt1.Text);
 
             lblmensaje.Content = "Actualización correcta!";
             datosTour();
@@ -223,7 +235,7 @@ namespace WpfApp_Arriendos.DirServicios
         {
             TransporteCollection trc = new TransporteCollection();
 
-            trc.ActualizaTransporteC(int.Parse(txtIdServicio.Text), txt1.Text, txt2.Text, int.Parse(txt3.Text));
+            trc.ActualizaTransporteC(int.Parse(txtIdServicio.Text), txt1.Text, txt2.Text);
 
             lblmensaje.Content = "Actualización correcta!";
             datosTransporte();

@@ -25,14 +25,12 @@ namespace Negocio.Clases
             return transporte.Crear(transporte);
         }
 
-        public bool ActualizaTransporteC(int id_transporte, string nombreConductor, string patente, int id_servicio)
+        public bool ActualizaTransporteC(int id_transporte, string nombreConductor, string patente)
         {
             Transporte transporte = new Transporte();
             transporte.IdTransporte = id_transporte;
             transporte.NombreConductor = nombreConductor;
             transporte.Patente = patente;
-            transporte.IdServicio = id_servicio;
-
 
             return transporte.Actualizar(transporte);
         }

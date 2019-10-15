@@ -118,12 +118,12 @@ namespace Datos.Entidades
                 patente.Size = 8;
                 _sql.Parameters.Add(patente);
 
-                OracleParameter idservicio = _sql.CreateParameter();
-                idservicio.ParameterName = "idServicio";
-                idservicio.Value = transporte.IdServicio;
-                idservicio.OracleDbType = OracleDbType.Int64;
-                idservicio.Size = 3;
-                _sql.Parameters.Add(idservicio);
+                //OracleParameter idservicio = _sql.CreateParameter();
+                //idservicio.ParameterName = "idServicio";
+                //idservicio.Value = transporte.IdServicio;
+                //idservicio.OracleDbType = OracleDbType.Int64;
+                //idservicio.Size = 3;
+                //_sql.Parameters.Add(idservicio);
 
                 Enlace.EjecutarSentencia(_sql);
                 resultado = true;
