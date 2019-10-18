@@ -101,5 +101,10 @@ namespace Negocio.Clases
 
             return inv.Eliminar(inv);
         }
+
+        public void CargaImagen(string archivo)
+        {
+            Datos.Enlace.CargaImagenFTP(archivo);
+        }
     }
 }

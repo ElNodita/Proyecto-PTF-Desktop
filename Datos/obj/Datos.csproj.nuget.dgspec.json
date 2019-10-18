@@ -41,10 +41,6 @@
       "frameworks": {
         "netstandard2.0": {
           "dependencies": {
-            "Google.Apis.Drive.v3": {
-              "target": "Package",
-              "version": "[1.41.1.1734, )"
-            },
             "NETStandard.Library": {
               "suppressParent": "All",
               "target": "Package",

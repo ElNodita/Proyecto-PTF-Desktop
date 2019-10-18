@@ -14,6 +14,9 @@
         <Button x:Name="btnFuncionario" Content="Funcionarios" HorizontalAlignment="Left" Margin="19,172,0,0" VerticalAlignment="Top" Width="86" Click="BtnFuncionario_Click"/>
         <Button x:Name="btnServicios" Content="Servicios" HorizontalAlignment="Left" Margin="19,305,0,0" VerticalAlignment="Top" Width="86"/>
         <Button x:Name="btnFinanzas" Content="Finanzas" HorizontalAlignment="Left" Margin="19,237,0,0" VerticalAlignment="Top" Width="86" RenderTransformOrigin="-0.093,0.35"/>
+        <Button x:Name="btnCarga" Content="Seleccionar Archivo" HorizontalAlignment="Left" Margin="386,172,0,0" VerticalAlignment="Top" Width="115" Click="BtnCarga_Click"/>
+        <TextBox x:Name="txtRuta" HorizontalAlignment="Left" Height="23" Margin="307,218,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="279"/>
+        <Button x:Name="btnSubir" Content="Subir" HorizontalAlignment="Left" Margin="408,276,0,0" VerticalAlignment="Top" Width="75" Click="BtnSubir_Click"/>
 
     </Grid>
 </Window>

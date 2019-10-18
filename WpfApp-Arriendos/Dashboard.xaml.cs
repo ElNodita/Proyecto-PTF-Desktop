@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using WpfApp_Arriendos.DirDepartamentos;
+using Negocio.Clases;
+using System.IO;
 
 namespace WpfApp_Arriendos
 {
@@ -37,6 +39,38 @@ namespace WpfApp_Arriendos
             GestorDepartamentos depa = new GestorDepartamentos();
             depa.Show();
             this.Close();
+        }
+
+        private void BtnCarga_Click(object sender, RoutedEventArgs e)
+        {
+            Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
+
+            dlg.DefaultExt = ".png";
+            dlg.Filter = "JPEG Files (*.jpeg)|*.jpeg|PNG Files (*.png)|*.png|JPG Files (*.jpg)|*.jpg";
+
+
+            Nullable<bool> result = dlg.ShowDialog();
+            if (result == true)
+            {
+                string filename = dlg.FileName;
+                txtRuta.Text = filename;
+            }
+        }
+
+        private void BtnSubir_Click(object sender, RoutedEventArgs e)
+        {
+            DepartamentoCollection depa = new DepartamentoCollection();
+
+            string ruta = System.IO.Path.GetDirectoryName(txtRuta.Text);
+
+            string archivo = System.IO.Path.GetFileName(txtRuta.Text);
+
+            string nuevaRuta = ruta + @"\"+"hola-" + archivo;
+
+            System.IO.File.Move(ruta+@"\"+archivo, nuevaRuta);
+
+            depa.CargaImagen(nuevaRuta);
+
         }
     }
 }
