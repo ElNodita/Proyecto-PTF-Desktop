@@ -35,3 +35,11 @@ C:\Users\joser\Desktop\Proyectos\Proyecto-PTF-Desktop\WpfApp-Arriendos\obj\Debug
 C:\Users\joser\Desktop\Proyectos\Proyecto-PTF-Desktop\WpfApp-Arriendos\obj\Debug\DirDepartamentos\RegistraInventario.baml
 C:\Users\joser\Desktop\Proyectos\Proyecto-PTF-Desktop\WpfApp-Arriendos\obj\Debug\DirDepartamentos\RegistroGaleria.g.cs
 C:\Users\joser\Desktop\Proyectos\Proyecto-PTF-Desktop\WpfApp-Arriendos\obj\Debug\DirDepartamentos\RegistroGaleria.baml
+C:\Users\joser\Desktop\Proyectos\Proyecto-PTF-Desktop\WpfApp-Arriendos\obj\Debug\DirServicios\NuevoServicioExtra.g.cs
+C:\Users\joser\Desktop\Proyectos\Proyecto-PTF-Desktop\WpfApp-Arriendos\obj\Debug\DirServicios\NuevoTour.g.cs
+C:\Users\joser\Desktop\Proyectos\Proyecto-PTF-Desktop\WpfApp-Arriendos\obj\Debug\DirServicios\NuevoTransporte.g.cs
+C:\Users\joser\Desktop\Proyectos\Proyecto-PTF-Desktop\WpfApp-Arriendos\obj\Debug\DirServicios\Servicio.g.cs
+C:\Users\joser\Desktop\Proyectos\Proyecto-PTF-Desktop\WpfApp-Arriendos\obj\Debug\DirServicios\NuevoServicioExtra.baml
+C:\Users\joser\Desktop\Proyectos\Proyecto-PTF-Desktop\WpfApp-Arriendos\obj\Debug\DirServicios\NuevoTour.baml
+C:\Users\joser\Desktop\Proyectos\Proyecto-PTF-Desktop\WpfApp-Arriendos\obj\Debug\DirServicios\NuevoTransporte.baml
+C:\Users\joser\Desktop\Proyectos\Proyecto-PTF-Desktop\WpfApp-Arriendos\obj\Debug\DirServicios\Servicio.baml

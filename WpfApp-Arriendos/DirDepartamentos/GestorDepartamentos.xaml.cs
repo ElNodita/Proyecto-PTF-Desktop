@@ -58,7 +58,9 @@ namespace WpfApp_Arriendos.DirDepartamentos
 
         private void BtnServicios_Click(object sender, RoutedEventArgs e)
         {
-
+            DirServicios.Servicio servicio = new DirServicios.Servicio();
+            servicio.Show();
+            this.Close();
         }
 
         private void BtnRegistrar_Click(object sender, RoutedEventArgs e)

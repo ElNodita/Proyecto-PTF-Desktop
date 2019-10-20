@@ -9,7 +9,7 @@
     <Grid Margin="0,0,2,0">
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="371" Stroke="Black" VerticalAlignment="Top" Width="116" Margin="1,109,0,0"/>
         <Button x:Name="btnInicio" Content="Inicio" HorizontalAlignment="Left" Margin="20,159,0,0" VerticalAlignment="Top" Width="86" Click="BtnInicio_Click"/>
-        <Button x:Name="btnDepartamento" Content="Departamento" HorizontalAlignment="Left" Margin="20,219,0,0" VerticalAlignment="Top" Width="86"/>
+        <Button x:Name="btnDepartamento" Content="Departamento" HorizontalAlignment="Left" Margin="20,219,0,0" VerticalAlignment="Top" Width="86" Click="BtnDepartamento_Click"/>
         <Button x:Name="btnFuncionario" Content="Funcionarios" HorizontalAlignment="Left" Margin="20,281,0,0" VerticalAlignment="Top" Width="86" Click="BtnFuncionario_Click"/>
         <Button x:Name="btnServicios" Content="Servicios" HorizontalAlignment="Left" Margin="20,414,0,0" VerticalAlignment="Top" Width="86" Click="btnServicios_Click"/>
         <Button x:Name="btnFinanzas" Content="Finanzas" HorizontalAlignment="Left" Margin="20,346,0,0" VerticalAlignment="Top" Width="86" RenderTransformOrigin="-0.093,0.35"/>

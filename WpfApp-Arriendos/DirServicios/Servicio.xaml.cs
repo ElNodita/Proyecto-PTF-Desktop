@@ -240,5 +240,12 @@ namespace WpfApp_Arriendos.DirServicios
             lblmensaje.Content = "Actualización correcta!";
             datosTransporte();
         }
+
+        private void BtnDepartamento_Click(object sender, RoutedEventArgs e)
+        {
+            DirDepartamentos.GestorDepartamentos depa = new DirDepartamentos.GestorDepartamentos();
+            depa.Show();
+            this.Close();
+        }
     }
 }

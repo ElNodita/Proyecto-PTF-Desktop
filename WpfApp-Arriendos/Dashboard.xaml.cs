@@ -36,7 +36,7 @@ namespace WpfApp_Arriendos
 
         private void btnServicios_Click(object sender, RoutedEventArgs e)
         {
-            Servicio serv = new Servicio();
+            DirServicios.Servicio serv = new DirServicios.Servicio();
             serv.Show();
             this.Close();
         }
