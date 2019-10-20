@@ -33,3 +33,5 @@ C:\Users\joser\Desktop\Proyectos\Proyecto-PTF-Desktop\WpfApp-Arriendos\obj\Debug
 C:\Users\joser\Desktop\Proyectos\Proyecto-PTF-Desktop\WpfApp-Arriendos\obj\Debug\DirDepartamentos\RegistroDepartamento.baml
 C:\Users\joser\Desktop\Proyectos\Proyecto-PTF-Desktop\WpfApp-Arriendos\obj\Debug\DirDepartamentos\RegistraInventario.g.cs
 C:\Users\joser\Desktop\Proyectos\Proyecto-PTF-Desktop\WpfApp-Arriendos\obj\Debug\DirDepartamentos\RegistraInventario.baml
+C:\Users\joser\Desktop\Proyectos\Proyecto-PTF-Desktop\WpfApp-Arriendos\obj\Debug\DirDepartamentos\RegistroGaleria.g.cs
+C:\Users\joser\Desktop\Proyectos\Proyecto-PTF-Desktop\WpfApp-Arriendos\obj\Debug\DirDepartamentos\RegistroGaleria.baml

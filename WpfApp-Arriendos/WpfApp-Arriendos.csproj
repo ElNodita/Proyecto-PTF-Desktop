@@ -75,6 +75,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="DirDepartamentos\RegistroGaleria.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="DirFuncionario\FinRegistro.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -106,6 +110,9 @@
     </Compile>
     <Compile Include="DirDepartamentos\RegistroDepartamento.xaml.cs">
       <DependentUpon>RegistroDepartamento.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DirDepartamentos\RegistroGaleria.xaml.cs">
+      <DependentUpon>RegistroGaleria.xaml</DependentUpon>
     </Compile>
     <Compile Include="DirFuncionario\FinRegistro.xaml.cs">
       <DependentUpon>FinRegistro.xaml</DependentUpon>

@@ -76,6 +76,13 @@ namespace WpfApp_Arriendos.DirDepartamentos
             
         }
 
+        private void DatosGaleria(int id_departamento)
+        {
+            DepartamentoCollection depa = new DepartamentoCollection();
+            dtgGaleria.ItemsSource = depa.ListaGaleria(id_departamento).DefaultView;
+
+            dtgGaleria.Items.Refresh();
+        }
         private void DtgDepartamento_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             DataGrid gd = (DataGrid)sender;
@@ -124,6 +131,10 @@ namespace WpfApp_Arriendos.DirDepartamentos
                     lblMensajeInventario.Content = "No posee inventario, registre uno";
                     btnRegistraInv.Visibility = Visibility.Visible;
                 }
+
+                btnGaleria.Visibility = Visibility.Visible;
+                dtgGaleria.Visibility = Visibility.Visible;
+                DatosGaleria(int.Parse(txtId.Text));
 
             }
 
@@ -291,6 +302,13 @@ namespace WpfApp_Arriendos.DirDepartamentos
 
             lblMensajeInventario.Content = "Actualización correcta!";
 
+        }
+
+        private void BtnGaleria_Click(object sender, RoutedEventArgs e)
+        {
+            RegistroGaleria galeria = new RegistroGaleria();
+            Application.Current.Resources["idDepartamento"] = txtId.Text;
+            galeria.Show();
         }
     }
 }

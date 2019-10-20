@@ -30,13 +30,20 @@ namespace Datos.Entidades
             Nombre = string.Empty;
         }
 
-        public DataTable ListaGaleria()
+        public DataTable ListaGaleria(int departamento)
         {
             try
             {
                 OracleCommand _sql = Enlace.ComandoSP();
                 _sql.CommandText = "pkg_departamento.sp_listaGaleria";
                 _sql.Parameters.Add("o_data", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
+
+                OracleParameter idDepartamento = _sql.CreateParameter();
+                idDepartamento.ParameterName = "departamento";
+                idDepartamento.Value = departamento;
+                idDepartamento.OracleDbType = OracleDbType.Int64;
+                idDepartamento.Size = 6;
+                _sql.Parameters.Add(idDepartamento);
 
                 return Enlace.RegresaDatos(_sql);
             }

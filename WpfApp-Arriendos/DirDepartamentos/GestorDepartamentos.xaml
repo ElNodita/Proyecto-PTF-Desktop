@@ -5,21 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp_Arriendos.DirDepartamentos"
         mc:Ignorable="d"
-        Title="Gestor de Departamentos" Height="450" Width="1126">
+        Title="Gestor de Departamentos" Height="500" Width="1126">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="855*"/>
             <ColumnDefinition Width="263*"/>
         </Grid.ColumnDefinitions>
-        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="419" Stroke="Black" VerticalAlignment="Top" Width="116"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="469" Stroke="Black" VerticalAlignment="Top" Width="116"/>
         <Button x:Name="btnInicio" Content="Inicio" HorizontalAlignment="Left" Margin="19,50,0,0" VerticalAlignment="Top" Width="86" Click="BtnInicio_Click"/>
         <Button x:Name="btnDepartamento" Content="Departamento" HorizontalAlignment="Left" Margin="19,110,0,0" VerticalAlignment="Top" Width="86" Click="BtnDepartamento_Click"/>
         <Button x:Name="btnFuncionario" Content="Funcionarios" HorizontalAlignment="Left" Margin="19,172,0,0" VerticalAlignment="Top" Width="86" Click="BtnFuncionario_Click"/>
         <Button x:Name="btnServicios" Content="Servicios" HorizontalAlignment="Left" Margin="19,305,0,0" VerticalAlignment="Top" Width="86" Click="BtnServicios_Click"/>
         <Button x:Name="btnFinanzas" Content="Finanzas" HorizontalAlignment="Left" Margin="19,237,0,0" VerticalAlignment="Top" Width="86" RenderTransformOrigin="-0.093,0.35" Click="BtnFinanzas_Click"/>
         <Label x:Name="lblInicio" Content="Gestor de Departamentos" HorizontalAlignment="Left" Margin="532,10,0,0" VerticalAlignment="Top"/>
-        <DataGrid x:Name="dtgDepartamento" AutoGenerateColumns="True" ItemsSource="{Binding}" HorizontalAlignment="Left" Height="165" VerticalAlignment="Top" Width="460" Margin="138,160,0,0" SelectionChanged="DtgDepartamento_SelectionChanged"/>
-        <Button x:Name="btnRegistrar" Content="Registrar Departamento" HorizontalAlignment="Left" Margin="286,110,0,0" VerticalAlignment="Top" Width="132" Click="BtnRegistrar_Click"/>
+        <DataGrid x:Name="dtgDepartamento" AutoGenerateColumns="True" ItemsSource="{Binding}" HorizontalAlignment="Left" Height="165" VerticalAlignment="Top" Width="460" Margin="138,92,0,0" SelectionChanged="DtgDepartamento_SelectionChanged"/>
+        <Button x:Name="btnRegistrar" Content="Registrar Departamento" HorizontalAlignment="Left" Margin="286,62,0,0" VerticalAlignment="Top" Width="132" Click="BtnRegistrar_Click"/>
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="340" Margin="629,69,0,0" Stroke="Black" VerticalAlignment="Top" Width="213"/>
         <Label x:Name="lblTitulo" Content="Datos" HorizontalAlignment="Left" Margin="722,77,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.512,-0.788"/>
         <Label x:Name="lblCódigo" Content="Código" HorizontalAlignment="Left" Margin="641,125,0,0" VerticalAlignment="Top"/>
@@ -59,8 +59,9 @@
         <Label x:Name="lblAsiento" Content="Asientos" Grid.Column="1" HorizontalAlignment="Left" Margin="21,287,0,0" VerticalAlignment="Top"/>
         <Label x:Name="lblMueble" Content="Muebles" Grid.Column="1" HorizontalAlignment="Left" Margin="21,315,0,0" VerticalAlignment="Top"/>
         <Button x:Name="btnRegistraInv" Click="BtnRegistraInv_Click" Visibility="Hidden" Content="Registrar" Grid.Column="1" HorizontalAlignment="Left" Margin="88,373,0,0" VerticalAlignment="Top" Width="75"/>
-
-
+        
+        <Button x:Name="btnGaleria" Content="Ingresar imagen" HorizontalAlignment="Left" Margin="315,272,0,0" VerticalAlignment="Top" Width="103" Visibility="Hidden" Click="BtnGaleria_Click"/>
+        <DataGrid x:Name="dtgGaleria" IsReadOnly="True" HorizontalAlignment="Left" Height="100" Margin="138,309,0,0" VerticalAlignment="Top" Width="460" Visibility="Hidden"/>
 
     </Grid>
 </Window>

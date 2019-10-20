@@ -102,6 +102,21 @@ namespace Negocio.Clases
             return inv.Eliminar(inv);
         }
 
+        public DataTable ListaGaleria(int departamento)
+        {
+            Galeria gal = new Galeria();
+            return gal.ListaGaleria(departamento);
+        }
+
+        public bool InsertaImagen(int departamento, string archivo, string ruta)
+        {
+            Galeria galeria = new Galeria();
+            galeria.IdDepartamento = departamento;
+            galeria.Nombre = archivo;
+            galeria.Ubicacion = ruta;
+            return galeria.Crear(galeria);
+        }
+
         public void CargaImagen(string archivo)
         {
             Datos.Enlace.CargaImagenFTP(archivo);
