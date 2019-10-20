@@ -36,8 +36,6 @@ namespace WpfApp_Arriendos.DirFuncionario
 
             int id_usuario = int.Parse(dato_persona.Rows[0]["ID_USUARIO"].ToString());
 
-            
-
             string rut = txtRut.Text;
             string nombre = txtNombre.Text;
             string apePa = txtApellidoPa.Text;

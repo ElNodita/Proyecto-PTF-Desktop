@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using System.Text;
 using Oracle.ManagedDataAccess.Client;
 using System.Data;
+using System.Net;
+using System.IO;
+
 namespace Datos
 {
     public class Enlace
     {
-        //static private string cadena = "User Id=admin;Password=Termicl1;Data Source=ptforacle18.cgduitd6w4ko.us-east-1.rds.amazonaws.com:1521/ORCL;";
+        //static private string cadena = "User Id=admin;Password=Termicl1;Data Source=ptfawsoracle18.cdweal68pwf8.us-east-1.rds.amazonaws.com:1521/ORCL;";
         static private string cadena = "User Id=ptf2019;Password=bf2142;Data Source=192.168.1.191:1521/XE;";
 
         public static OracleCommand ComandoSP()
@@ -57,5 +60,33 @@ namespace Datos
                 comando.Connection.Close();
             }
         }
+
+
+        public static void CargaImagenFTP(string filePath)
+        {
+            var fileName = Path.GetFileName(filePath);
+            var request = (FtpWebRequest)WebRequest.Create("ftp://ftp.webcindario.com/imgDepartamentos/" + fileName);
+
+            request.Method = WebRequestMethods.Ftp.UploadFile;
+            request.Credentials = new NetworkCredential("ptfarriendos2019", "Termicl1");
+            request.UsePassive = true;
+            request.UseBinary = true;
+            request.KeepAlive = false;
+
+            using (var fileStream = File.OpenRead(filePath))
+            {
+                using (var requestStream = request.GetRequestStream())
+                {
+                    fileStream.CopyTo(requestStream);
+                    requestStream.Close();
+                }
+            }
+
+            var response = (FtpWebResponse)request.GetResponse();
+            
+            response.Close();
+        }
     }
+
 }
+

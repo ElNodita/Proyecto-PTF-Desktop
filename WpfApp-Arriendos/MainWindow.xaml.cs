@@ -37,7 +37,7 @@ namespace WpfApp_Arriendos
             string pass = txtPass.Password;
 
             var valida = usuario.IniciarSesion(correo,pass);
-
+            
             if (valida.Rows.Count>0)
             {
                Dashboard dash = new Dashboard();

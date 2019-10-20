@@ -11,7 +11,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using WpfApp_Arriendos.DirServicios;
+using WpfApp_Arriendos.DirDepartamentos;
+using Negocio.Clases;
+using System.IO;
 
 namespace WpfApp_Arriendos
 {
@@ -37,6 +39,17 @@ namespace WpfApp_Arriendos
             Servicio serv = new Servicio();
             serv.Show();
             this.Close();
+        }
+        private void BtnDepartamento_Click(object sender, RoutedEventArgs e)
+        {
+            GestorDepartamentos depa = new GestorDepartamentos();
+            depa.Show();
+            this.Close();
+        }
+
+        private void BtnInicio_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

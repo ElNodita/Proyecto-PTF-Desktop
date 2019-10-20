@@ -24,7 +24,8 @@ namespace WpfApp_Arriendos
         public Funcionario()
         {
             InitializeComponent();
-            datos();
+            dtgFuncionarios.IsReadOnly = true;
+            Datos();
         }
 
         private void BtnInicio_Click(object sender, RoutedEventArgs e)
@@ -38,7 +39,7 @@ namespace WpfApp_Arriendos
         {
             this.InvalidateVisual();
             this.UpdateLayout();
-            datos();
+            Datos();
         }
 
         private void BtnRegistrar_Click(object sender, RoutedEventArgs e)
@@ -47,15 +48,6 @@ namespace WpfApp_Arriendos
             ir.Show();
         }
 
-        private void datos()
-        {
-            UsuarioCollection uc = new UsuarioCollection();
-
-            dtgFuncionarios.ItemsSource = uc.ListaFuncionarios().DefaultView;
-
-            dtgFuncionarios.Items.Refresh();
-
-        }
 
         private void DtgFuncionarios_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -80,7 +72,8 @@ namespace WpfApp_Arriendos
             us.ActualizaDatos(int.Parse(txtId.Text),txtContacto.Text,txtDireccion.Text);
 
             lblmensaje.Content = "Actualización correcta!";
-            datos();
+            Limpiar();
+            Datos();
         }
 
         private void BtnEliminar_Click(object sender, RoutedEventArgs e)
@@ -90,13 +83,35 @@ namespace WpfApp_Arriendos
             us.EliminaDatos(int.Parse(txtId.Text));
             us.EliminaUsuario(int.Parse(txtId.Text));
 
+            lblmensaje.Content = "Eliminado!";
+            Limpiar();
+            Datos();
+        }
+
+        private void Datos()
+        {
+            UsuarioCollection uc = new UsuarioCollection();
+
+            dtgFuncionarios.ItemsSource = uc.ListaFuncionarios().DefaultView;
+
+            dtgFuncionarios.Items.Refresh();
+
+        }
+
+        private void Limpiar()
+        {
             txtId.Text = string.Empty;
             txtDireccion.Text = string.Empty;
             txtContacto.Text = string.Empty;
             txtCorreo.Text = string.Empty;
             txtPass.Text = string.Empty;
-            lblmensaje.Content = "Eliminado!";
-            datos();
+        }
+
+        private void BtnDepartamento_Click(object sender, RoutedEventArgs e)
+        {
+            DirDepartamentos.GestorDepartamentos dedpa = new DirDepartamentos.GestorDepartamentos();
+            dedpa.Show();
+            this.Close();
         }
     }
 }

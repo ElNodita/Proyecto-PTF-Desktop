@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\joser\Desktop\Proyectos\Proyecto-PTF-Desktop\WpfApp-Arriendos\App.xaml
-9-1532283633
+9-82389623
 
-13-2020112097
+13-1667478078
 171650078055
-Dashboard.xaml;DirFuncionario\FinRegistro.xaml;DirFuncionario\InicioRegistro.xaml;DirFuncionario\Funcionario.xaml;DirServicios\NuevoServicioExtra.xaml;DirServicios\NuevoTour.xaml;DirServicios\NuevoTransporte.xaml;DirServicios\Servicio.xaml;MainWindow.xaml;
+Dashboard.xaml;DirDepartamentos\GestorDepartamentos.xaml;DirDepartamentos\RegistraInventario.xaml;DirDepartamentos\RegistroDepartamento.xaml;DirDepartamentos\RegistroGaleria.xaml;DirFuncionario\FinRegistro.xaml;DirFuncionario\InicioRegistro.xaml;DirFuncionario\Funcionario.xaml;MainWindow.xaml;
 
 False
 
