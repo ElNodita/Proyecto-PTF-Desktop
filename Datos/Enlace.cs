@@ -60,8 +60,6 @@ namespace Datos
                 comando.Connection.Close();
             }
         }
-
-
         public static void CargaImagenFTP(string filePath)
         {
             var fileName = Path.GetFileName(filePath);

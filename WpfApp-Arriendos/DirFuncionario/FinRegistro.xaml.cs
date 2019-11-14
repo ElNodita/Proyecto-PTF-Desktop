@@ -37,19 +37,19 @@ namespace WpfApp_Arriendos.DirFuncionario
             } else if (ValidaRut(txtRut.Text) == false)
             {
                 MessageBox.Show("Formato de Rut inválido.");
-            } else if (string.IsNullOrEmpty(txtNombre.Text))
+            } else if (!(Regex.IsMatch(txtNombre.Text, "^[a-zA-Z]")) || string.IsNullOrEmpty(txtNombre.Text))
             {
                 MessageBox.Show("Campo nombre no debe estar vacío.");
-            } else if (string.IsNullOrEmpty(txtApellidoPa.Text))
+            } else if (!(Regex.IsMatch(txtApellidoPa.Text, "^[a-zA-Z]")) || string.IsNullOrEmpty(txtApellidoPa.Text))
             {
                 MessageBox.Show("Campo apellido paterno no debe estar vacío.");
-            } else if (string.IsNullOrEmpty(txtApellidoMa.Text))
+            } else if (!(Regex.IsMatch(txtApellidoMa.Text, "^[a-zA-Z]")) || string.IsNullOrEmpty(txtApellidoMa.Text))
             {
                 MessageBox.Show("Campo apellido materno no debe estar vacío.");
             } else if (string.IsNullOrEmpty(txtFono.Text))
             {
                 MessageBox.Show("Campo Fono no debe estar vacío.");
-            } else if (cldFechaNac.SelectedDate.Value == DateTime.MinValue.Date)
+            } else if (cldFechaNac.SelectedDate == null)
             {
                 MessageBox.Show("Debe selecionar una fecha.");
             } else if (MayoriaEdad(cldFechaNac.SelectedDate.Value) == false)
