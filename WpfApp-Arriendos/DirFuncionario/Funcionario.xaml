@@ -11,20 +11,25 @@
         <Button x:Name="btnInicio" Content="Inicio" HorizontalAlignment="Left" Margin="19,50,0,0" VerticalAlignment="Top" Width="86" Click="BtnInicio_Click"/>
         <Button x:Name="btnDepartamento" Content="Departamento" HorizontalAlignment="Left" Margin="19,110,0,0" VerticalAlignment="Top" Width="86" Click="BtnDepartamento_Click"/>
         <Button x:Name="btnFuncionario" Content="Funcionarios" HorizontalAlignment="Left" Margin="19,172,0,0" VerticalAlignment="Top" Width="86" Click="BtnFuncionario_Click"/>
-        <Button x:Name="btnServicios" Content="Servicios" HorizontalAlignment="Left" Margin="19,305,0,0" VerticalAlignment="Top" Width="86"/>
+        <Button x:Name="btnServicios" Content="Servicios" HorizontalAlignment="Left" Margin="19,305,0,0" VerticalAlignment="Top" Width="86" Click="btnServicios_Click"/>
         <Button x:Name="btnFinanzas" Content="Finanzas" HorizontalAlignment="Left" Margin="19,237,0,0" VerticalAlignment="Top" Width="86" RenderTransformOrigin="-0.093,0.35"/>
         <Label x:Name="lblTitulo" Content="Gestor de Funcionarios" HorizontalAlignment="Left" Margin="368,44,0,0" VerticalAlignment="Top" Width="136"/>
-        <DataGrid x:Name="dtgFuncionarios" AutoGenerateColumns="True" ItemsSource="{Binding}" HorizontalAlignment="Left" Height="192" Margin="122,133,0,0" VerticalAlignment="Top" Width="603" SelectionChanged="DtgFuncionarios_SelectionChanged"/>
+        <DataGrid x:Name="dtgFuncionarios" AutoGenerateColumns="True" HorizontalAlignment="Left" Height="192" Margin="122,133,0,0" VerticalAlignment="Top" Width="603" SelectionChanged="DtgFuncionarios_SelectionChanged"/>
         <Button x:Name="btnRegistrar" Content="Nuevo Funcionario" HorizontalAlignment="Left" Margin="368,95,0,0" VerticalAlignment="Top" Width="124" RenderTransformOrigin="0.059,-0.288" Click="BtnRegistrar_Click"/>
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="314" Margin="752,60,0,0" Stroke="Black" VerticalAlignment="Top" Width="237"/>
-        <TextBox x:Name="txtId" HorizontalAlignment="Left" Height="23" Margin="820,143,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" IsEnabled="False"/>
-        <TextBox x:Name="txtDireccion" HorizontalAlignment="Left" Height="23" Margin="820,171,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="txtContacto" HorizontalAlignment="Left" Height="23" Margin="820,199,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="txtCorreo" HorizontalAlignment="Left" Height="23" Margin="820,227,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="txtPass" HorizontalAlignment="Left" Height="23" Margin="820,255,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtId" HorizontalAlignment="Left" Height="23" Margin="852,147,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" IsEnabled="False"/>
+        <TextBox x:Name="txtDireccion" HorizontalAlignment="Left" Height="23" Margin="852,175,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtContacto" HorizontalAlignment="Left" Height="23" Margin="852,203,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtCorreo" HorizontalAlignment="Left" Height="23" Margin="852,231,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
         <Label x:Name="lblDatos" Content="Datos Personal" HorizontalAlignment="Left" Margin="837,87,0,0" VerticalAlignment="Top"/>
         <Button x:Name="btnActualizar" Content="Actualizar" HorizontalAlignment="Left" Margin="784,305,0,0" VerticalAlignment="Top" Width="75" Click="BtnActualizar_Click"/>
         <Button x:Name="btnEliminar" Content="Eliminar" HorizontalAlignment="Left" Margin="897,305,0,0" VerticalAlignment="Top" Width="75" Click="BtnEliminar_Click"/>
         <Label x:Name="lblmensaje" Content="" HorizontalAlignment="Left" Margin="859,340,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblCodigo" Content="Código" HorizontalAlignment="Left" Margin="784,147,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblDireccion" Content="Dirección" HorizontalAlignment="Left" Margin="784,174,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblContacto" Content="Contacto" HorizontalAlignment="Left" Margin="784,203,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblCorreo" Content="Correo" HorizontalAlignment="Left" Margin="784,231,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblClave" Content="Clave" HorizontalAlignment="Left" Margin="784,257,0,0" VerticalAlignment="Top"/>
+        <PasswordBox x:Name="txtPass" HorizontalAlignment="Left" Margin="852,265,0,0" VerticalAlignment="Top" Width="120"/>
     </Grid>
 </Window>

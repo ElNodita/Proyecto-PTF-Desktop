@@ -21,6 +21,7 @@ namespace WpfApp_Arriendos.DirServicios
     /// </summary>
     public partial class NuevoTransporte : Window
     {
+        TransporteCollection trc;
         public NuevoTransporte()
         {
             InitializeComponent();
@@ -29,24 +30,37 @@ namespace WpfApp_Arriendos.DirServicios
 
         private void btnRegistrarTransporte_Click(object sender, RoutedEventArgs e)
         {
-            TransporteCollection trc = new TransporteCollection();
-
-            int id_servicio = int.Parse(cbxIdServicioTransporte.SelectedValue.ToString());
-            string nombreConductor = txtNombreConductor.Text;
-            string patente = txtPatente.Text;
-
-            var insercion = trc.InsertaTransporteC(nombreConductor, patente, id_servicio);
-
-            if (insercion == true)
+            if (cbxIdServicioTransporte.SelectedIndex==-1)
             {
-                this.Close();
+                MessageBox.Show("Debe seleccionar un servicio.");
+            } else if (string.IsNullOrEmpty(txtNombreConductor.Text))
+            {
+                MessageBox.Show("El campo nombre no dee estar vacío.");
+            } else if (string.IsNullOrEmpty(txtPatente.Text))
+            {
+                MessageBox.Show("El campo patente no debe estar vacío.");
             }
             else
             {
-                lblmensaje.Content = "Error de inserción.";
+                trc = new TransporteCollection();
+
+                int id_servicio = int.Parse(cbxIdServicioTransporte.SelectedValue.ToString());
+                string nombreConductor = txtNombreConductor.Text;
+                string patente = txtPatente.Text;
+
+                var insercion = trc.InsertaTransporteC(nombreConductor, patente, id_servicio);
+
+                if (insercion == true)
+                {
+                    this.Close();
+                }
+                else
+                {
+                    lblmensaje.Content = "Error de inserción.";
+                }
             }
         }
-
+        #region Métodos Custom
         private void CargaIdServicio()
         {
             ServicioExtraCollection sc = new ServicioExtraCollection();
@@ -59,5 +73,6 @@ namespace WpfApp_Arriendos.DirServicios
 
             cbxIdServicioTransporte.Items.Refresh();
         }
+        #endregion Métodos Custom
     }
 }

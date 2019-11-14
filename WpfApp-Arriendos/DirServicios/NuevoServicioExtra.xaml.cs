@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -20,6 +21,7 @@ namespace WpfApp_Arriendos.DirServicios
     /// </summary>
     public partial class NuevoServicioExtra : Window
     {
+        ServicioExtraCollection sc;
         public NuevoServicioExtra()
         {
             InitializeComponent();
@@ -27,22 +29,34 @@ namespace WpfApp_Arriendos.DirServicios
 
         private void BtnRegistrarServicioExtra_Click(object sender, RoutedEventArgs e)
         {
-            ServicioExtraCollection sc = new ServicioExtraCollection();
-
-            string descripcion = txtDescripcionServicio.Text;
-            int costo = int.Parse(txtCostoServicio.Text);
-
-            var insercion = sc.InsertaServicioExtraC(descripcion, costo);
-
-            if (insercion==true)
+            if (string.IsNullOrEmpty(txtDescripcionServicio.Text))
             {
-                this.Close();
+                MessageBox.Show("Campo descripción no debe estar vacío.");
+            } else if (Regex.IsMatch(txtCostoServicio.Text, "^[a-zA-Z]"))
+            {
+                MessageBox.Show("El costo debe ser numérico.");
+            } else if (string.IsNullOrEmpty(txtCostoServicio.Text) || int.Parse(txtCostoServicio.Text)<=0)
+            {
+                MessageBox.Show("Campo costo no debe estar vacío y debe ser mayor a 0.");
             }
             else
             {
-                lblmensaje.Content = "Error de insercion.";
-            }
+                sc = new ServicioExtraCollection();
 
+                string descripcion = txtDescripcionServicio.Text;
+                int costo = int.Parse(txtCostoServicio.Text);
+
+                var insercion = sc.InsertaServicioExtraC(descripcion, costo);
+
+                if (insercion == true)
+                {
+                    this.Close();
+                }
+                else
+                {
+                    lblmensaje.Content = "Error de inserción.";
+                }
+            }
         }
     }
 }

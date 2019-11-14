@@ -20,6 +20,7 @@ namespace WpfApp_Arriendos.DirDepartamentos
     /// </summary>
     public partial class RegistroGaleria : Window
     {
+        DepartamentoCollection depa;
         public RegistroGaleria()
         {
             InitializeComponent();
@@ -43,25 +44,33 @@ namespace WpfApp_Arriendos.DirDepartamentos
 
         private void BtnGuardar_Click(object sender, RoutedEventArgs e)
         {
-            DepartamentoCollection depa = new DepartamentoCollection();
+            if (string.IsNullOrEmpty(txtRuta.Text))
+            {
+                MessageBox.Show("El campo no debe estar vacío.");
+            }
+            else
+            {
+                depa = new DepartamentoCollection();
 
-            string ruta = System.IO.Path.GetDirectoryName(txtRuta.Text);
+                string ruta = System.IO.Path.GetDirectoryName(txtRuta.Text);
 
-            string archivo = System.IO.Path.GetFileName(txtRuta.Text);
-            int idDepa = int.Parse(Application.Current.Resources["idDepartamento"].ToString());
+                string archivo = System.IO.Path.GetFileName(txtRuta.Text);
+                int idDepa = int.Parse(Application.Current.Resources["idDepartamento"].ToString());
 
-            string nuevaRuta = ruta + @"\" + idDepa + "-" + archivo;
+                string nuevaRuta = ruta + @"\" + idDepa + "-" + archivo;
 
-            System.IO.File.Move(ruta + @"\" + archivo, nuevaRuta);
+                System.IO.File.Move(ruta + @"\" + archivo, nuevaRuta);
 
-            string nuevoArchivo = System.IO.Path.GetFileName(nuevaRuta);
+                string nuevoArchivo = System.IO.Path.GetFileName(nuevaRuta);
 
-            string ftp = "ftp://ftp.webcindario.com/imgDepartamentos/"+nuevoArchivo;
+                string ftp = "ftp://ftp.webcindario.com/imgDepartamentos/" + nuevoArchivo;
 
-            depa.InsertaImagen(idDepa, nuevoArchivo,ftp);
-            depa.CargaImagen(nuevaRuta);
+                depa.InsertaImagen(idDepa, nuevoArchivo, ftp);
+                depa.CargaImagen(nuevaRuta);
 
-            lblMensaje.Content = "Registrado correctamente!";
+                lblMensaje.Content = "Registrado correctamente!";
+            }
+
         }
     }
 }

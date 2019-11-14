@@ -21,6 +21,7 @@ namespace WpfApp_Arriendos.DirServicios
     /// </summary>
     public partial class NuevoTour : Window
     {
+        TourCollection tc;
         public NuevoTour()
         {
             InitializeComponent();
@@ -29,24 +30,33 @@ namespace WpfApp_Arriendos.DirServicios
 
         private void btnRegistrarTour_Click(object sender, RoutedEventArgs e)
         {
-            TourCollection tc = new TourCollection();
-
-            int id_servicio = int.Parse(cbxIdServicioTour.SelectedValue.ToString());
-            string descripcion = txtDescripcionTour.Text;
-
-            var insercion = tc.InsertaTourC(id_servicio, descripcion);
-
-            if (insercion==true)
+            if (cbxIdServicioTour.SelectedIndex==-1)
             {
-                this.Close();
+                MessageBox.Show("Debe seleccionar un código de servicio.");
+            } else if (string.IsNullOrEmpty(txtDescripcionTour.Text))
+            {
+                MessageBox.Show("El campo descripción no debe estar vacío.");
             }
             else
             {
-                lblmensaje.Content = "Error de inserción.";
+                tc = new TourCollection();
+
+                int id_servicio = int.Parse(cbxIdServicioTour.SelectedValue.ToString());
+                string descripcion = txtDescripcionTour.Text;
+
+                var insercion = tc.InsertaTourC(id_servicio, descripcion);
+
+                if (insercion == true)
+                {
+                    this.Close();
+                }
+                else
+                {
+                    lblmensaje.Content = "Error de inserción.";
+                }
             }
-
         }
-
+        #region Métodos Custom
         private void CargaIdServicio()
         {
             ServicioExtraCollection sc = new ServicioExtraCollection();
@@ -59,13 +69,7 @@ namespace WpfApp_Arriendos.DirServicios
 
             cbxIdServicioTour.Items.Refresh();
 
-            
-
-        
-
-            
-
-
         }
+        #endregion Métodos Custom
     }
 }

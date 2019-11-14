@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp_Arriendos.DirFuncionario"
         mc:Ignorable="d"
-        Title="FinRegistro" Height="479.88" Width="298.795">
+        Title="Fin de registro" Height="479.88" Width="298.795">
     <Grid>
         <Label x:Name="lblRut" Content="Rut:" HorizontalAlignment="Left" Margin="25,56,0,0" VerticalAlignment="Top"/>
         <Label x:Name="lblNombre" Content="Nombre:" HorizontalAlignment="Left" Margin="25,100,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.48,0.16"/>

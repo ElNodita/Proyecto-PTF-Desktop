@@ -21,34 +21,45 @@ namespace WpfApp_Arriendos
     /// </summary>
     public partial class Funcionario : Window
     {
+        UsuarioCollection us;
         public Funcionario()
         {
             InitializeComponent();
             dtgFuncionarios.IsReadOnly = true;
             Datos();
         }
-
+        #region Navbar
         private void BtnInicio_Click(object sender, RoutedEventArgs e)
         {
             Dashboard home = new Dashboard();
             home.Show();
             this.Close();
         }
-
         private void BtnFuncionario_Click(object sender, RoutedEventArgs e)
         {
             this.InvalidateVisual();
             this.UpdateLayout();
             Datos();
         }
-
+        private void BtnDepartamento_Click(object sender, RoutedEventArgs e)
+        {
+            DirDepartamentos.GestorDepartamentos dedpa = new DirDepartamentos.GestorDepartamentos();
+            dedpa.Show();
+            this.Close();
+        }
+        private void btnServicios_Click(object sender, RoutedEventArgs e)
+        {
+            DirServicios.Servicio Gs = new DirServicios.Servicio();
+            Gs.Show();
+            this.Close();
+        }
+        #endregion Navbar
+        #region Funcionario
         private void BtnRegistrar_Click(object sender, RoutedEventArgs e)
         {
             DirFuncionario.InicioRegistro ir = new DirFuncionario.InicioRegistro();
             ir.Show();
         }
-
-
         private void DtgFuncionarios_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             DataGrid gd=(DataGrid)sender;
@@ -60,34 +71,61 @@ namespace WpfApp_Arriendos
                 txtDireccion.Text = seleccionado.Row[3].ToString();
                 txtContacto.Text = seleccionado.Row[4].ToString();
                 txtCorreo.Text = seleccionado.Row[5].ToString();
-                txtPass.Text = seleccionado.Row[6].ToString();
+                txtPass.Password = seleccionado.Row[6].ToString();
             }
         }
-
         private void BtnActualizar_Click(object sender, RoutedEventArgs e)
         {
-            UsuarioCollection us = new UsuarioCollection();
+            if (string.IsNullOrEmpty(txtId.Text))
+            {
+                MessageBox.Show("El código no debe estar vacío.");
+            } else if (string.IsNullOrEmpty(txtDireccion.Text))
+            {
+                MessageBox.Show("La dirección no debe estar vacía.");
+            } else if (string.IsNullOrEmpty(txtContacto.Text))
+            {
+                MessageBox.Show("Contacto no debe estar vacío.");
+            } else if (string.IsNullOrEmpty(txtCorreo.Text))
+            {
+                MessageBox.Show("Correo no debe estar vacío.");
+            }else if (string.IsNullOrEmpty(txtPass.Password))
+            {
+                MessageBox.Show("Contraseña no debe estar vacía.");
+            }
+            else
+            {
+                us = new UsuarioCollection();
 
-            us.ActualizaUsuario(int.Parse(txtId.Text),txtCorreo.Text,txtPass.Text);
-            us.ActualizaDatos(int.Parse(txtId.Text),txtContacto.Text,txtDireccion.Text);
+                us.ActualizaUsuario(int.Parse(txtId.Text), txtCorreo.Text, txtPass.Password);
+                us.ActualizaDatos(int.Parse(txtId.Text), txtContacto.Text, txtDireccion.Text);
 
-            lblmensaje.Content = "Actualización correcta!";
-            Limpiar();
-            Datos();
+                lblmensaje.Content = "Actualización correcta!";
+                Limpiar();
+                Datos();
+            }
+
         }
-
         private void BtnEliminar_Click(object sender, RoutedEventArgs e)
         {
-            UsuarioCollection us = new UsuarioCollection();
+            if (string.IsNullOrEmpty(txtId.Text))
+            {
+                MessageBox.Show("Debe seleccionar un campo.");
+            }
+            else
+            {
+                us = new UsuarioCollection();
 
-            us.EliminaDatos(int.Parse(txtId.Text));
-            us.EliminaUsuario(int.Parse(txtId.Text));
+                us.EliminaDatos(int.Parse(txtId.Text));
+                us.EliminaUsuario(int.Parse(txtId.Text));
 
-            lblmensaje.Content = "Eliminado!";
-            Limpiar();
-            Datos();
+                lblmensaje.Content = "Eliminado!";
+                Limpiar();
+                Datos();
+            }
+
         }
-
+        #endregion Funcionario
+        #region Métodos Custom
         private void Datos()
         {
             UsuarioCollection uc = new UsuarioCollection();
@@ -104,14 +142,8 @@ namespace WpfApp_Arriendos
             txtDireccion.Text = string.Empty;
             txtContacto.Text = string.Empty;
             txtCorreo.Text = string.Empty;
-            txtPass.Text = string.Empty;
+            txtPass.Password = string.Empty;
         }
-
-        private void BtnDepartamento_Click(object sender, RoutedEventArgs e)
-        {
-            DirDepartamentos.GestorDepartamentos dedpa = new DirDepartamentos.GestorDepartamentos();
-            dedpa.Show();
-            this.Close();
-        }
+        #endregion Métodos Custom
     }
 }
