@@ -42,3 +42,11 @@ C:\Users\joser\Desktop\Proyectos\Proyecto-PTF-Desktop\WpfApp-Arriendos\obj\Debug
 C:\Users\joser\Desktop\Proyectos\Proyecto-PTF-Desktop\WpfApp-Arriendos\obj\Debug\Vista.csproj.CopyComplete
 C:\Users\joser\Desktop\Proyectos\Proyecto-PTF-Desktop\WpfApp-Arriendos\obj\Debug\WpfApp-Arriendos.exe
 C:\Users\joser\Desktop\Proyectos\Proyecto-PTF-Desktop\WpfApp-Arriendos\obj\Debug\WpfApp-Arriendos.pdb
+C:\Users\joser\Desktop\Proyectos\Proyecto-PTF-Desktop\WpfApp-Arriendos\bin\Debug\System.Configuration.ConfigurationManager.dll
+C:\Users\joser\Desktop\Proyectos\Proyecto-PTF-Desktop\WpfApp-Arriendos\bin\Debug\System.Security.AccessControl.dll
+C:\Users\joser\Desktop\Proyectos\Proyecto-PTF-Desktop\WpfApp-Arriendos\bin\Debug\System.Security.Permissions.dll
+C:\Users\joser\Desktop\Proyectos\Proyecto-PTF-Desktop\WpfApp-Arriendos\bin\Debug\System.Security.Principal.Windows.dll
+C:\Users\joser\Desktop\Proyectos\Proyecto-PTF-Desktop\WpfApp-Arriendos\bin\Debug\System.Configuration.ConfigurationManager.xml
+C:\Users\joser\Desktop\Proyectos\Proyecto-PTF-Desktop\WpfApp-Arriendos\bin\Debug\System.Security.AccessControl.xml
+C:\Users\joser\Desktop\Proyectos\Proyecto-PTF-Desktop\WpfApp-Arriendos\bin\Debug\System.Security.Permissions.xml
+C:\Users\joser\Desktop\Proyectos\Proyecto-PTF-Desktop\WpfApp-Arriendos\bin\Debug\System.Security.Principal.Windows.xml

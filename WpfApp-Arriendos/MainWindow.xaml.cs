@@ -24,6 +24,7 @@ namespace WpfApp_Arriendos
     /// </summary>
     public partial class MainWindow : Window
     {
+        UsuarioCollection usuario;
         public MainWindow()
         {
             InitializeComponent();
@@ -31,23 +32,30 @@ namespace WpfApp_Arriendos
 
         private void BtnIniciar_Click(object sender, RoutedEventArgs e)
         {
-            UsuarioCollection usuario = new UsuarioCollection();
-
-            string correo = txtCorreo.Text;
-            string pass = txtPass.Password;
-
-            var valida = usuario.IniciarSesion(correo,pass);
-            
-            if (valida.Rows.Count>0)
+            try
             {
-               Dashboard dash = new Dashboard();
-                dash.Show();
-                this.Close();
+                usuario = new UsuarioCollection();
+
+                string correo = txtCorreo.Text;
+                string pass = txtPass.Password;
+
+                var valida = usuario.IniciarSesion(correo, pass);
+
+                if (valida.Rows.Count > 0)
+                {
+                    Dashboard dash = new Dashboard();
+                    dash.Show();
+                    this.Close();
+                }
+                else
+                {
+                    lblmensaje.Content = "Usuario no válido.";
+
+                }
             }
-            else
+            catch (Exception ex)
             {
-                lblmensaje.Content = "Usuario no válido.";
-                
+                MessageBox.Show("Ha ocurrido un error, contacte al administrador: " + ex.Message, "Excepción detectada", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
     }
