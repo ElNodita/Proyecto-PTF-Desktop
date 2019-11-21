@@ -1,9 +1,8 @@
 using NUnit.Framework;
 using Datos.Entidades;
 using System.Transactions;
-using Datos;
-using Oracle.ManagedDataAccess.Client;
-using System.Data;
+using Negocio.Clases;
+using System;
 
 namespace Pruebas
 {
@@ -12,6 +11,7 @@ namespace Pruebas
     {
         private Persona Per;
         private TransactionScope scope;
+        private UsuarioCollection Uc;
 
 
         [SetUp]
@@ -33,19 +33,9 @@ namespace Pruebas
             var lista = Per.ListaFuncionarios();
             var hasRow = lista.Rows.GetEnumerator().MoveNext();
 
-            if (hasRow == true)
-            {
-                Assert.Pass();
-            }
-        }
-
-        [Test]
-        public void FuncionariosTest2()
-        {
-            
             Assert.Pass();
+
         }
-        /*
         [Test]
         public void RegistroDePersona()
         {
@@ -55,16 +45,13 @@ namespace Pruebas
             string apepa = "Rojas";
             string apema = "Rojas";
             string contacto = "9638932";
-            DateTime fecha = new DateTime(1996,6,1);
+            DateTime fecha = new DateTime(1996, 6, 1);
             string direccion = "Antonio Varas 669";
             int id_usuario = 6;
 
-            var registro = Uc.InsertaDatos(rut,nombre,apepa,apema,contacto,fecha,direccion,id_usuario);
+            var registro = Uc.InsertaDatos(rut, nombre, apepa, apema, contacto, fecha, direccion, id_usuario);
 
-            if (registro==true)
-            {
-                Assert.Pass();
-            }
-        }*/
+            Assert.Pass();
+        }
     }
 }
