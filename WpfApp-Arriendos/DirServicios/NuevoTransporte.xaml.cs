@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -16,51 +17,68 @@ using Negocio.Clases;
 
 namespace WpfApp_Arriendos.DirServicios
 {
-    /// <summary>
-    /// Lógica de interacción para NuevoTransporte.xaml
-    /// </summary>
     public partial class NuevoTransporte : Window
     {
+        //Atributos de la vista.
         TransporteCollection trc;
+
+        //Constructor de la clase donde se indica como debe iniciar la vista.
         public NuevoTransporte()
         {
             InitializeComponent();
             CargaIdServicio();
         }
 
+        //Boton para realizar la accion de ingresar datos de Transporte.
         private void btnRegistrarTransporte_Click(object sender, RoutedEventArgs e)
         {
-            if (cbxIdServicioTransporte.SelectedIndex==-1)
+            try
             {
-                MessageBox.Show("Debe seleccionar un servicio.");
-            } else if (string.IsNullOrEmpty(txtNombreConductor.Text))
-            {
-                MessageBox.Show("El campo nombre no dee estar vacío.");
-            } else if (string.IsNullOrEmpty(txtPatente.Text))
-            {
-                MessageBox.Show("El campo patente no debe estar vacío.");
-            }
-            else
-            {
-                trc = new TransporteCollection();
-
-                int id_servicio = int.Parse(cbxIdServicioTransporte.SelectedValue.ToString());
-                string nombreConductor = txtNombreConductor.Text;
-                string patente = txtPatente.Text;
-
-                var insercion = trc.InsertaTransporteC(nombreConductor, patente, id_servicio);
-
-                if (insercion == true)
+                if (cbxIdServicioTransporte.SelectedIndex == -1)
                 {
-                    this.Close();
+                    MessageBox.Show("Debe seleccionar un servicio.");
+                }
+                else if (string.IsNullOrEmpty(txtNombreConductor.Text) || txtNombreConductor.Text.Length < 3 && txtNombreConductor.Text.Length > 100)
+                {
+                    MessageBox.Show("Nombre no debe estar vacío y tiene que estar entre 3 a 100 carácteres.");
+                }
+                else if (string.IsNullOrEmpty(txtPatente.Text) || txtPatente.Text.Length >= 9)
+                {
+                    MessageBox.Show("El campo patente no debe estar vacío y ser mayor a 8 carácteres.");
+                }
+                else if (!Regex.IsMatch(txtPatente.Text, "^[a-zA-Z]{2}[-][a-zA-Z]{2}[-][0-9]{2}$"))
+                {
+                    MessageBox.Show("El campo patente debe tener formato AA-AA-99.");
                 }
                 else
                 {
-                    lblmensaje.Content = "Error de inserción.";
+                    trc = new TransporteCollection();
+
+                    int id_servicio = int.Parse(cbxIdServicioTransporte.SelectedValue.ToString());
+                    string nombreConductor = txtNombreConductor.Text;
+                    string patente = txtPatente.Text;
+
+                    var insercion = trc.InsertaTransporteC(nombreConductor, patente, id_servicio);
+
+                    if (insercion == true)
+                    {
+                        this.Close();
+                    }
+                    else
+                    {
+                        lblmensaje.Content = "Error de inserción.";
+                    }
                 }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurrido un error, contacte al administrador: " + ex.Message, "Excepción detectada", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
         }
+
         #region Métodos Custom
+
+        //Metodo para guardar Transporte en la Id de Servicio extra.
         private void CargaIdServicio()
         {
             ServicioExtraCollection sc = new ServicioExtraCollection();

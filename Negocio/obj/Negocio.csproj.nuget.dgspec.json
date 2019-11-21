@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\joser\\Desktop\\Proyectos\\Proyecto-PTF-Desktop\\Negocio\\Negocio.csproj": {}
+    "C:\\Users\\fespi\\OneDrive\\Documentos\\Visual Studio 2019\\Proyecto-PTF-Desktop\\Negocio\\Negocio.csproj": {}
   },
   "projects": {
-    "C:\\Users\\joser\\Desktop\\Proyectos\\Proyecto-PTF-Desktop\\Datos\\Datos.csproj": {
+    "C:\\Users\\fespi\\OneDrive\\Documentos\\Visual Studio 2019\\Proyecto-PTF-Desktop\\Datos\\Datos.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\joser\\Desktop\\Proyectos\\Proyecto-PTF-Desktop\\Datos\\Datos.csproj",
+        "projectUniqueName": "C:\\Users\\fespi\\OneDrive\\Documentos\\Visual Studio 2019\\Proyecto-PTF-Desktop\\Datos\\Datos.csproj",
         "projectName": "Datos",
-        "projectPath": "C:\\Users\\joser\\Desktop\\Proyectos\\Proyecto-PTF-Desktop\\Datos\\Datos.csproj",
-        "packagesPath": "C:\\Users\\joser\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\joser\\Desktop\\Proyectos\\Proyecto-PTF-Desktop\\Datos\\obj\\",
+        "projectPath": "C:\\Users\\fespi\\OneDrive\\Documentos\\Visual Studio 2019\\Proyecto-PTF-Desktop\\Datos\\Datos.csproj",
+        "packagesPath": "C:\\Users\\fespi\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\fespi\\OneDrive\\Documentos\\Visual Studio 2019\\Proyecto-PTF-Desktop\\Datos\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\joser\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\fespi\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -66,20 +66,20 @@
         }
       }
     },
-    "C:\\Users\\joser\\Desktop\\Proyectos\\Proyecto-PTF-Desktop\\Negocio\\Negocio.csproj": {
+    "C:\\Users\\fespi\\OneDrive\\Documentos\\Visual Studio 2019\\Proyecto-PTF-Desktop\\Negocio\\Negocio.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\joser\\Desktop\\Proyectos\\Proyecto-PTF-Desktop\\Negocio\\Negocio.csproj",
+        "projectUniqueName": "C:\\Users\\fespi\\OneDrive\\Documentos\\Visual Studio 2019\\Proyecto-PTF-Desktop\\Negocio\\Negocio.csproj",
         "projectName": "Negocio",
-        "projectPath": "C:\\Users\\joser\\Desktop\\Proyectos\\Proyecto-PTF-Desktop\\Negocio\\Negocio.csproj",
-        "packagesPath": "C:\\Users\\joser\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\joser\\Desktop\\Proyectos\\Proyecto-PTF-Desktop\\Negocio\\obj\\",
+        "projectPath": "C:\\Users\\fespi\\OneDrive\\Documentos\\Visual Studio 2019\\Proyecto-PTF-Desktop\\Negocio\\Negocio.csproj",
+        "packagesPath": "C:\\Users\\fespi\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\fespi\\OneDrive\\Documentos\\Visual Studio 2019\\Proyecto-PTF-Desktop\\Negocio\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\joser\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\fespi\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -92,8 +92,8 @@
         "frameworks": {
           "netstandard2.0": {
             "projectReferences": {
-              "C:\\Users\\joser\\Desktop\\Proyectos\\Proyecto-PTF-Desktop\\Datos\\Datos.csproj": {
-                "projectPath": "C:\\Users\\joser\\Desktop\\Proyectos\\Proyecto-PTF-Desktop\\Datos\\Datos.csproj"
+              "C:\\Users\\fespi\\OneDrive\\Documentos\\Visual Studio 2019\\Proyecto-PTF-Desktop\\Datos\\Datos.csproj": {
+                "projectPath": "C:\\Users\\fespi\\OneDrive\\Documentos\\Visual Studio 2019\\Proyecto-PTF-Desktop\\Datos\\Datos.csproj"
               }
             }
           }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -16,37 +17,46 @@ using Negocio.Clases;
 
 namespace WpfApp_Arriendos
 {
-    /// <summary>
-    /// Lógica de interacción para Funcionario.xaml
-    /// </summary>
     public partial class Funcionario : Window
     {
+        //Atributos de la vista.
         UsuarioCollection us;
+
+        //Constructor de la clase donde se indica como debe iniciar la vista.
         public Funcionario()
         {
             InitializeComponent();
             dtgFuncionarios.IsReadOnly = true;
             Datos();
         }
+
         #region Navbar
+
+        //Boton que dirige a la vista de Inicio.
         private void BtnInicio_Click(object sender, RoutedEventArgs e)
         {
             Dashboard home = new Dashboard();
             home.Show();
             this.Close();
         }
+
+        //Boton que dirige a la vista Funcionario.
         private void BtnFuncionario_Click(object sender, RoutedEventArgs e)
         {
             this.InvalidateVisual();
             this.UpdateLayout();
             Datos();
         }
+
+        //Boton que dirige a la vista Departamento.
         private void BtnDepartamento_Click(object sender, RoutedEventArgs e)
         {
             DirDepartamentos.GestorDepartamentos dedpa = new DirDepartamentos.GestorDepartamentos();
             dedpa.Show();
             this.Close();
         }
+
+        //Boton que dirige a la vista Servicios.
         private void btnServicios_Click(object sender, RoutedEventArgs e)
         {
             DirServicios.Servicio Gs = new DirServicios.Servicio();
@@ -54,12 +64,23 @@ namespace WpfApp_Arriendos
             this.Close();
         }
         #endregion Navbar
+
         #region Funcionario
+
+        //Boton que realizar la accion redireccionar a Inicio para realizar registro.
         private void BtnRegistrar_Click(object sender, RoutedEventArgs e)
         {
-            DirFuncionario.InicioRegistro ir = new DirFuncionario.InicioRegistro();
-            ir.Show();
+            try {
+                DirFuncionario.InicioRegistro ir = new DirFuncionario.InicioRegistro();
+                ir.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurrido un error, contacte al administrador: " + ex.Message, "Excepción detectada", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
         }
+
+        //Tabla que muestra los datos de Funcionario en la vista.
         private void DtgFuncionarios_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             DataGrid gd=(DataGrid)sender;
@@ -74,58 +95,85 @@ namespace WpfApp_Arriendos
                 txtPass.Password = seleccionado.Row[6].ToString();
             }
         }
+
+        //Boton para realizar la accion de actualizar datos de Usuario.
         private void BtnActualizar_Click(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrEmpty(txtId.Text))
+            try
             {
-                MessageBox.Show("El código no debe estar vacío.");
-            } else if (string.IsNullOrEmpty(txtDireccion.Text))
-            {
-                MessageBox.Show("La dirección no debe estar vacía.");
-            } else if (string.IsNullOrEmpty(txtContacto.Text))
-            {
-                MessageBox.Show("Contacto no debe estar vacío.");
-            } else if (string.IsNullOrEmpty(txtCorreo.Text))
-            {
-                MessageBox.Show("Correo no debe estar vacío.");
-            }else if (string.IsNullOrEmpty(txtPass.Password))
-            {
-                MessageBox.Show("Contraseña no debe estar vacía.");
+                if (string.IsNullOrEmpty(txtId.Text))
+                {
+                    MessageBox.Show("El código no debe estar vacío.");
+                }
+                else if (Regex.IsMatch(txtId.Text, "^[a-zA-Z]"))
+                {
+                    MessageBox.Show("Código del funcionario debe ser numérico.");
+                }
+                else if (string.IsNullOrEmpty(txtDireccion.Text) || txtDireccion.Text.Length < 5 && txtDireccion.Text.Length > 100)
+                {
+                    MessageBox.Show("Dirección no debe estar vacío y tiene que estar entre 5 a 100 carácteres.");
+                }
+                else if (string.IsNullOrEmpty(txtContacto.Text) || txtContacto.Text.Length <= 8 && txtContacto.Text.Length >= 10)
+                {
+                    MessageBox.Show("Campo contacto no debe estar vacío y debe tener 9 dígitos.");
+                }
+                else if (string.IsNullOrEmpty(txtCorreo.Text))
+                {
+                    MessageBox.Show("Correo no debe estar vacío.");
+                }
+                else if (string.IsNullOrEmpty(txtPass.Password))
+                {
+                    MessageBox.Show("Contraseña no debe estar vacía.");
+                }
+                else
+                {
+                    us = new UsuarioCollection();
+
+                    us.ActualizaUsuario(int.Parse(txtId.Text), txtCorreo.Text, txtPass.Password);
+                    us.ActualizaDatos(int.Parse(txtId.Text), txtContacto.Text, txtDireccion.Text);
+
+                    lblmensaje.Content = "Actualización correcta!";
+                    Limpiar();
+                    Datos();
+                }
             }
-            else
+            catch (Exception ex)
             {
-                us = new UsuarioCollection();
-
-                us.ActualizaUsuario(int.Parse(txtId.Text), txtCorreo.Text, txtPass.Password);
-                us.ActualizaDatos(int.Parse(txtId.Text), txtContacto.Text, txtDireccion.Text);
-
-                lblmensaje.Content = "Actualización correcta!";
-                Limpiar();
-                Datos();
+                MessageBox.Show("Ha ocurrido un error, contacte al administrador: " + ex.Message, "Excepción detectada", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
-
         }
+
+        //Boton para realizar la accion de eliminar un Usuario.
         private void BtnEliminar_Click(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrEmpty(txtId.Text))
+            try
             {
-                MessageBox.Show("Debe seleccionar un campo.");
+                if (string.IsNullOrEmpty(txtId.Text))
+                {
+                    MessageBox.Show("Debe seleccionar un campo.");
+                }
+                else
+                {
+                    us = new UsuarioCollection();
+
+                    us.EliminaDatos(int.Parse(txtId.Text));
+                    us.EliminaUsuario(int.Parse(txtId.Text));
+
+                    lblmensaje.Content = "Eliminado!";
+                    Limpiar();
+                    Datos();
+                }
             }
-            else
+            catch (Exception ex)
             {
-                us = new UsuarioCollection();
-
-                us.EliminaDatos(int.Parse(txtId.Text));
-                us.EliminaUsuario(int.Parse(txtId.Text));
-
-                lblmensaje.Content = "Eliminado!";
-                Limpiar();
-                Datos();
+                MessageBox.Show("Ha ocurrido un error, contacte al administrador: " + ex.Message, "Excepción detectada", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
-
         }
         #endregion Funcionario
+
         #region Métodos Custom
+
+        //Metodo para mostrar los datos de Usuario.
         private void Datos()
         {
             UsuarioCollection uc = new UsuarioCollection();
@@ -136,6 +184,7 @@ namespace WpfApp_Arriendos
 
         }
 
+        //Metodo para limpiar campos de textos.
         private void Limpiar()
         {
             txtId.Text = string.Empty;

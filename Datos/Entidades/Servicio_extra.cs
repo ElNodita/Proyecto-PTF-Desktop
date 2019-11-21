@@ -8,19 +8,23 @@ namespace Datos.Entidades
 {
     public class Servicio_extra
     {
+        //Atributos de la clase.
         private int _idServicio;
         private string _descripcionServicio;
         private int _costoServicio;
 
+        //Getters y Setters de los atributos.
         public int IdServicio { get => _idServicio; set => _idServicio = value; }
         public string DescripcionServicio { get => _descripcionServicio; set => _descripcionServicio = value; }
         public int CostoServicio { get => _costoServicio; set => _costoServicio = value; }
 
+        //Constructor de la clase.
         public Servicio_extra()
         {
             Init();
         }
 
+        //Metodo para generar inicialmente los atributos en estado "vacio".
         public void Init()
         {
             this.IdServicio = 0;
@@ -30,6 +34,7 @@ namespace Datos.Entidades
 
         #region CRUD
 
+        //Metodo que muestra todos los Servicios extras guardados.
         public DataTable ListaServicioExtra()
         {
             try
@@ -47,6 +52,7 @@ namespace Datos.Entidades
             }
         }
 
+        //Metodo que crea un nuevo Servicio extra.
         public bool Crear (Servicio_extra servicio)
         {
             bool resultado = false;
@@ -81,7 +87,7 @@ namespace Datos.Entidades
 
         }
 
-
+        //Metodo que actualiza datos del Servicio extra ya existente.
         public bool Actualizar (Servicio_extra servicio)
         {
             bool resultado = false;
@@ -122,6 +128,7 @@ namespace Datos.Entidades
             return resultado;
         }
 
+        //Metodo que elimina Servicio extra ya existente.
         public bool Eliminar(Servicio_extra servicio)
         {
             bool resultado = false;
@@ -147,7 +154,6 @@ namespace Datos.Entidades
 
         }
         #endregion CRUD 
-
 
     }
 }

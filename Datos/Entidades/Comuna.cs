@@ -8,19 +8,23 @@ namespace Datos.Entidades
 {
     public class Comuna
     {
+        //Atributos de la clase
         int _id;
         string _nombre;
         int _idRegion;
 
+        //Getters y Setters de los atributos
         public int Id { get => _id; set => _id = value; }
         public string Nombre { get => _nombre; set => _nombre = value; }
         public int IdRegion { get => _idRegion; set => _idRegion = value; }
 
+        //Constructor de la clase.
         public Comuna()
         {
             Init();
         }
 
+        //Metodo para generar inicialmente los atributos en estado "vacio".
         public void Init()
         {
             Id = 0;
@@ -28,6 +32,7 @@ namespace Datos.Entidades
             IdRegion = 0;
         }
 
+        //Metodo para listar las comunas de cada Region.
         public DataTable ListaComunaPorRegion(int id_region)
         {
             try

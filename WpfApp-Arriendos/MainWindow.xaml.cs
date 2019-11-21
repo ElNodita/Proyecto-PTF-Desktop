@@ -19,16 +19,15 @@ using Negocio.Clases;
 
 namespace WpfApp_Arriendos
 {
-    /// <summary>
-    /// Lógica de interacción para MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
+        //Constructor de la clase donde se indica como debe iniciar la vista.
         public MainWindow()
         {
             InitializeComponent();
         }
 
+        //Boton que realiza la accion de iniciar sesion con un Usuario existente en la base de datos.
         private void BtnIniciar_Click(object sender, RoutedEventArgs e)
         {
             UsuarioCollection usuario = new UsuarioCollection();

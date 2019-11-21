@@ -17,12 +17,12 @@ using Negocio.Clases;
 
 namespace WpfApp_Arriendos.DirDepartamentos
 {
-    /// <summary>
-    /// Lógica de interacción para RegistroDepartamento.xaml
-    /// </summary>
     public partial class RegistroDepartamento : Window
     {
+        //Atributos de la vista.
         DepartamentoCollection depa;
+
+        //Constructor de la clase donde se indica como debe iniciar la vista.
         public RegistroDepartamento()
         {
             InitializeComponent();
@@ -30,47 +30,63 @@ namespace WpfApp_Arriendos.DirDepartamentos
             CargaRegion();
             
         }
+
         #region Registro
+
+        //Boton para realizar la accion de registrar datos de Departamento.
         private void BtnRegistrar_Click(object sender, RoutedEventArgs e)
         {
-            if (slcRegion.SelectedIndex==-1)
+            try
             {
-                MessageBox.Show("Debe selecionar una región.");
-            }else if (slcComuna.SelectedIndex==-1)
-            {
-                MessageBox.Show("Debe seleccionar una comuna.");
-            }else if (slcTipo.SelectedIndex==-1)
-            {
-                MessageBox.Show("Debe seleccionar un tipo.");
-            }else if (string.IsNullOrEmpty(txtDireccion.Text))
-            {
-                MessageBox.Show("Dirección no debe estar vacía.");
-            }else if (Regex.IsMatch(txtCosto.Text, "^[a-zA-Z]") || string.IsNullOrEmpty(txtCosto.Text) || int.Parse(txtCosto.Text) <= 0)
-            {
-                MessageBox.Show("El costo debe ser numérico mayor a 0.");
-            }
-            else
-            {
-                depa = new DepartamentoCollection();
-
-                int costo = int.Parse(txtCosto.Text);
-                string tipo = slcTipo.Text;
-                int comuna = int.Parse(slcComuna.SelectedValue.ToString());
-                string direccion = txtDireccion.Text;
-
-                var resultado = depa.InsertaDepartamento(costo, tipo, comuna, direccion);
-
-                if (resultado == true)
+                if (slcRegion.SelectedIndex == -1)
                 {
-                    lblMensaje.Content = "Registro existoso";
-                    this.Close();
+                    MessageBox.Show("Debe selecionar una región.");
+                }
+                else if (slcComuna.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Debe seleccionar una comuna.");
+                }
+                else if (slcTipo.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Debe seleccionar un tipo.");
+                }
+                else if (string.IsNullOrEmpty(txtDireccion.Text) || txtDireccion.Text.Length < 5 && txtDireccion.Text.Length > 200)
+                {
+                    MessageBox.Show("Dirección no debe estar vacío y tiene que estar entre 5 a 200 carácteres.");
+                }
+                else if (Regex.IsMatch(txtCosto.Text, "^[a-zA-Z]") || string.IsNullOrEmpty(txtCosto.Text) || int.Parse(txtCosto.Text) <= 0 && int.Parse(txtCosto.Text) >= 9999999)
+                {
+                    MessageBox.Show("El costo debe ser numérico mayor a 0 o menor a 9.999.999.");
                 }
                 else
                 {
-                    lblMensaje.Content = "Error de registro";
+                    depa = new DepartamentoCollection();
+
+                    int costo = int.Parse(txtCosto.Text);
+                    string tipo = slcTipo.Text;
+                    int comuna = int.Parse(slcComuna.SelectedValue.ToString());
+                    string direccion = txtDireccion.Text;
+
+                    var resultado = depa.InsertaDepartamento(costo, tipo, comuna, direccion);
+
+                    if (resultado == true)
+                    {
+                        lblMensaje.Content = "Registro existoso";
+                        this.Close();
+                    }
+                    else
+                    {
+                        lblMensaje.Content = "Error de registro";
+                    }
                 }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurrido un error, contacte al administrador: " + ex.Message, "Excepción detectada", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
         }
+
+        //Combo box que muestra un listado de Regiones y Comunas.
         private void SlcRegion_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (slcRegion.SelectedIndex>0)
@@ -89,6 +105,8 @@ namespace WpfApp_Arriendos.DirDepartamentos
         #endregion Registro
 
         #region Métodos Custom
+
+        //Metodo que carga datos de Region.
         private void CargaRegion()
         {
             depa = new DepartamentoCollection();
@@ -105,6 +123,7 @@ namespace WpfApp_Arriendos.DirDepartamentos
             slcRegion.Items.Refresh();
         }
 
+        //Metodo que carga datos de Comuna.
         private void CargaComuna(int region)
         {
             depa = new DepartamentoCollection();

@@ -15,49 +15,62 @@ using Negocio.Clases;
 
 namespace WpfApp_Arriendos.DirFuncionario
 {
-    /// <summary>
-    /// Lógica de interacción para InicioRegistro.xaml
-    /// </summary>
     public partial class InicioRegistro : Window
     {
+        //Atributos de la vista.
         UsuarioCollection uc;
+
+        //Constructor de la clase donde se indica como debe iniciar la vista.
         public InicioRegistro()
         {
             InitializeComponent();
         }
+
         #region Registro Inicial
+
+        //Boton en donde registra un nuevo Usuario.
         private void BtnValida_Click(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrEmpty(txtCorreo.Text) || CorreoValido(txtCorreo.Text)==false)
+            try
             {
-                MessageBox.Show("Correo no debe estar vacío y debe ser en formato de correo");
-            } else if (string.IsNullOrEmpty(txtPass.Password))
-            {
-                MessageBox.Show("Contraseña no debe estar vacía.");
-            }
-            else
-            {
-                uc = new UsuarioCollection();
-                string correo = txtCorreo.Text;
-                var valida = uc.ValidaExistencia(correo);
-
-                if (valida.Rows.Count > 0)
+                if (string.IsNullOrEmpty(txtCorreo.Text) || CorreoValido(txtCorreo.Text) == false)
                 {
-                    lblmsj.Content = "Correo ya registrado!";
+                    MessageBox.Show("Correo no debe estar vacío y debe ser en formato de correo");
+                }
+                else if (string.IsNullOrEmpty(txtPass.Password))
+                {
+                    MessageBox.Show("Contraseña no debe estar vacía.");
                 }
                 else
                 {
-                    FinRegistro fr = new FinRegistro();
-                    uc.InsertaUsuario(correo, txtPass.Password, 2);
-                    Application.Current.Resources["appCorreo"] = correo;
-                    fr.Show();
-                    this.Close();
+                    uc = new UsuarioCollection();
+                    string correo = txtCorreo.Text;
+                    var valida = uc.ValidaExistencia(correo);
+
+                    if (valida.Rows.Count > 0)
+                    {
+                        lblmsj.Content = "Correo ya registrado!";
+                    }
+                    else
+                    {
+                        FinRegistro fr = new FinRegistro();
+                        uc.InsertaUsuario(correo, txtPass.Password, 2);
+                        Application.Current.Resources["appCorreo"] = correo;
+                        fr.Show();
+                        this.Close();
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurrido un error, contacte al administrador: " + ex.Message, "Excepción detectada", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
         #endregion Registro Inicial
 
         #region Métodos Custom
+
+        //Metodo que valida el formato de correo.
         private bool CorreoValido(string email)
         {
             try

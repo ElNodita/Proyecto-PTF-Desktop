@@ -8,20 +8,25 @@ namespace Datos.Entidades
 {
     public class Galeria
     {
+        //Atributos de la clase.
         int _id;
         string _ubicacion;
         int _idDepartamento;
         string _nombre;
 
+        //Getters y Setters de los atributos.
         public int Id { get => _id; set => _id = value; }
         public string Ubicacion { get => _ubicacion; set => _ubicacion = value; }
         public int IdDepartamento { get => _idDepartamento; set => _idDepartamento = value; }
         public string Nombre { get => _nombre; set => _nombre = value; }
 
+        //Constructor de la clase.
         public Galeria()
         {
             Init();
         }
+
+        //Metodo para generar inicialmente los atributos en estado "vacio".
         public void Init()
         {
             Id = 0;
@@ -30,6 +35,7 @@ namespace Datos.Entidades
             Nombre = string.Empty;
         }
 
+        //Metodo para Listar todas las fotos del Departamento asociado con la Id del mismo.
         public DataTable ListaGaleria(int departamento)
         {
             try
@@ -53,6 +59,7 @@ namespace Datos.Entidades
             }
         }
 
+        //Metodo para subir una nueva galeria de imagen para un Departamento.
         public bool Crear(Galeria galeria)
         {
             bool resultado = false;

@@ -42,3 +42,47 @@ C:\Users\joser\Desktop\Proyectos\Proyecto-PTF-Desktop\WpfApp-Arriendos\obj\Debug
 C:\Users\joser\Desktop\Proyectos\Proyecto-PTF-Desktop\WpfApp-Arriendos\obj\Debug\Vista.csproj.CopyComplete
 C:\Users\joser\Desktop\Proyectos\Proyecto-PTF-Desktop\WpfApp-Arriendos\obj\Debug\WpfApp-Arriendos.exe
 C:\Users\joser\Desktop\Proyectos\Proyecto-PTF-Desktop\WpfApp-Arriendos\obj\Debug\WpfApp-Arriendos.pdb
+C:\Users\fespi\OneDrive\Documentos\Visual Studio 2019\Proyecto-PTF-Desktop\WpfApp-Arriendos\bin\Debug\WpfApp-Arriendos.exe.config
+C:\Users\fespi\OneDrive\Documentos\Visual Studio 2019\Proyecto-PTF-Desktop\WpfApp-Arriendos\bin\Debug\WpfApp-Arriendos.exe
+C:\Users\fespi\OneDrive\Documentos\Visual Studio 2019\Proyecto-PTF-Desktop\WpfApp-Arriendos\bin\Debug\WpfApp-Arriendos.pdb
+C:\Users\fespi\OneDrive\Documentos\Visual Studio 2019\Proyecto-PTF-Desktop\WpfApp-Arriendos\bin\Debug\Negocio.dll
+C:\Users\fespi\OneDrive\Documentos\Visual Studio 2019\Proyecto-PTF-Desktop\WpfApp-Arriendos\bin\Debug\Oracle.ManagedDataAccess.dll
+C:\Users\fespi\OneDrive\Documentos\Visual Studio 2019\Proyecto-PTF-Desktop\WpfApp-Arriendos\bin\Debug\Datos.dll
+C:\Users\fespi\OneDrive\Documentos\Visual Studio 2019\Proyecto-PTF-Desktop\WpfApp-Arriendos\bin\Debug\Negocio.pdb
+C:\Users\fespi\OneDrive\Documentos\Visual Studio 2019\Proyecto-PTF-Desktop\WpfApp-Arriendos\bin\Debug\Datos.pdb
+C:\Users\fespi\OneDrive\Documentos\Visual Studio 2019\Proyecto-PTF-Desktop\WpfApp-Arriendos\obj\Debug\Vista.csprojAssemblyReference.cache
+C:\Users\fespi\OneDrive\Documentos\Visual Studio 2019\Proyecto-PTF-Desktop\WpfApp-Arriendos\obj\Debug\Dashboard.g.cs
+C:\Users\fespi\OneDrive\Documentos\Visual Studio 2019\Proyecto-PTF-Desktop\WpfApp-Arriendos\obj\Debug\DirDepartamentos\GestorDepartamentos.g.cs
+C:\Users\fespi\OneDrive\Documentos\Visual Studio 2019\Proyecto-PTF-Desktop\WpfApp-Arriendos\obj\Debug\DirDepartamentos\RegistraInventario.g.cs
+C:\Users\fespi\OneDrive\Documentos\Visual Studio 2019\Proyecto-PTF-Desktop\WpfApp-Arriendos\obj\Debug\DirDepartamentos\RegistroDepartamento.g.cs
+C:\Users\fespi\OneDrive\Documentos\Visual Studio 2019\Proyecto-PTF-Desktop\WpfApp-Arriendos\obj\Debug\DirDepartamentos\RegistroGaleria.g.cs
+C:\Users\fespi\OneDrive\Documentos\Visual Studio 2019\Proyecto-PTF-Desktop\WpfApp-Arriendos\obj\Debug\DirFuncionario\FinRegistro.g.cs
+C:\Users\fespi\OneDrive\Documentos\Visual Studio 2019\Proyecto-PTF-Desktop\WpfApp-Arriendos\obj\Debug\DirFuncionario\InicioRegistro.g.cs
+C:\Users\fespi\OneDrive\Documentos\Visual Studio 2019\Proyecto-PTF-Desktop\WpfApp-Arriendos\obj\Debug\DirFuncionario\Funcionario.g.cs
+C:\Users\fespi\OneDrive\Documentos\Visual Studio 2019\Proyecto-PTF-Desktop\WpfApp-Arriendos\obj\Debug\DirServicios\NuevoServicioExtra.g.cs
+C:\Users\fespi\OneDrive\Documentos\Visual Studio 2019\Proyecto-PTF-Desktop\WpfApp-Arriendos\obj\Debug\DirServicios\NuevoTour.g.cs
+C:\Users\fespi\OneDrive\Documentos\Visual Studio 2019\Proyecto-PTF-Desktop\WpfApp-Arriendos\obj\Debug\DirServicios\NuevoTransporte.g.cs
+C:\Users\fespi\OneDrive\Documentos\Visual Studio 2019\Proyecto-PTF-Desktop\WpfApp-Arriendos\obj\Debug\DirServicios\Servicio.g.cs
+C:\Users\fespi\OneDrive\Documentos\Visual Studio 2019\Proyecto-PTF-Desktop\WpfApp-Arriendos\obj\Debug\MainWindow.g.cs
+C:\Users\fespi\OneDrive\Documentos\Visual Studio 2019\Proyecto-PTF-Desktop\WpfApp-Arriendos\obj\Debug\App.g.cs
+C:\Users\fespi\OneDrive\Documentos\Visual Studio 2019\Proyecto-PTF-Desktop\WpfApp-Arriendos\obj\Debug\WpfApp-Arriendos_MarkupCompile.cache
+C:\Users\fespi\OneDrive\Documentos\Visual Studio 2019\Proyecto-PTF-Desktop\WpfApp-Arriendos\obj\Debug\WpfApp-Arriendos_MarkupCompile.lref
+C:\Users\fespi\OneDrive\Documentos\Visual Studio 2019\Proyecto-PTF-Desktop\WpfApp-Arriendos\obj\Debug\Dashboard.baml
+C:\Users\fespi\OneDrive\Documentos\Visual Studio 2019\Proyecto-PTF-Desktop\WpfApp-Arriendos\obj\Debug\DirDepartamentos\GestorDepartamentos.baml
+C:\Users\fespi\OneDrive\Documentos\Visual Studio 2019\Proyecto-PTF-Desktop\WpfApp-Arriendos\obj\Debug\DirDepartamentos\RegistraInventario.baml
+C:\Users\fespi\OneDrive\Documentos\Visual Studio 2019\Proyecto-PTF-Desktop\WpfApp-Arriendos\obj\Debug\DirDepartamentos\RegistroDepartamento.baml
+C:\Users\fespi\OneDrive\Documentos\Visual Studio 2019\Proyecto-PTF-Desktop\WpfApp-Arriendos\obj\Debug\DirDepartamentos\RegistroGaleria.baml
+C:\Users\fespi\OneDrive\Documentos\Visual Studio 2019\Proyecto-PTF-Desktop\WpfApp-Arriendos\obj\Debug\DirFuncionario\FinRegistro.baml
+C:\Users\fespi\OneDrive\Documentos\Visual Studio 2019\Proyecto-PTF-Desktop\WpfApp-Arriendos\obj\Debug\DirFuncionario\InicioRegistro.baml
+C:\Users\fespi\OneDrive\Documentos\Visual Studio 2019\Proyecto-PTF-Desktop\WpfApp-Arriendos\obj\Debug\DirFuncionario\Funcionario.baml
+C:\Users\fespi\OneDrive\Documentos\Visual Studio 2019\Proyecto-PTF-Desktop\WpfApp-Arriendos\obj\Debug\DirServicios\NuevoServicioExtra.baml
+C:\Users\fespi\OneDrive\Documentos\Visual Studio 2019\Proyecto-PTF-Desktop\WpfApp-Arriendos\obj\Debug\DirServicios\NuevoTour.baml
+C:\Users\fespi\OneDrive\Documentos\Visual Studio 2019\Proyecto-PTF-Desktop\WpfApp-Arriendos\obj\Debug\DirServicios\NuevoTransporte.baml
+C:\Users\fespi\OneDrive\Documentos\Visual Studio 2019\Proyecto-PTF-Desktop\WpfApp-Arriendos\obj\Debug\DirServicios\Servicio.baml
+C:\Users\fespi\OneDrive\Documentos\Visual Studio 2019\Proyecto-PTF-Desktop\WpfApp-Arriendos\obj\Debug\MainWindow.baml
+C:\Users\fespi\OneDrive\Documentos\Visual Studio 2019\Proyecto-PTF-Desktop\WpfApp-Arriendos\obj\Debug\WpfApp-Arriendos.g.resources
+C:\Users\fespi\OneDrive\Documentos\Visual Studio 2019\Proyecto-PTF-Desktop\WpfApp-Arriendos\obj\Debug\WpfApp_Arriendos.Properties.Resources.resources
+C:\Users\fespi\OneDrive\Documentos\Visual Studio 2019\Proyecto-PTF-Desktop\WpfApp-Arriendos\obj\Debug\Vista.csproj.GenerateResource.cache
+C:\Users\fespi\OneDrive\Documentos\Visual Studio 2019\Proyecto-PTF-Desktop\WpfApp-Arriendos\obj\Debug\Vista.csproj.CopyComplete
+C:\Users\fespi\OneDrive\Documentos\Visual Studio 2019\Proyecto-PTF-Desktop\WpfApp-Arriendos\obj\Debug\WpfApp-Arriendos.exe
+C:\Users\fespi\OneDrive\Documentos\Visual Studio 2019\Proyecto-PTF-Desktop\WpfApp-Arriendos\obj\Debug\WpfApp-Arriendos.pdb

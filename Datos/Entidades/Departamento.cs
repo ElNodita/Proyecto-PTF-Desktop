@@ -8,6 +8,7 @@ namespace Datos.Entidades
 {
     public class Departamento
     {
+        //Atributos de la clase.
         int _id;
         int _costo;
         Char _estado;
@@ -15,6 +16,7 @@ namespace Datos.Entidades
         int _idComuna;
         string _direccion;
 
+        //Getters y Setters de los atributos.
         public int Id { get => _id; set => _id = value; }
         public int Costo { get => _costo; set => _costo = value; }
         public char Estado { get => _estado; set => _estado = value; }
@@ -22,11 +24,13 @@ namespace Datos.Entidades
         public int IdComuna { get => _idComuna; set => _idComuna = value; }
         public string Direccion { get => _direccion; set => _direccion = value; }
 
+        //Constructor de la clase.
         public Departamento()
         {
             Init();
         }
 
+        //Metodo para generar inicialmente los atributos en estado "vacio".
         public void Init()
         {
             Id = 0;
@@ -37,22 +41,7 @@ namespace Datos.Entidades
             Direccion = string.Empty;
         }
 
-        public DataTable ListaDepartamento()
-        {
-            try
-            {
-                OracleCommand _sql = Enlace.ComandoSP();
-                _sql.CommandText = "pkg_departamento.sp_listaDepartamento";
-                _sql.Parameters.Add("o_data", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
-
-                return Enlace.RegresaDatos(_sql);
-            }
-            catch (OracleException ex)
-            {
-                throw ex;
-            }
-        }
-
+        //Metodo para cambiar el estado del Departamento en donde se identifica si esta disponible o no.
         public bool CambiaEstado(int departamento, char estado)
         {
             bool resultado = false;
@@ -85,6 +74,8 @@ namespace Datos.Entidades
             return resultado;
         }
 
+        #region CRUD
+        //Metodo para crear un nuevo Departamento.
         public bool Crear(Departamento departamento)
         {
             bool resultado = true;
@@ -132,6 +123,24 @@ namespace Datos.Entidades
             return resultado;
         }
 
+        //Metodo para listar los Departamentos agregados anteriormente.
+        public DataTable ListaDepartamento()
+        {
+            try
+            {
+                OracleCommand _sql = Enlace.ComandoSP();
+                _sql.CommandText = "pkg_departamento.sp_listaDepartamento";
+                _sql.Parameters.Add("o_data", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
+
+                return Enlace.RegresaDatos(_sql);
+            }
+            catch (OracleException ex)
+            {
+                throw ex;
+            }
+        }
+
+        //Metodo para Actualizar datos de un Departamento existente. 
         public bool Actualizar(Departamento departamento)
         {
             bool resultado = false;
@@ -186,6 +195,7 @@ namespace Datos.Entidades
             return resultado;
         }
 
+        //Metodo para Eliminar un Departamento existente.
         public bool Eliminar(Departamento departamento)
         {
             bool resultado = false;
@@ -210,5 +220,7 @@ namespace Datos.Entidades
             }
             return resultado;
         }
+        #endregion
+
     }
 }

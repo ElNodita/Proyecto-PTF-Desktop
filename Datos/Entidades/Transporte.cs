@@ -8,21 +8,25 @@ namespace Datos.Entidades
 {
     public class Transporte
     {
+        //Atributos de la clase.
         private int _idTransporte;
         private string _nombreConductor;
         private string _patente;
         private int _idServicio;
 
+        //Getters y Setters de los atributos.
         public int IdTransporte { get => _idTransporte; set => _idTransporte = value; }
         public string NombreConductor { get => _nombreConductor; set => _nombreConductor = value; }
         public string Patente { get => _patente; set => _patente = value; }
         public int IdServicio { get => _idServicio; set => _idServicio = value; }
 
+        //Constructor de la clase.
         public Transporte()
         {
             Init();
         }
 
+        //Metodo para generar inicialmente los atributos en estado "vacio".
         public void Init()
         {
             this.IdTransporte = 0;
@@ -33,6 +37,7 @@ namespace Datos.Entidades
 
         #region CRUD
 
+        //Metodo para mostrar todos los Transporte agregados.
         public DataTable ListaTransporte()
         {
             try
@@ -50,6 +55,7 @@ namespace Datos.Entidades
             }
         }
 
+        //Metodo para crear un nuevo Transporte.
         public bool Crear (Transporte transporte)
         {
             bool resultado = false;
@@ -89,6 +95,7 @@ namespace Datos.Entidades
             return resultado;
         }
 
+        //Metodo para actualizar datos de un Transporte existente.
         public bool Actualizar (Transporte transporte)
         {
             bool resultado = false;
@@ -135,6 +142,7 @@ namespace Datos.Entidades
             return resultado;
         }
 
+        //Metodo para elimninar un Transporte existente.
         public bool Eliminar(Transporte transporte)
         {
             bool resultado = false;
@@ -162,5 +170,6 @@ namespace Datos.Entidades
         }
 
         #endregion CRUD
+
     }
 }

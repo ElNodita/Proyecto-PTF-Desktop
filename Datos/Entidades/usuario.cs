@@ -7,25 +7,30 @@ using Oracle.ManagedDataAccess.Client;
 
 namespace Datos.Entidades
 {
+
     public class Usuario
     {
+        //Atributos de la clase.
         int _id;
         string _correo;
         string _contrasena;
         string _estado;
         int _perfil;
 
+        //Getters y Setters de los atributos.
         public int Id { get => _id; set => _id = value; }
         public string Correo { get => _correo; set => _correo = value; }
         public string Contrasena { get => _contrasena; set => _contrasena = value; }
         public string Estado { get => _estado; set => _estado = value; }
         public int Perfil { get => _perfil; set => _perfil = value; }
 
+        //Constructor de la clase.
         public Usuario()
         {
             Init();
         }
 
+        //Metodo para generar inicialmente los atributos en estado "vacio".
         public void Init()
         {
             this.Id = 0;
@@ -35,9 +40,6 @@ namespace Datos.Entidades
             this.Perfil = 0;
         }
 
-
-        #region CRUD
-
         //Método para iniciar sesión al sistema.
         public DataTable IniciarSesion(string correo, string contrasena)
         {
@@ -46,7 +48,7 @@ namespace Datos.Entidades
                 OracleCommand _sql = Enlace.ComandoSP();
                 _sql.CommandText = "pkg_administrador.sp_loginAdministrador";
 
-                _sql.Parameters.Add("o_data",OracleDbType.RefCursor).Direction=ParameterDirection.Output;
+                _sql.Parameters.Add("o_data", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
 
                 OracleParameter mail = _sql.CreateParameter();
                 mail.ParameterName = "correo";
@@ -69,6 +71,7 @@ namespace Datos.Entidades
 
         }
 
+        //Metodo para validar existencia de un Usuario ya registrado.
         public DataTable ValidaExistencia(string correo)
         {
             try
@@ -85,12 +88,15 @@ namespace Datos.Entidades
 
                 return Enlace.RegresaDatos(_sql);
             }
-            catch(OracleException ex)
+            catch (OracleException ex)
             {
                 throw ex;
             }
         }
 
+        #region CRUD
+
+        //Metodo para crear un nuevo Usuario al sistema.
         public bool Crear(Usuario usuario)
         {
             bool resultado = false;
@@ -131,6 +137,7 @@ namespace Datos.Entidades
             return resultado;
         }
 
+        //Metodo para actualizar datos de un Usuario.
         public bool Actualizar(Usuario usuario)
         {
             bool resultado = false;
@@ -171,6 +178,7 @@ namespace Datos.Entidades
             return resultado;
         }
 
+        //Metodo para eliminar un Usuario existente.
         public bool Eliminar(Usuario usuario)
         {
             bool resultado = false;
@@ -196,5 +204,6 @@ namespace Datos.Entidades
 
         
         #endregion CRUD
+
     }
 }
