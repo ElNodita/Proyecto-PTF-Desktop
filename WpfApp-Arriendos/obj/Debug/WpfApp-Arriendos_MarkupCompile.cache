@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\fespi\OneDrive\Documentos\Visual Studio 2019\Proyecto-PTF-Desktop\WpfApp-Arriendos\obj\Debug\
+C:\Users\joser\Desktop\Proyectos\Proyecto-PTF-Desktop\WpfApp-Arriendos\obj\Debug\
 WpfApp_Arriendos
 none
 false
 DEBUG;TRACE
-C:\Users\fespi\OneDrive\Documentos\Visual Studio 2019\Proyecto-PTF-Desktop\WpfApp-Arriendos\App.xaml
+C:\Users\joser\Desktop\Proyectos\Proyecto-PTF-Desktop\WpfApp-Arriendos\App.xaml
 13-1700703705
 
-17-896570527
+18-1935050151
 27-1806593356
 Dashboard.xaml;DirDepartamentos\GestorDepartamentos.xaml;DirDepartamentos\RegistraInventario.xaml;DirDepartamentos\RegistroDepartamento.xaml;DirDepartamentos\RegistroGaleria.xaml;DirFuncionario\FinRegistro.xaml;DirFuncionario\InicioRegistro.xaml;DirFuncionario\Funcionario.xaml;DirServicios\NuevoServicioExtra.xaml;DirServicios\NuevoTour.xaml;DirServicios\NuevoTransporte.xaml;DirServicios\Servicio.xaml;MainWindow.xaml;
 
-False
+True
 

@@ -24,7 +24,7 @@ namespace Datos
             return _comando;
         }
 
-
+        //Método para regresar datos de una sentencia SELECT
         public static DataTable RegresaDatos(OracleCommand comando)
         {
             DataTable _tabla = new DataTable();
@@ -46,6 +46,7 @@ namespace Datos
             return _tabla;
         }
 
+        //Método para inicializar un comando sql
         public static void EjecutarSentencia(OracleCommand comando)
         {
             try
@@ -62,6 +63,8 @@ namespace Datos
                 comando.Connection.Close();
             }
         }
+
+        //Método que permite subir una imagen a un servidor ftp
         public static void CargaImagenFTP(string filePath)
         {
             var fileName = Path.GetFileName(filePath);
