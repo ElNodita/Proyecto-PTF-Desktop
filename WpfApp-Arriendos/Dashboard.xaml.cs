@@ -17,16 +17,15 @@ using System.IO;
 
 namespace WpfApp_Arriendos
 {
-    /// <summary>
-    /// Lógica de interacción para Dashboard.xaml
-    /// </summary>
     public partial class Dashboard : Window
     {
+        //Constructor de la clase donde se indica como debe iniciar la vista.
         public Dashboard()
         {
             InitializeComponent();
         }
 
+        //Boton que dirige a la vista Funcionario.
         private void BtnFuncionario_Click(object sender, RoutedEventArgs e)
         {
             Funcionario fun = new Funcionario();
@@ -34,12 +33,15 @@ namespace WpfApp_Arriendos
             this.Close();
         }
 
+        //Boton que dirige a la vista Servicios.
         private void btnServicios_Click(object sender, RoutedEventArgs e)
         {
             DirServicios.Servicio serv = new DirServicios.Servicio();
             serv.Show();
             this.Close();
         }
+
+        //Boton que dirige a la vista Departamento.
         private void BtnDepartamento_Click(object sender, RoutedEventArgs e)
         {
             GestorDepartamentos depa = new GestorDepartamentos();
@@ -47,6 +49,7 @@ namespace WpfApp_Arriendos
             this.Close();
         }
 
+        //Boton que dirige a la vista de Inicio.
         private void BtnInicio_Click(object sender, RoutedEventArgs e)
         {
 

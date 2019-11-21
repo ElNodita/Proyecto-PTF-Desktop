@@ -8,6 +8,7 @@ namespace Datos.Entidades
 {
     public class Persona
     {
+        //Atributos de la clase.
         private int _idDatos;
         private string _rut;
         private string _nombre;
@@ -18,6 +19,7 @@ namespace Datos.Entidades
         private string _direccion;
         private int _idUsuario;
 
+        //Getters y Setters de los atributos.
         public int IdDatos { get => _idDatos; set => _idDatos = value; }
         public string Rut { get => _rut; set => _rut = value; }
         public string Nombre { get => _nombre; set => _nombre = value; }
@@ -28,11 +30,13 @@ namespace Datos.Entidades
         public string Direccion { get => _direccion; set => _direccion = value; }
         public int IdUsuario { get => _idUsuario; set => _idUsuario = value; }
 
+        //Constructor de la clase.
         public Persona()
         {
             Init();
         }
 
+        //Metodo para generar inicialmente los atributos en estado "vacio".
         public void Init()
         {
             this.IdDatos = 0;
@@ -47,7 +51,8 @@ namespace Datos.Entidades
         }
 
         #region CRUD
-        
+
+        //Metodo para listar los Funcionarios guardados.
         public DataTable ListaFuncionarios()
         {
             try
@@ -65,6 +70,7 @@ namespace Datos.Entidades
             }
         }
 
+        //Metodo para agregar una nueva Persona.
         public bool Crear (Persona persona)
         {
             bool resultado = false;
@@ -141,6 +147,7 @@ namespace Datos.Entidades
 
         }
 
+        //Metodo para actualizar datos de una Persona agregada anteriormente.
         public bool Actualizar(Persona persona)
         {
             bool resultado = false;
@@ -180,6 +187,7 @@ namespace Datos.Entidades
             return resultado;
         }
 
+        //Metodo para eliminar Persona existente.
         public bool Eliminar(Persona persona)
         {
             bool resultado = false;

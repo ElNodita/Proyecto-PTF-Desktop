@@ -8,12 +8,13 @@ namespace Negocio.Clases
 {
     public class TransporteCollection
     {
+        //Metodo que muestra Transportes guardados en la base de datos.
         public DataTable ListaTransporteC()
         {
             return new Transporte().ListaTransporte();
         }
 
-
+        //Metodo que inserta datos de un nuevo Transporte hacia la base de datos.
         public bool InsertaTransporteC(string nombreConductor, string patente, int id_servicio)
         {
             Transporte transporte = new Transporte();
@@ -25,6 +26,7 @@ namespace Negocio.Clases
             return transporte.Crear(transporte);
         }
 
+        //Metodo que actualiza los datos de un Transporte existente en la base de datos.
         public bool ActualizaTransporteC(int id_transporte, string nombreConductor, string patente)
         {
             Transporte transporte = new Transporte();
@@ -35,6 +37,7 @@ namespace Negocio.Clases
             return transporte.Actualizar(transporte);
         }
 
+        //Metodo que elimina un Transporte almacenado en la base de datos.
         public bool EliminaTransporteC(int id_transporte)
         {
             Transporte transporte = new Transporte();

@@ -8,20 +8,24 @@ namespace Datos.Entidades
 {
     public class Tour
     {
+        //Atributos de la clase.
         private int _idTour;
         private int _idServicio;
         private string _descripcion;
 
+        //Getters y Setters de los atributos.
         public int IdTour { get => _idTour; set => _idTour = value; }
         public int IdServicio { get => _idServicio; set => _idServicio = value; }
         public string Descripcion { get => _descripcion; set => _descripcion = value; }
 
+        //Constructor de la clase.
         public Tour()
         {
             Init();
         }
 
 
+        //Metodo para generar inicialmente los atributos en estado "vacio".
         public void Init()
         {
             this.IdTour = 0;
@@ -31,6 +35,7 @@ namespace Datos.Entidades
 
         #region CRUD
 
+        //Metodo que muestra todos los Tour agregados.
         public DataTable ListaTour()
         {
             try
@@ -48,6 +53,7 @@ namespace Datos.Entidades
             }
         }
 
+        //Metodo que crea un nuevo Tour
         public bool Crear(Tour tour)
         {
             bool resultado = false;
@@ -82,6 +88,7 @@ namespace Datos.Entidades
 
         }
 
+        //Metodo que actualizar los datos de un Tour agregado.
         public bool Actualizar(Tour tour)
         {
             bool resultado = false;
@@ -124,6 +131,7 @@ namespace Datos.Entidades
 
         }
 
+        //Metodo que elimina un Tour existente.
         public bool Eliminar(Tour tour)
         {
             bool resultado = false;
@@ -150,5 +158,6 @@ namespace Datos.Entidades
         }
 
         #endregion CRUD
+
     }
 }

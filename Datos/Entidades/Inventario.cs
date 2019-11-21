@@ -8,6 +8,7 @@ namespace Datos.Entidades
 {
     public class Inventario
     {
+        //Atributos de la clase.
         int _id;
         int _idDepa;
         Char _internet;
@@ -18,6 +19,7 @@ namespace Datos.Entidades
         int _asiento;
         int _mueble;
 
+        //Getters y Setters de los atributos.
         public int Id { get => _id; set => _id = value; }
         public int IdDepa { get => _idDepa; set => _idDepa = value; }
         public char Internet { get => _internet; set => _internet = value; }
@@ -28,11 +30,13 @@ namespace Datos.Entidades
         public int Asiento { get => _asiento; set => _asiento = value; }
         public int Mueble { get => _mueble; set => _mueble = value; }
 
+        //Constructor de la clase.
         public Inventario()
         {
             Init();
         }
 
+        //Metodo para generar inicialmente los atributos en estado "vacio".
         public void Init()
         {
             Id = 0;
@@ -46,6 +50,8 @@ namespace Datos.Entidades
             Mueble = 0;
         }
 
+        #region CRUD
+        //Metodo para listar los datos de Inventarios realizados anteriormente.
         public DataTable ListaInventario(int inventario)
         {
             try
@@ -69,6 +75,7 @@ namespace Datos.Entidades
             }
         }
 
+        //Metodo para crear un nuevo Inventario.
         public bool Crear(Inventario inventario)
         {
             bool resultado = false;
@@ -143,6 +150,7 @@ namespace Datos.Entidades
             return resultado;
         }
 
+        //Metodo para Actualizar datos de un Inventario existente.
         public bool Actualizar(Inventario inventario)
         {
             bool resultado = false;
@@ -217,6 +225,7 @@ namespace Datos.Entidades
             return resultado;
         }
 
+        //Metodo para Eliminar un Inventario existente.
         public bool Eliminar(Inventario inventario)
         {
             bool resultado = false;
@@ -242,6 +251,7 @@ namespace Datos.Entidades
             return resultado;
         }
 
+        #endregion
 
     }
 }

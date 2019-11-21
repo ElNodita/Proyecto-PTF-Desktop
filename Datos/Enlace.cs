@@ -13,6 +13,7 @@ namespace Datos
         static private string cadena = "User Id=admin;Password=Termicl1;Data Source=ptfaws2019cerv.czz8qnldy1sy.us-east-1.rds.amazonaws.com:1521/ORCL;";
         //private static string cadena = "User Id=ptf2019;Password=bf2142;Data Source=192.168.1.191:1521/XE;";
 
+        //Comandos para la cadena de conexion.
         public static OracleCommand ComandoSP()
         {
             OracleConnection _conexion = new OracleConnection();
@@ -22,6 +23,7 @@ namespace Datos
             _comando.CommandType = CommandType.StoredProcedure;
             return _comando;
         }
+
 
         public static DataTable RegresaDatos(OracleCommand comando)
         {

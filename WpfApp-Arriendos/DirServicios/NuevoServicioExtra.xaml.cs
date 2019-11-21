@@ -16,46 +16,56 @@ using Negocio.Clases;
 
 namespace WpfApp_Arriendos.DirServicios
 {
-    /// <summary>
-    /// Lógica de interacción para NuevoServicioExtra.xaml
-    /// </summary>
     public partial class NuevoServicioExtra : Window
     {
+        //Atributos de la vista.
         ServicioExtraCollection sc;
+
+        //Constructor de la clase donde se indica como debe iniciar la vista.
         public NuevoServicioExtra()
         {
             InitializeComponent();
         }
 
+        //Boton para realizar la accion de ingresar datos de Servicio extra.
         private void BtnRegistrarServicioExtra_Click(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrEmpty(txtDescripcionServicio.Text))
+            try
             {
-                MessageBox.Show("Campo descripción no debe estar vacío.");
-            } else if (Regex.IsMatch(txtCostoServicio.Text, "^[a-zA-Z]"))
-            {
-                MessageBox.Show("El costo debe ser numérico.");
-            } else if (string.IsNullOrEmpty(txtCostoServicio.Text) || int.Parse(txtCostoServicio.Text)<=0)
-            {
-                MessageBox.Show("Campo costo no debe estar vacío y debe ser mayor a 0.");
-            }
-            else
-            {
-                sc = new ServicioExtraCollection();
-
-                string descripcion = txtDescripcionServicio.Text;
-                int costo = int.Parse(txtCostoServicio.Text);
-
-                var insercion = sc.InsertaServicioExtraC(descripcion, costo);
-
-                if (insercion == true)
+                if (string.IsNullOrEmpty(txtDescripcionServicio.Text) || txtDescripcionServicio.Text.Length < 5 && txtDescripcionServicio.Text.Length > 200)
                 {
-                    this.Close();
+                    MessageBox.Show("Descripción no debe estar vacío y tiene que estar entre 5 a 200 carácteres.");
+                }
+                else if (Regex.IsMatch(txtCostoServicio.Text, "^[a-zA-Z]"))
+                {
+                    MessageBox.Show("Costo debe ser numérico.");
+                }
+                else if (string.IsNullOrEmpty(txtCostoServicio.Text) || int.Parse(txtCostoServicio.Text) <= 0 && int.Parse(txtCostoServicio.Text) >= 999999)
+                {
+                    MessageBox.Show("Costo no debe estar vacío y debe ser mayor a 0 o menor a 999.999");
                 }
                 else
                 {
-                    lblmensaje.Content = "Error de inserción.";
+                    sc = new ServicioExtraCollection();
+
+                    string descripcion = txtDescripcionServicio.Text;
+                    int costo = int.Parse(txtCostoServicio.Text);
+
+                    var insercion = sc.InsertaServicioExtraC(descripcion, costo);
+
+                    if (insercion == true)
+                    {
+                        this.Close();
+                    }
+                    else
+                    {
+                        lblmensaje.Content = "Error de inserción.";
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurrido un error, contacte al administrador: " + ex.Message, "Excepción detectada", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
     }

@@ -19,7 +19,10 @@ namespace WpfApp_Arriendos.DirDepartamentos
 {
     public partial class GestorDepartamentos : Window
     {
+        //Atributos de la vista.
         DepartamentoCollection depa;
+
+        //Constructor de la clase donde se indica como debe iniciar la vista.
         public GestorDepartamentos()
         {
             InitializeComponent();
@@ -28,8 +31,10 @@ namespace WpfApp_Arriendos.DirDepartamentos
             Datos();
             
         }
+
         #region Navbar
         
+        //Boton que dirige a la vista Funcionario.
         private void BtnFuncionario_Click(object sender, RoutedEventArgs e)
         {
             Funcionario fun = new Funcionario();
@@ -37,6 +42,7 @@ namespace WpfApp_Arriendos.DirDepartamentos
             this.Close();
         }
 
+        //Boton que dirige a la vista Departamento.
         private void BtnDepartamento_Click(object sender, RoutedEventArgs e)
         {
             this.InvalidateVisual();
@@ -44,6 +50,7 @@ namespace WpfApp_Arriendos.DirDepartamentos
             Datos();
         }
 
+        //Boton que dirige a la vista de Inicio.
         private void BtnInicio_Click(object sender, RoutedEventArgs e)
         {
             Dashboard home = new Dashboard();
@@ -51,11 +58,13 @@ namespace WpfApp_Arriendos.DirDepartamentos
             this.Close();
         }
 
+        //Boton que dirige a la vista Finanzas.
         private void BtnFinanzas_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
+        //Boton que dirige a la vista Servicios.
         private void BtnServicios_Click(object sender, RoutedEventArgs e)
         {
             DirServicios.Servicio servicio = new DirServicios.Servicio();
@@ -63,6 +72,7 @@ namespace WpfApp_Arriendos.DirDepartamentos
             this.Close();
         }
 
+        //Boton que dirige a la vista de Registro Departamento.
         private void BtnRegistrar_Click(object sender, RoutedEventArgs e)
         {
             RegistroDepartamento regDepa = new RegistroDepartamento();
@@ -71,6 +81,8 @@ namespace WpfApp_Arriendos.DirDepartamentos
         #endregion Navbar
 
         #region Datos Departamento
+
+        //Tabla que muestra los datos de Departamento en la vista.
         private void DtgDepartamento_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             DataGrid gd = (DataGrid)sender;
@@ -124,160 +136,219 @@ namespace WpfApp_Arriendos.DirDepartamentos
             }
         }
         
+        //Boton para realizar la accion de actualizar datos de Departamento.
         private void BtnActualizarDepa_Click(object sender, RoutedEventArgs e)
         {
-
-            if (string.IsNullOrEmpty(txtDireccion.Text) || txtDireccion.Text.Length < 5)
+            try
             {
-                MessageBox.Show("Dirección no debe estar vacío y debe tener más de 5 carácteres.");
+                if (string.IsNullOrEmpty(txtDireccion.Text) || txtDireccion.Text.Length < 5 && txtDireccion.Text.Length > 200)
+                {
+                    MessageBox.Show("Dirección no debe estar vacío y tiene que estar entre 5 a 200 carácteres.");
 
-            } else if (string.IsNullOrEmpty(txtId.Text)) 
-            {
-                MessageBox.Show("Código del departamento no debe estar vacío.");
+                }
+                else if (string.IsNullOrEmpty(txtId.Text) )
+                {
+                    MessageBox.Show("Código del departamento no debe estar vacío.");
 
-            } else if (Regex.IsMatch(txtCosto.Text, "^[a-zA-Z]"))
-            {
-                MessageBox.Show("Costo debe ser numérico.");
+                }
+                else if (Regex.IsMatch(txtId.Text, "^[a-zA-Z]"))
+                {
+                    MessageBox.Show("Código del departamento debe ser numérico.");
 
-            } else if (string.IsNullOrEmpty(txtCosto.Text) || int.Parse(txtCosto.Text) <= 0)
-            {
-                MessageBox.Show("Costo no debe estar vacío y debe ser mayor a 0");
+                }
+                else if (Regex.IsMatch(txtCosto.Text, "^[a-zA-Z]"))
+                {
+                    MessageBox.Show("Costo debe ser numérico.");
 
-            } else if (slcEstado.SelectedIndex == -1)
-            {
-                MessageBox.Show("Debe seleccionar un valor en Estado.");
+                }
+                else if (string.IsNullOrEmpty(txtCosto.Text) || int.Parse(txtCosto.Text) <= 0 && int.Parse(txtCosto.Text) >= 9999999)
+                {
+                    MessageBox.Show("Costo no debe estar vacío y debe ser mayor a 0 o menor a 9.999.999");
 
+                }
+                else if (slcEstado.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Debe seleccionar un valor en Estado.");
+
+                }
+                else if (slcTipo.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Debe seleccionar un valor en Tipo.");
+                }
+                else
+                {
+                    depa = new DepartamentoCollection();
+                    int id = int.Parse(txtId.Text);
+                    int costo = int.Parse(txtCosto.Text);
+                    string direccion = txtDireccion.Text;
+                    string tipo = slcTipo.SelectedValue.ToString();
+                    char estado = char.Parse(slcEstado.SelectedValue.ToString());
+
+                    depa.ActualizaDepartamento(id, costo, estado, tipo, direccion);
+
+                    lblMensajeDatos.Content = "Actualización correcta";
+                    Datos();
+                    Limpiar();
+                }
             }
-            else if (slcTipo.SelectedIndex == -1)
+            catch (Exception ex)
             {
-                MessageBox.Show("Debe seleccionar un valor en Tipo.");
-            }
-            else
-            {
-                depa = new DepartamentoCollection();
-                int id = int.Parse(txtId.Text);
-                int costo = int.Parse(txtCosto.Text);
-                string direccion = txtDireccion.Text;
-                string tipo = slcTipo.SelectedValue.ToString();
-                char estado = char.Parse(slcEstado.SelectedValue.ToString());
-
-                depa.ActualizaDepartamento(id, costo, estado, tipo, direccion);
-
-                lblMensajeDatos.Content = "Actualización correcta";
-                Datos();
-                Limpiar();
+                MessageBox.Show("Ha ocurrido un error, contacte al administrador: " + ex.Message, "Excepción detectada", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
 
+        //Boton para realizar la accion de eliminar un Departamento.
         private void BtnEliminarDepa_Click(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrEmpty(txtId.Text))
+            try
             {
-                MessageBox.Show("Debe seleccionar un campo.");
+                if (string.IsNullOrEmpty(txtId.Text))
+                {
+                    MessageBox.Show("Debe seleccionar un campo.");
+                }
+                else
+                {
+                    depa = new DepartamentoCollection();
+
+                    int id = int.Parse(txtId.Text);
+
+                    depa.EliminarDepartamento(id);
+
+                    lblMensajeDatos.Content = "Eliminación correcta";
+
+                    Datos();
+                    Limpiar();
+                }
             }
-            else
+            catch (Exception ex)
             {
-                depa = new DepartamentoCollection();
-
-                int id = int.Parse(txtId.Text);
-
-                depa.EliminarDepartamento(id);
-
-                lblMensajeDatos.Content = "Eliminación correcta";
-
-                Datos();
-                Limpiar();
+                MessageBox.Show("Ha ocurrido un error, contacte al administrador: " + ex.Message, "Excepción detectada", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
 
         }
         #endregion Datos Departamento
 
         #region Inventario
+
+        //Boton que realizar la accion redireccionar a Inventario para registrar datos segun el Departamento.
         private void BtnRegistraInv_Click(object sender, RoutedEventArgs e)
         {
-            RegistraInventario inv = new RegistraInventario();
-            Application.Current.Resources["id_departamento"] = txtId.Text;
-            inv.Show();
+            try
+            {
+                RegistraInventario inv = new RegistraInventario();
+                Application.Current.Resources["id_departamento"] = txtId.Text;
+                inv.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurrido un error, contacte al administrador: " + ex.Message, "Excepción detectada", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
         }
 
+        //Boton que elimina un Inventario de la base de datos.
         private void BtnEliminarInv_Click(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrEmpty(txtInventario.Text))
+            try
             {
-                MessageBox.Show("Debe seleccionar un valor.");
-            }
-            else
-            {
-                DepartamentoCollection inv = new DepartamentoCollection();
-                int inventario = int.Parse(txtInventario.Text);
-                var resultado = inv.EliminaInventario(inventario);
-                if (resultado == true)
+                if (string.IsNullOrEmpty(txtInventario.Text))
                 {
-                    inv.CambiaEstado(int.Parse(txtId.Text), char.Parse(0.ToString()));
-                    lblMensajeInventario.Content = "Eliminado corrrectamente!";
+                    MessageBox.Show("Debe seleccionar un valor.");
                 }
                 else
                 {
-                    lblMensajeInventario.Content = "Error al eliminar";
+                    DepartamentoCollection inv = new DepartamentoCollection();
+                    int inventario = int.Parse(txtInventario.Text);
+                    var resultado = inv.EliminaInventario(inventario);
+                    if (resultado == true)
+                    {
+                        inv.CambiaEstado(int.Parse(txtId.Text), char.Parse(0.ToString()));
+                        lblMensajeInventario.Content = "Eliminado corrrectamente!";
+                    }
+                    else
+                    {
+                        lblMensajeInventario.Content = "Error al eliminar";
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurrido un error, contacte al administrador: " + ex.Message, "Excepción detectada", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
 
+        //Boton que actualiza datos de un Inventario de la base de datos.
         private void BtnActualizarInv_Click(object sender, RoutedEventArgs e)
         {
-            if (Regex.IsMatch(txtBaño.Text, "^[a-zA-Z]") || string.IsNullOrEmpty(txtBaño.Text)|| int.Parse(txtBaño.Text) <= 0)
+            try
             {
-                MessageBox.Show("La cantidad de baños debe ser númerica mayor a 0");
-            }else if (Regex.IsMatch(txtDormitorio.Text, "^[a-zA-Z]") || string.IsNullOrEmpty(txtDormitorio.Text) || int.Parse(txtDormitorio.Text) <= 0)
-            {
-                MessageBox.Show("La cantidad de dormitorios debe ser númerica mayor a 0");
-            }
-            else if (Regex.IsMatch(txtTv.Text, "^[a-zA-Z]") || string.IsNullOrEmpty(txtTv.Text) || int.Parse(txtTv.Text) <= 0)
-            {
-                MessageBox.Show("La cantidad de televisores debe ser númerica mayor a 0");
-            }
-            else if (Regex.IsMatch(txtMesas.Text, "^[a-zA-Z]") || string.IsNullOrEmpty(txtMesas.Text) || int.Parse(txtMesas.Text) <=0)
-            {
-                MessageBox.Show("La cantidad de mesas debe ser númerica mayor a 0");
-            }
-            else if (Regex.IsMatch(txtAsiento.Text, "^[a-zA-Z]") || string.IsNullOrEmpty(txtAsiento.Text) || int.Parse(txtAsiento.Text) <=0)
-            {
-                MessageBox.Show("La cantidad de asientos debe ser númerica mayor a 0");
-            }
-            else if (Regex.IsMatch(txtMuebles.Text, "^[a-zA-Z]") || string.IsNullOrEmpty(txtMuebles.Text) || int.Parse(txtMuebles.Text) <=0)
-            {
-                MessageBox.Show("La cantidad de muebles debe ser númerica mayor a 0");
-            }
-            else
-            {
-                DepartamentoCollection inv = new DepartamentoCollection();
-
-                int id = int.Parse(txtInventario.Text);
-                char internet;
-                if (chkInternet.IsChecked == true)
+                if (Regex.IsMatch(txtBaño.Text, "^[a-zA-Z]") || string.IsNullOrEmpty(txtBaño.Text) || int.Parse(txtBaño.Text) <= 0 && int.Parse(txtBaño.Text) >=2)
                 {
-                    internet = char.Parse(1.ToString());
+                    MessageBox.Show("La cantidad de baños debe ser númerica mayor a 0 y menor a 9");
+                }
+                else if (string.IsNullOrEmpty(txtInventario.Text))
+                {
+                    MessageBox.Show("Código de inventario no debe estar vacío.");
+                }
+                else if (Regex.IsMatch(txtInventario.Text, "^[a-zA-Z]"))
+                {
+                    MessageBox.Show("Código de inventario debe ser numérico.");
+                }
+                else if (Regex.IsMatch(txtDormitorio.Text, "^[a-zA-Z]") || string.IsNullOrEmpty(txtDormitorio.Text) || int.Parse(txtDormitorio.Text) <= 0 && int.Parse(txtDormitorio.Text) >= 2)
+                {
+                    MessageBox.Show("La cantidad de dormitorios debe ser númerica mayor a 0 y menor a 9");
+                }
+                else if (Regex.IsMatch(txtTv.Text, "^[a-zA-Z]") || string.IsNullOrEmpty(txtTv.Text) || int.Parse(txtTv.Text) <= 0 && int.Parse(txtTv.Text) >= 2)
+                {
+                    MessageBox.Show("La cantidad de televisores debe ser númerica mayor a 0 y menor a 9");
+                }
+                else if (Regex.IsMatch(txtMesas.Text, "^[a-zA-Z]") || string.IsNullOrEmpty(txtMesas.Text) || int.Parse(txtMesas.Text) <= 0 && int.Parse(txtMesas.Text) >= 2)
+                {
+                    MessageBox.Show("La cantidad de mesas debe ser númerica mayor a 0 y menor a 9");
+                }
+                else if (Regex.IsMatch(txtAsiento.Text, "^[a-zA-Z]") || string.IsNullOrEmpty(txtAsiento.Text) || int.Parse(txtAsiento.Text) <= 0 && int.Parse(txtAsiento.Text) >= 3)
+                {
+                    MessageBox.Show("La cantidad de asientos debe ser númerica mayor a 0 y menor a 99");
+                }
+                else if (Regex.IsMatch(txtMuebles.Text, "^[a-zA-Z]") || string.IsNullOrEmpty(txtMuebles.Text) || int.Parse(txtMuebles.Text) <= 0 && int.Parse(txtMuebles.Text) >= 3)
+                {
+                    MessageBox.Show("La cantidad de muebles debe ser númerica mayor a 0 y menor a 99");
                 }
                 else
                 {
-                    internet = char.Parse(0.ToString());
+                    DepartamentoCollection inv = new DepartamentoCollection();
+
+                    int id = int.Parse(txtInventario.Text);
+                    char internet;
+                    if (chkInternet.IsChecked == true)
+                    {
+                        internet = char.Parse(1.ToString());
+                    }
+                    else
+                    {
+                        internet = char.Parse(0.ToString());
+                    }
+                    int baños = int.Parse(txtBaño.Text);
+                    int dormitorio = int.Parse(txtDormitorio.Text);
+                    int tv = int.Parse(txtTv.Text);
+                    int mesa = int.Parse(txtMesas.Text);
+                    int asiento = int.Parse(txtAsiento.Text);
+                    int mueble = int.Parse(txtMuebles.Text);
+
+                    inv.ActualizaInventario(id, internet, baños, dormitorio, tv, mesa, asiento, mueble);
+
+                    lblMensajeInventario.Content = "Actualización correcta!";
                 }
-                int baños = int.Parse(txtBaño.Text);
-                int dormitorio = int.Parse(txtDormitorio.Text);
-                int tv = int.Parse(txtTv.Text);
-                int mesa = int.Parse(txtMesas.Text);
-                int asiento = int.Parse(txtAsiento.Text);
-                int mueble = int.Parse(txtMuebles.Text);
-
-                inv.ActualizaInventario(id, internet, baños, dormitorio, tv, mesa, asiento, mueble);
-
-                lblMensajeInventario.Content = "Actualización correcta!";
             }
-
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurrido un error, contacte al administrador: " + ex.Message, "Excepción detectada", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
         }
         #endregion Inventario
 
         #region Galeria
+
+        //Boton que realiza la accion de redirigir a la vista galeria segun la id de Departamento.
         private void BtnGaleria_Click(object sender, RoutedEventArgs e)
         {
             RegistroGaleria galeria = new RegistroGaleria();
@@ -287,6 +358,8 @@ namespace WpfApp_Arriendos.DirDepartamentos
         #endregion Galeria
 
         #region Métodos Custom
+
+        //Metodo para verificar estado de Departamento.
         private void CargaCBBEstado()
         {
             slcEstado.DisplayMemberPath = "Text";
@@ -299,6 +372,7 @@ namespace WpfApp_Arriendos.DirDepartamentos
             slcEstado.ItemsSource = items;
         }
 
+        //Metodo para verificar tipo de Departamento.
         private void CargaCBBTipo()
         {
             slcTipo.DisplayMemberPath = "Text";
@@ -312,6 +386,7 @@ namespace WpfApp_Arriendos.DirDepartamentos
             slcTipo.ItemsSource = items;
         }
 
+        //Metodo para limpiar campos de textos.
         private void Limpiar()
         {
             txtId.Text = string.Empty;
@@ -321,6 +396,7 @@ namespace WpfApp_Arriendos.DirDepartamentos
             slcTipo.Text = string.Empty;
         }
 
+        //Metodo para ocultar campos de textos y botones de Inventario.
         private void InventarioInvisible()
         {
             txtInventario.Visibility = Visibility.Hidden;
@@ -343,6 +419,8 @@ namespace WpfApp_Arriendos.DirDepartamentos
             btnActualizarInv.Visibility = Visibility.Hidden;
             btnEliminarInv.Visibility = Visibility.Hidden;
         }
+
+        //Metodo para mostrar campos de textos y botones de Inventario.
         private void InventarioVisible()
         {
             txtInventario.Visibility = Visibility.Visible;
@@ -365,12 +443,16 @@ namespace WpfApp_Arriendos.DirDepartamentos
             btnActualizarInv.Visibility = Visibility.Visible;
             btnEliminarInv.Visibility = Visibility.Visible;
         }
+
+        //Metodo para mostrar los datos de Departamento.
         private void Datos()
         {
             depa =new DepartamentoCollection();
             dtgDepartamento.ItemsSource = depa.ListaDepartamento().DefaultView;
             dtgDepartamento.Items.Refresh();
         }
+
+        //Metodo para mostrar los datos de Galeria.
         private void DatosGaleria(int id_departamento)
         {
             depa =new DepartamentoCollection();
