@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Security.Cryptography;
 using Negocio.Clases;
 
 namespace WpfApp_Arriendos.DirFuncionario
@@ -25,7 +26,16 @@ namespace WpfApp_Arriendos.DirFuncionario
         {
             InitializeComponent();
         }
-
+        //Botón para minimizar ventana
+        private void btnMinimiza_Click(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
+        }
+        //Botón para cerrar ventana
+        private void btnCerrar_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
         #region Registro Inicial
 
         //Boton en donde registra un nuevo Usuario.
@@ -54,7 +64,8 @@ namespace WpfApp_Arriendos.DirFuncionario
                     else
                     {
                         FinRegistro fr = new FinRegistro();
-                        uc.InsertaUsuario(correo, txtPass.Password, 2);
+                        string pass = GetHashString(txtPass.Password);
+                        uc.InsertaUsuario(correo, pass, 2);
                         Application.Current.Resources["appCorreo"] = correo;
                         fr.Show();
                         this.Close();
@@ -80,6 +91,22 @@ namespace WpfApp_Arriendos.DirFuncionario
             }
             catch { return false; }
         }
+        //Método que invoca el sistema de Hash
+        private static byte[] GetHash(string inputString)
+        {
+            HashAlgorithm algorithm = SHA256.Create();
+            return algorithm.ComputeHash(Encoding.UTF8.GetBytes(inputString));
+        }
+        //Método que devuelve el valor cifrado
+        private static string GetHashString(string inputString)
+        {
+            StringBuilder sb = new StringBuilder();
+            foreach (byte b in GetHash(inputString))
+                sb.Append(b.ToString("X2"));
+
+            return sb.ToString();
+        }
         #endregion Métodos Custom
+
     }
 }

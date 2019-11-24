@@ -1,20 +1,60 @@
 ﻿<Window x:Class="WpfApp_Arriendos.DirFuncionario.InicioRegistro"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WpfApp_Arriendos.DirFuncionario"
-        mc:Ignorable="d"
-        Title="InicioRegistro" Height="450" Width="335.779">
-    <Grid>
-        <Label x:Name="lblTitulo" Content="Ingresa los datos de la nueva cuenta" HorizontalAlignment="Left" Margin="52,49,0,0" VerticalAlignment="Top"/>
-
-        <Label x:Name="lblCorreo" Content="Correo:" HorizontalAlignment="Left" Margin="37,143,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lblPass" Content="Contraseña" HorizontalAlignment="Left" Margin="37,214,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.211,-0.154"/>
-        <TextBox x:Name="txtCorreo" HorizontalAlignment="Left" Height="23" Margin="112,146,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165" />
-        <PasswordBox x:Name="txtPass" HorizontalAlignment="Left" Margin="112,220,0,0" VerticalAlignment="Top" Width="165"/>
-        <Button x:Name="btnValida" Content="Siguiente" HorizontalAlignment="Left" Margin="135,287,0,0" VerticalAlignment="Top" Width="99" Height="29" Click="BtnValida_Click"/>
-        <Label x:Name="lblmsj" Content="" HorizontalAlignment="Left" Margin="135,356,0,0" VerticalAlignment="Top"/>
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        Title="InicioRegistro" Height="500" Width="350" ResizeMode="NoResize" WindowStartupLocation="Manual" WindowStyle="None">
+    <Grid Background="#FF2E78CB">
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Height="40" HorizontalAlignment="Right">
+            <Button Width="30" Height="30" Padding="0" Background="{x:Null}" BorderBrush="{x:Null}" Name="btnMinimiza" Click="btnMinimiza_Click">
+                <materialDesign:PackIcon Kind="WindowMinimize" Width="30" Height="30"/>
+            </Button>
+            <Button Width="30" Height="30" Padding="0" Background="{x:Null}" BorderBrush="{x:Null}" Name="btnCerrar" Click="btnCerrar_Click">
+                <materialDesign:PackIcon Kind="CloseOutline" Width="30" Height="30"/>
+            </Button>
+        </StackPanel>
+        <Grid Margin="30" Background="WhiteSmoke">
+            <materialDesign:Card
+                materialDesign:ShadowAssist.ShadowDepth="Depth4"
+                Padding="32" Height="440">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Label x:Name="lblTitulo" Content="Ingresa los datos de cuenta" HorizontalAlignment="Center" Grid.Row="0" VerticalAlignment="Center" FontWeight="Bold" FontSize="16"/>
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Label x:Name="lblCorreo" Content="Correo:" HorizontalAlignment="Center" Grid.Column="0" VerticalAlignment="Center" FontWeight="Bold"/>
+                        <TextBox x:Name="txtCorreo" HorizontalAlignment="Center"  Grid.Column="1" TextWrapping="Wrap" VerticalAlignment="Center" Width="110" />
+                    </Grid>
+                    <Grid Grid.Row="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Label x:Name="lblPass" Content="Contraseña:" HorizontalAlignment="Center"  Grid.Column="0" VerticalAlignment="Center" RenderTransformOrigin="-0.211,-0.154" FontWeight="Bold"/>
+                        <PasswordBox x:Name="txtPass" HorizontalAlignment="Center" Grid.Column="1" VerticalAlignment="Center" Width="120"/>
+                    </Grid>
+                    <Label x:Name="lblmsj" HorizontalAlignment="Center" Grid.Row="3" VerticalAlignment="Center" Margin="6,10" Width="214" Height="55" FontStyle="Italic"/>
+                    <Button x:Name="btnValida" Content="Siguiente" HorizontalAlignment="Center" Grid.Row="4" VerticalAlignment="Center" Width="125" Click="BtnValida_Click"
+                            Background="#FF2E78CB" BorderBrush="#FF33288B"/>
+                </Grid>
+            </materialDesign:Card>
+        </Grid>
 
     </Grid>
 </Window>

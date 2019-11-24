@@ -1,30 +1,104 @@
 ﻿<Window x:Class="WpfApp_Arriendos.DirDepartamentos.RegistraInventario"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WpfApp_Arriendos.DirDepartamentos"
-        mc:Ignorable="d"
-        Title="Registro de inventario" Height="480.613" Width="313.364">
-    <Grid>
-        <Label x:Name="lblTitulo" Content="Ingrese valores al inventario" HorizontalAlignment="Left" Margin="68,20,0,0" VerticalAlignment="Top"/>
-        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="361" Margin="10,67,0,0" Stroke="Black" VerticalAlignment="Top" Width="285"/>
-            <Label x:Name="lblBaño" Content="Baños" HorizontalAlignment="Left" Margin="26,125,0,0" VerticalAlignment="Top"/>
-            <Label x:Name="lblDormitorio" Content="Dormitorios" HorizontalAlignment="Left" Margin="26,165,0,0" VerticalAlignment="Top"/>
-            <Label x:Name="lblTv" Content="Tv" HorizontalAlignment="Left" Margin="26,208,0,0" VerticalAlignment="Top"/>
-            <Label x:Name="lblMesa" Content="Mesas" HorizontalAlignment="Left" Margin="26,250,0,0" VerticalAlignment="Top"/>
-            <Label x:Name="lblAsiento" Content="Asientos" HorizontalAlignment="Left" Margin="26,290,0,0" VerticalAlignment="Top"/>
-            <Label x:Name="lblMueble" Content="Muebles" HorizontalAlignment="Left" Margin="26,331,0,0" VerticalAlignment="Top"/>
-            <CheckBox x:Name="chkInternet" Content="Internet" HorizontalAlignment="Left" Margin="141,100,0,0" VerticalAlignment="Top"/>
-            <TextBox x:Name="txtBaño" HorizontalAlignment="Left" Height="23" Margin="131,129,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-            <TextBox x:Name="txtDormitorio" HorizontalAlignment="Left" Height="23" Margin="131,165,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-            <TextBox x:Name="txtTv" HorizontalAlignment="Left" Height="23" Margin="131,208,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-            <TextBox x:Name="txtMesa" HorizontalAlignment="Left" Height="23" Margin="131,250,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-            <TextBox x:Name="txtAsiento" HorizontalAlignment="Left" Height="23" Margin="131,290,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-            <TextBox x:Name="txtMueble" HorizontalAlignment="Left" Height="23" Margin="131,331,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-            <Button x:Name="btnRegistrar" Content="Registrar" HorizontalAlignment="Left" Margin="113,393,0,0" VerticalAlignment="Top" Width="75" Click="BtnRegistrar_Click"/>
-            <Label x:Name="lblMensaje" Content="" HorizontalAlignment="Left" Margin="31,362,0,0" VerticalAlignment="Top"/>
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        Title="Registro de inventario" Height="500" Width="350" ResizeMode="NoResize" WindowStartupLocation="Manual" WindowStyle="None">
+    
+    <Grid Background="#FF2E78CB">
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Height="40" HorizontalAlignment="Right">
+            <Button Width="30" Height="30" Padding="0" Background="{x:Null}" BorderBrush="{x:Null}" Name="btnMinimiza" Click="btnMinimiza_Click">
+                <materialDesign:PackIcon Kind="WindowMinimize" Width="30" Height="30"/>
+            </Button>
+            <Button Width="30" Height="30" Padding="0" Background="{x:Null}" BorderBrush="{x:Null}" Name="btnCerrar" Click="btnCerrar_Click">
+                <materialDesign:PackIcon Kind="CloseOutline" Width="30" Height="30"/>
+            </Button>
+        </StackPanel>
+        <Grid Margin="30" Background="WhiteSmoke">
+            <materialDesign:Card
+                materialDesign:ShadowAssist.ShadowDepth="Depth4"
+                Padding="32" Height="440">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Label x:Name="lblTitulo" Content="Ingrese valores al inventario" HorizontalAlignment="Center" Grid.Row="0" VerticalAlignment="Center" FontWeight="Bold" FontSize="16"/>
+                    <CheckBox x:Name="chkInternet" Content="Internet" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center" FontWeight="Bold"/>
+                    <Grid Grid.Row="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
 
+                        <Label x:Name="lblBaño" Content="Baños" HorizontalAlignment="Center" Grid.Column="0" VerticalAlignment="Center" FontWeight="Bold"/>
+                        <TextBox x:Name="txtBaño" HorizontalAlignment="Center" Height="23" Grid.Column="1" TextWrapping="Wrap"  VerticalAlignment="Center" Width="110" VerticalContentAlignment="Center"/>
+                    </Grid>
+                    <Grid Grid.Row="3">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
 
+                        <Label x:Name="lblDormitorio" Content="Dormitorios" HorizontalAlignment="Center" Grid.Column="0" VerticalAlignment="Center" FontWeight="Bold"/>
+                        <TextBox x:Name="txtDormitorio" HorizontalAlignment="Center" Height="23" Grid.Column="1" TextWrapping="Wrap" VerticalAlignment="Center" Width="110" VerticalContentAlignment="Center"/>
+                    </Grid>
+                    <Grid Grid.Row="4">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <Label x:Name="lblTv" Content="Tv" HorizontalAlignment="Center" Grid.Column="0" VerticalAlignment="Center" FontWeight="Bold"/>
+                        <TextBox x:Name="txtTv" HorizontalAlignment="Center" Height="23" Grid.Column="1" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="110" VerticalContentAlignment="Center"/>
+                    </Grid>
+                    <Grid Grid.Row="5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <Label x:Name="lblMesa" Content="Mesas" HorizontalAlignment="Center" Grid.Column="0" VerticalAlignment="Center" FontWeight="Bold"/>
+                        <TextBox x:Name="txtMesa" HorizontalAlignment="Center" Height="23" Grid.Column="1" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="110" VerticalContentAlignment="Center"/>
+                    </Grid>
+                    <Grid Grid.Row="6">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <Label x:Name="lblAsiento" Content="Asientos" HorizontalAlignment="Center" Grid.Column="0" VerticalAlignment="Center" FontWeight="Bold"/>
+                        <TextBox x:Name="txtAsiento" HorizontalAlignment="Center" Height="23" Grid.Column="1" TextWrapping="Wrap" VerticalAlignment="Center" Width="110" VerticalContentAlignment="Center"/>
+                    </Grid>
+                    <Grid Grid.Row="7">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <Label x:Name="lblMueble" Content="Muebles" HorizontalAlignment="Center" Grid.Column="0" VerticalAlignment="Center" FontWeight="Bold"/>
+                        <TextBox x:Name="txtMueble" HorizontalAlignment="Center" Height="23" Grid.Column="1" TextWrapping="Wrap" VerticalAlignment="Center" Width="110" VerticalContentAlignment="Center"/>
+                    </Grid>
+                    <Button x:Name="btnRegistrar" Content="Registrar" HorizontalAlignment="Center" Grid.Row="9" VerticalAlignment="Center" Width="125" Click="BtnRegistrar_Click"
+                            Background="#FF2E78CB" BorderBrush="#FF33288B"/>
+                    <Label x:Name="lblMensaje" Content="" HorizontalAlignment="Center" Grid.Row="8" VerticalAlignment="Center" Margin="0,6,0,5" Width="226" FontStyle="Italic"/>
+                </Grid>
+            </materialDesign:Card>
+        </Grid>
     </Grid>
 </Window>

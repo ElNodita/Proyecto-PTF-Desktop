@@ -13,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Security.Cryptography;
 using Negocio.Clases;
 
 namespace WpfApp_Arriendos
@@ -62,6 +63,26 @@ namespace WpfApp_Arriendos
             DirServicios.Servicio Gs = new DirServicios.Servicio();
             Gs.Show();
             this.Close();
+        }
+        //Botón que recarga la página
+        private void btnRecarga_Click(object sender, RoutedEventArgs e)
+        {
+            Datos();
+        }
+        //Botón que minimiza la página
+        private void btnMinimiza_Click(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
+        }
+        //Botón que cierra la página
+        private void btnCerrar_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+        //Botón que dirige a la ventana de finanzas
+        private void btnFinanzas_Click(object sender, RoutedEventArgs e)
+        {
+
         }
         #endregion Navbar
 
@@ -128,7 +149,7 @@ namespace WpfApp_Arriendos
                 else
                 {
                     us = new UsuarioCollection();
-
+                    string pass = GetHashString(txtPass.Password);
                     us.ActualizaUsuario(int.Parse(txtId.Text), txtCorreo.Text, txtPass.Password);
                     us.ActualizaDatos(int.Parse(txtId.Text), txtContacto.Text, txtDireccion.Text);
 
@@ -193,6 +214,22 @@ namespace WpfApp_Arriendos
             txtCorreo.Text = string.Empty;
             txtPass.Password = string.Empty;
         }
+        //Método que invoca el sistema de Hash
+        private static byte[] GetHash(string inputString)
+        {
+            HashAlgorithm algorithm = SHA256.Create();
+            return algorithm.ComputeHash(Encoding.UTF8.GetBytes(inputString));
+        }
+        //Método que devuelve el valor cifrado
+        private static string GetHashString(string inputString)
+        {
+            StringBuilder sb = new StringBuilder();
+            foreach (byte b in GetHash(inputString))
+                sb.Append(b.ToString("X2"));
+
+            return sb.ToString();
+        }
         #endregion Métodos Custom
+
     }
 }

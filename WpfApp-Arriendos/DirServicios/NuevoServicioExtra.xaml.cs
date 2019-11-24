@@ -26,6 +26,16 @@ namespace WpfApp_Arriendos.DirServicios
         {
             InitializeComponent();
         }
+        //Botón para minimizar la ventana
+        private void btnMinimiza_Click(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
+        }
+        //Botón paracerrar la ventana
+        private void btnCerrar_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
 
         //Boton para realizar la accion de ingresar datos de Servicio extra.
         private void BtnRegistrarServicioExtra_Click(object sender, RoutedEventArgs e)

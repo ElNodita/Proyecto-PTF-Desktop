@@ -30,6 +30,16 @@ namespace WpfApp_Arriendos.DirDepartamentos
             CargaRegion();
             
         }
+        //Botón que minimiza la pestaña
+        private void btnMinimiza_Click(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
+        }
+        //Botón que cierra la pestaña
+        private void btnCerrar_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
 
         #region Registro
 
@@ -115,10 +125,6 @@ namespace WpfApp_Arriendos.DirDepartamentos
             slcRegion.ItemsSource = region.DefaultView;
             slcRegion.SelectedValuePath = "ID_REGION";
             slcRegion.DisplayMemberPath = "NOMBRE_REGION";
-
-            DataRow dr = region.NewRow();
-            dr["NOMBRE_REGION"] = "Seleccione región";
-            region.Rows.InsertAt(dr, 0);
 
             slcRegion.Items.Refresh();
         }

@@ -1,19 +1,57 @@
 ﻿<Window x:Class="WpfApp_Arriendos.DirServicios.NuevoTour"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WpfApp_Arriendos.DirServicios"
-        mc:Ignorable="d"
-        Title="NuevoTour" Height="450" Width="338.826">
-    <Grid>
-        <Label x:Name="lblDescripcionServicio" Content="Descripcion :" HorizontalAlignment="Left" Margin="23,174,0,0" VerticalAlignment="Top" Height="26" Width="79"/>
-        <Label x:Name="lblTitulo" Content="Ingrese descripcion del Tour" HorizontalAlignment="Left" Margin="51,31,0,0" VerticalAlignment="Top" Height="26" Width="218"/>
-        <TextBox x:Name="txtDescripcionTour" HorizontalAlignment="Left" Height="138" Margin="135,174,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="176"/>
-        <Button x:Name="btnRegistrarTour" Content="Registrar" HorizontalAlignment="Left" Margin="120,356,0,0" VerticalAlignment="Top" Width="75" Click="btnRegistrarTour_Click" Height="19"/>
-        <Label x:Name="lblmensaje" Content="" HorizontalAlignment="Left" Margin="120,384,0,0" VerticalAlignment="Top" Height="26" Width="10"/>
-        <Label x:Name="lblIdServicioTour" Content="Codigo Servicio :" HorizontalAlignment="Left" Margin="23,86,0,0" VerticalAlignment="Top" Height="26" Width="107" RenderTransformOrigin="0.415,-2.693"/>
-        <ComboBox x:Name="cbxIdServicioTour" HorizontalAlignment="Left" Margin="135,90,0,0" VerticalAlignment="Top" Width="92"/>
-
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        Title="Nuevo Tour" Height="500" Width="350" ResizeMode="NoResize" WindowStartupLocation="Manual" WindowStyle="None">
+    <Grid Background="#FF2E78CB">
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Height="40" HorizontalAlignment="Right">
+            <Button Width="30" Height="30" Padding="0" Background="{x:Null}" BorderBrush="{x:Null}" Name="btnMinimiza" Click="btnMinimiza_Click">
+                <materialDesign:PackIcon Kind="WindowMinimize" Width="30" Height="30"/>
+            </Button>
+            <Button Width="30" Height="30" Padding="0" Background="{x:Null}" BorderBrush="{x:Null}" Name="btnCerrar" Click="btnCerrar_Click">
+                <materialDesign:PackIcon Kind="CloseOutline" Width="30" Height="30"/>
+            </Button>
+        </StackPanel>
+        <Grid Margin="30" Background="WhiteSmoke">
+            <materialDesign:Card
+                materialDesign:ShadowAssist.ShadowDepth="Depth4"
+                Padding="32" Height="440">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Label x:Name="lblTitulo" Content="Ingrese descripción del Tour" HorizontalAlignment="Center" VerticalAlignment="Center"  Grid.Row="0" FontWeight="Bold" FontSize="14"/>
+                    <ComboBox x:Name="cbxIdServicioTour"
+                                      materialDesign:HintAssist.Hint="Seleccione Servicio" Grid.Row="1" Width="150" VerticalAlignment="Center"/>
+                    <StackPanel Grid.Row="2">
+                        <TextBox
+                            Name="txtDescripcionTour"
+                            Margin="10"
+                            Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"
+                            VerticalAlignment="Center"
+                            AcceptsReturn="True"
+                            TextWrapping="Wrap"
+                            VerticalScrollBarVisibility="Auto"
+                            materialDesign:HintAssist.Hint="Anote Descripción"
+                            />
+                    </StackPanel>
+                    <Label x:Name="lblmensaje" Content="" HorizontalAlignment="Center" Margin="10,24,10,25" VerticalAlignment="Center"  Grid.Row="3" Width="206"/>
+                    <Button x:Name="btnRegistrarTour" Content="Registrar" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="125" Click="btnRegistrarTour_Click" Grid.Row="4"
+                             Background="#FF2E78CB" BorderBrush="#FF33288B"/>
+                </Grid>
+            </materialDesign:Card>
+        </Grid>
     </Grid>
 </Window>

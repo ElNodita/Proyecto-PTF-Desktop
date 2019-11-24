@@ -28,7 +28,16 @@ namespace WpfApp_Arriendos.DirServicios
             InitializeComponent();
             CargaIdServicio();
         }
-
+        //Botón para minimizar la pestaña
+        private void btnMinimiza_Click(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
+        }
+        //Botón para cerrar la ventana
+        private void btnCerrar_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
         //Boton para realizar la accion de ingresar datos de Transporte.
         private void btnRegistrarTransporte_Click(object sender, RoutedEventArgs e)
         {
@@ -86,8 +95,8 @@ namespace WpfApp_Arriendos.DirServicios
 
             cbxIdServicioTransporte.ItemsSource = servicio.DefaultView;
 
-            cbxIdServicioTransporte.SelectedValuePath = "ID_SERVICIO";
-            cbxIdServicioTransporte.DisplayMemberPath = "ID_SERVICIO";
+            cbxIdServicioTransporte.SelectedValuePath = "CÓDIGO";
+            cbxIdServicioTransporte.DisplayMemberPath = "CÓDIGO";
 
             cbxIdServicioTransporte.Items.Refresh();
         }

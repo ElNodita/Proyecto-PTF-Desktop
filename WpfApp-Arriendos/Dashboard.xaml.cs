@@ -54,5 +54,23 @@ namespace WpfApp_Arriendos
         {
 
         }
+
+        //botón que cierra la vista
+        private void btnCerrar_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        //Botón que minimiza la ventana
+        private void btnMinimiza_Click(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
+        }
+
+        //botón que recarga la vista;
+        private void btnRecarga_Click(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Normal;
+        }
     }
 }

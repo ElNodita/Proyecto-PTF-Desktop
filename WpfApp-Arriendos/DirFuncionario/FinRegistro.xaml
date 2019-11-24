@@ -1,12 +1,87 @@
 ﻿<Window x:Class="WpfApp_Arriendos.DirFuncionario.FinRegistro"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WpfApp_Arriendos.DirFuncionario"
-        mc:Ignorable="d"
-        Title="Fin de registro" Height="479.88" Width="298.795">
-    <Grid>
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        Title="Fin de registro" Height="500" Width="350" ResizeMode="NoResize" WindowStartupLocation="Manual" WindowStyle="None">
+    <Grid Background="#FF2E78CB">
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Height="40" HorizontalAlignment="Right">
+            <Button Width="30" Height="30" Padding="0" Background="{x:Null}" BorderBrush="{x:Null}" Name="btnMinimiza" Click="btnMinimiza_Click">
+                <materialDesign:PackIcon Kind="WindowMinimize" Width="30" Height="30"/>
+            </Button>
+            <Button Width="30" Height="30" Padding="0" Background="{x:Null}" BorderBrush="{x:Null}" Name="btnCerrar" Click="btnCerrar_Click">
+                <materialDesign:PackIcon Kind="CloseOutline" Width="30" Height="30"/>
+            </Button>
+        </StackPanel>
+        <Grid Margin="30" Background="WhiteSmoke">
+            <materialDesign:Card
+                materialDesign:ShadowAssist.ShadowDepth="Depth4"
+                Padding="32" Height="440">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Label x:Name="lblTitulo" Content="Coloque los datos solicitados" HorizontalAlignment="Center" Grid.Row="0" VerticalAlignment="Center" FontWeight="Bold" FontSize="15"/>
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <TextBox x:Name="txtRut" HorizontalAlignment="Center" Grid.Column="0" TextWrapping="Wrap"  VerticalAlignment="Center" Width="100"
+                                 materialDesign:HintAssist.Hint="Rut"
+                                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontWeight="Bold" VerticalContentAlignment="Center"/>
+                        <TextBox x:Name="txtNombre" HorizontalAlignment="Center" Grid.Column="1" TextWrapping="Wrap"  VerticalAlignment="Center" Width="100"
+                                 materialDesign:HintAssist.Hint="Nombre"
+                                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontWeight="Bold" VerticalContentAlignment="Center"/>
+                    </Grid>
+                    <Grid Grid.Row="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <TextBox x:Name="txtApellidoPa" HorizontalAlignment="Center" Grid.Column="0" TextWrapping="Wrap"  VerticalAlignment="Center" Width="110"
+                                 materialDesign:HintAssist.Hint="Apellido Paterno"
+                                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontWeight="Bold" VerticalContentAlignment="Center"/>
+                        <TextBox x:Name="txtApellidoMa" HorizontalAlignment="Center" Grid.Column="1" TextWrapping="Wrap"  VerticalAlignment="Center" Width="110"
+                                 materialDesign:HintAssist.Hint="Apellido Materno"
+                                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontWeight="Bold" VerticalContentAlignment="Center"/>
+
+                    </Grid>
+                    <Grid Grid.Row="3">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <TextBox x:Name="txtFono" HorizontalAlignment="Center" Grid.Column="0" TextWrapping="Wrap"  VerticalAlignment="Center" Width="110"
+                                  materialDesign:HintAssist.Hint="Teléfono"
+                                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontWeight="Bold" VerticalContentAlignment="Center"/>
+                        <TextBox x:Name="txtDireccion" HorizontalAlignment="Center" Grid.Column="1" TextWrapping="Wrap"  VerticalAlignment="Center" Width="110"
+                                  materialDesign:HintAssist.Hint="Dirección"
+                                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontWeight="Bold" VerticalContentAlignment="Center"/>
+                    </Grid>
+                    <DatePicker Grid.Row="4" Name="cldFechaNac"
+                    materialDesign:HintAssist.Hint="Fecha Nacimiento"
+                    Style="{StaticResource MaterialDesignFloatingHintDatePicker}" Margin="10,8" />
+                    <Label x:Name="lblmensaje" Content="" HorizontalAlignment="Center" Grid.Row="5" VerticalAlignment="Center" Margin="10,14,10,13" Width="206" FontStyle="Italic"/>
+                    <Button x:Name="btnRegistrar" Content="Registrar" HorizontalAlignment="Center" Grid.Row="6" VerticalAlignment="Center" Width="125" Click="BtnRegistrar_Click"
+                            Background="#FF2E78CB" BorderBrush="#FF33288B"/>
+                </Grid>
+            </materialDesign:Card>
+        </Grid>
+        <!--
         <Label x:Name="lblRut" Content="Rut:" HorizontalAlignment="Left" Margin="25,56,0,0" VerticalAlignment="Top"/>
         <Label x:Name="lblNombre" Content="Nombre:" HorizontalAlignment="Left" Margin="25,100,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.48,0.16"/>
         <Label x:Name="lblApellidoPa" Content="Apellido Paterno:" HorizontalAlignment="Left" Margin="25,146,0,0" VerticalAlignment="Top"/>
@@ -23,7 +98,7 @@
         <TextBox x:Name="txtDireccion" HorizontalAlignment="Left" Height="23" Margin="133,336,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="148"/>
         <DatePicker x:Name="cldFechaNac" HorizontalAlignment="Left" Margin="137,287,0,0" VerticalAlignment="Top"/>
         <Button x:Name="btnRegistrar" Content="Registrar" HorizontalAlignment="Left" Margin="120,385,0,0" VerticalAlignment="Top" Width="75" Click="BtnRegistrar_Click"/>
-        <Label x:Name="lblmensaje" Content="" HorizontalAlignment="Left" Margin="120,421,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblmensaje" Content="" HorizontalAlignment="Left" Margin="120,421,0,0" VerticalAlignment="Top"/> -->
 
     </Grid>
 </Window>

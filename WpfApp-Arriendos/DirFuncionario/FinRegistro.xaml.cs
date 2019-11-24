@@ -26,7 +26,16 @@ namespace WpfApp_Arriendos.DirFuncionario
         {
             InitializeComponent();
         }
-
+        //Botón para minimizar la ventana
+        private void btnMinimiza_Click(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
+        }
+        //Botón para cerrar la ventana
+        private void btnCerrar_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
         //Boton para realizar la accion de ingreso datos de Usuario.
         private void BtnRegistrar_Click(object sender, RoutedEventArgs e)
         {
@@ -184,6 +193,5 @@ namespace WpfApp_Arriendos.DirFuncionario
             }
         }
         #endregion Métodos Custom
-
     }
 }

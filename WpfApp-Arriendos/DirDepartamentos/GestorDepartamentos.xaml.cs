@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using System.Data;
 using Negocio.Clases;
 using System.Text.RegularExpressions;
+using System.Windows.Media.Animation;
 
 namespace WpfApp_Arriendos.DirDepartamentos
 {
@@ -78,6 +79,22 @@ namespace WpfApp_Arriendos.DirDepartamentos
             RegistroDepartamento regDepa = new RegistroDepartamento();
             regDepa.Show();
         }
+
+        //Botón para cerrar la aplicación
+        private void btnCerrar_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+        //Minimiza la pestañas
+        private void btnMinimiza_Click(object sender, RoutedEventArgs e)
+        {
+            this.WindowState=WindowState.Minimized;
+        }
+        //Botón recarga página
+        private void btnRecarga_Click(object sender, RoutedEventArgs e)
+        {
+            Datos();
+        }
         #endregion Navbar
 
         #region Datos Departamento
@@ -127,6 +144,9 @@ namespace WpfApp_Arriendos.DirDepartamentos
                 else
                 {
                     InventarioInvisible();
+
+                    LimpiarInventario();
+
                     lblMensajeInventario.Content = "No posee inventario, registre uno";
                     btnRegistraInv.Visibility = Visibility.Visible;
                 }
@@ -205,6 +225,10 @@ namespace WpfApp_Arriendos.DirDepartamentos
                 if (string.IsNullOrEmpty(txtId.Text))
                 {
                     MessageBox.Show("Debe seleccionar un campo.");
+                }
+                else if (!string.IsNullOrEmpty(txtInventario.Text))
+                {
+                    MessageBox.Show("Debe eliminar el inventario primero.");
                 }
                 else
                 {
@@ -396,6 +420,18 @@ namespace WpfApp_Arriendos.DirDepartamentos
             slcTipo.Text = string.Empty;
         }
 
+        //Método para limpiar campos de texto en inventario
+        private void LimpiarInventario()
+        {
+            txtInventario.Text = string.Empty;
+            txtBaño.Text = string.Empty;
+            txtDormitorio.Text = string.Empty;
+            txtTv.Text = string.Empty;
+            txtMesas.Text = string.Empty;
+            txtAsiento.Text = string.Empty;
+            txtMuebles.Text = string.Empty;
+        }
+
         //Metodo para ocultar campos de textos y botones de Inventario.
         private void InventarioInvisible()
         {
@@ -409,12 +445,12 @@ namespace WpfApp_Arriendos.DirDepartamentos
             txtMuebles.Visibility = Visibility.Hidden;
 
             lblInventario.Visibility = Visibility.Hidden;
-            lblBaño.Visibility = Visibility.Hidden;
+           /* lblBaño.Visibility = Visibility.Hidden;
             lblDormitorio.Visibility = Visibility.Hidden;
             lblTv.Visibility = Visibility.Hidden;
             lblMesas.Visibility = Visibility.Hidden;
             lblAsiento.Visibility = Visibility.Hidden;
-            lblMueble.Visibility = Visibility.Hidden;
+            lblMueble.Visibility = Visibility.Hidden;*/
 
             btnActualizarInv.Visibility = Visibility.Hidden;
             btnEliminarInv.Visibility = Visibility.Hidden;
@@ -433,12 +469,12 @@ namespace WpfApp_Arriendos.DirDepartamentos
             txtMuebles.Visibility = Visibility.Visible;
 
             lblInventario.Visibility = Visibility.Visible;
-            lblBaño.Visibility = Visibility.Visible;
+           /* lblBaño.Visibility = Visibility.Visible;
             lblDormitorio.Visibility = Visibility.Visible;
             lblTv.Visibility = Visibility.Visible;
             lblMesas.Visibility = Visibility.Visible;
             lblAsiento.Visibility = Visibility.Visible;
-            lblMueble.Visibility = Visibility.Visible;
+            lblMueble.Visibility = Visibility.Visible;*/
 
             btnActualizarInv.Visibility = Visibility.Visible;
             btnEliminarInv.Visibility = Visibility.Visible;
@@ -459,6 +495,7 @@ namespace WpfApp_Arriendos.DirDepartamentos
             dtgGaleria.ItemsSource = depa.ListaGaleria(id_departamento).DefaultView;
             dtgGaleria.Items.Refresh();
         }
+
         #endregion Métodos Custom
 
     }

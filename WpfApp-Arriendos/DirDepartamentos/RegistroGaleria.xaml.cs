@@ -25,6 +25,16 @@ namespace WpfApp_Arriendos.DirDepartamentos
         {
             InitializeComponent();
         }
+        //Botón para minimizar la pestaña
+        private void btnMinimiza_Click(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
+        }
+        //Botón para cerrar la pestaña
+        private void btnCerrar_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
 
         //Boton para buscar imagen que se desea subir al sistema.
         private void BtnBuscar_Click(object sender, RoutedEventArgs e)
@@ -87,5 +97,6 @@ namespace WpfApp_Arriendos.DirDepartamentos
                 MessageBox.Show("Ha ocurrido un error, contacte al administrador: " + ex.Message, "Excepción detectada", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
+
     }
 }

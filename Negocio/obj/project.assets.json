@@ -195,7 +195,7 @@
       ]
     },
     "NETStandard.Library/2.0.3": {
-      "sha512": "st47PosZSHrjECdjeIzZQbzivYBJFv6P2nv4cj2ypdI204DO+vZ7l5raGMiX4eXMJ53RfOIg+/s4DHVZ54Nu2A==",
+      "sha512": "mXTzZIdRGtVplL7i5un0PX6A7DPTN9IWuGhdbjH3Bekv0xg4Be3E1g06EUzvfqfIVUpIE5sMKFzv4f+gYDWfiQ==",
       "type": "package",
       "path": "netstandard.library/2.0.3",
       "files": [

@@ -48,7 +48,7 @@ namespace WpfApp_Arriendos
                 }
                 else
                 {
-                    lblmensaje.Content = "Usuario no válido.";
+                    lblMensaje.Text = "Usuario no válido.";
 
                 }
             }

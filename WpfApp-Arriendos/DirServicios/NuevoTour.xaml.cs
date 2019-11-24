@@ -28,6 +28,16 @@ namespace WpfApp_Arriendos.DirServicios
             CargaIdServicio();
         }
 
+        //Botón para minimizar la pestaña
+        private void btnMinimiza_Click(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
+        }
+        //Botón para cerrar la ventana
+        private void btnCerrar_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
         //Boton para realizar la accion de ingresar datos de Tour.
         private void btnRegistrarTour_Click(object sender, RoutedEventArgs e)
         {
@@ -76,8 +86,8 @@ namespace WpfApp_Arriendos.DirServicios
 
             cbxIdServicioTour.ItemsSource = servicio.DefaultView;
 
-            cbxIdServicioTour.SelectedValuePath = "ID_SERVICIO";
-            cbxIdServicioTour.DisplayMemberPath = "ID_SERVICIO";
+            cbxIdServicioTour.SelectedValuePath = "CÓDIGO";
+            cbxIdServicioTour.DisplayMemberPath = "CÓDIGO";
 
             cbxIdServicioTour.Items.Refresh();
 

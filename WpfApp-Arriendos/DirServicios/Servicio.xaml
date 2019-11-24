@@ -1,48 +1,251 @@
 ﻿<Window x:Class="WpfApp_Arriendos.DirServicios.Servicio"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WpfApp_Arriendos.DirServicios"
-        mc:Ignorable="d"
-        Title="Servicio" Height="570.247" Width="1034.65">
-    <Grid Margin="0,0,2,0">
-        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="371" Stroke="Black" VerticalAlignment="Top" Width="116" Margin="1,109,0,0"/>
-        <Button x:Name="btnInicio" Content="Inicio" HorizontalAlignment="Left" Margin="20,159,0,0" VerticalAlignment="Top" Width="86" Click="BtnInicio_Click"/>
-        <Button x:Name="btnDepartamento" Content="Departamento" HorizontalAlignment="Left" Margin="20,219,0,0" VerticalAlignment="Top" Width="86" Click="BtnDepartamento_Click"/>
-        <Button x:Name="btnFuncionario" Content="Funcionarios" HorizontalAlignment="Left" Margin="20,281,0,0" VerticalAlignment="Top" Width="86" Click="BtnFuncionario_Click"/>
-        <Button x:Name="btnServicios" Content="Servicios" HorizontalAlignment="Left" Margin="20,414,0,0" VerticalAlignment="Top" Width="86" Click="btnServicios_Click"/>
-        <Button x:Name="btnFinanzas" Content="Finanzas" HorizontalAlignment="Left" Margin="20,346,0,0" VerticalAlignment="Top" Width="86" RenderTransformOrigin="-0.093,0.35"/>
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        Title="Servicio" Height="600" Width="1024" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid Background="#FF2E78CB">
+        <Grid Background="White" Margin="222,45,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Label Content="Gestión de Servicios" FontWeight="Bold" FontStyle="Italic" Margin="278,-36,264,552" FontSize="18" Grid.ColumnSpan="2"/>
+            <materialDesign:Card
+                    materialDesign:ShadowAssist.ShadowDepth="Depth3"
+                     Height="537" Margin="0,8,0,0" >
+                <materialDesign:Card
+                    Background="{DynamicResource MaterialDesignBackground}" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <StackPanel>
+                        <Expander
+                          HorizontalAlignment="Stretch"
+                          Header="Servicios" FontWeight="Bold">
+                            <StackPanel
+                            Orientation="Vertical"
+                            TextBlock.Foreground="{DynamicResource MaterialDesignBody}"
+                            Margin="24,8,24,16">
+                                <Grid>
+                                    <DataGrid x:Name="dtgServicios" AutoGenerateColumns="True"  HorizontalAlignment="Center"  VerticalAlignment="Center" SelectionChanged="dtgServicios_SelectionChanged" IsReadOnly="True" Width="300"
+                                        materialDesign:DataGridAssist.CellPadding="4 2 2 2"
+                                        materialDesign:DataGridAssist.ColumnHeaderPadding="4 2 2 2" Margin="10,38,10,10"/>
+                                </Grid>
+                            </StackPanel>
+                        </Expander>
+                        <Border
+                          Background="{DynamicResource MaterialDesignDivider}"
+                          Height="1"
+                          HorizontalAlignment="Stretch"
+                          SnapsToDevicePixels="True" />
+                        <Expander
+                          HorizontalAlignment="Stretch"
+                          Header="Tours" FontWeight="Bold">
+                            <StackPanel
+                            Orientation="Vertical"
+                            TextBlock.Foreground="{DynamicResource MaterialDesignBody}"
+                            Margin="24,8,24,16">
+                                <DataGrid x:Name="dtgTour" AutoGenerateColumns="True"  HorizontalAlignment="Center"  VerticalAlignment="Center" Width="300" SelectionChanged="dtgTour_SelectionChanged" IsReadOnly="True"
+                                        materialDesign:DataGridAssist.CellPadding="4 2 2 2"
+                                        materialDesign:DataGridAssist.ColumnHeaderPadding="4 2 2 2" Margin="10,38,10,10"/>
+                            </StackPanel>
+                        </Expander>
+                        <Border
+                          Background="{DynamicResource MaterialDesignDivider}"
+                          Height="1"
+                          HorizontalAlignment="Stretch"
+                          SnapsToDevicePixels="True" />
+                        <Expander
+                          HorizontalAlignment="Stretch"
+                          Header="Transporte" FontWeight="Bold">
+                            <StackPanel
+                            Orientation="Vertical"
+                            TextBlock.Foreground="{DynamicResource MaterialDesignBody}"
+                            Margin="24,8,24,16">
+                                <DataGrid x:Name="dtgTransporte" AutoGenerateColumns="True"  HorizontalAlignment="Center" VerticalAlignment="Center" Width="300" SelectionChanged="dtgTransporte_SelectionChanged" IsReadOnly="True"
+                                        materialDesign:DataGridAssist.CellPadding="4 2 2 2"
+                                        materialDesign:DataGridAssist.ColumnHeaderPadding="4 2 2 2" Margin="10,38,10,10"/>
+                            </StackPanel>
+                        </Expander>
+                    </StackPanel>
+                </materialDesign:Card>
+            </materialDesign:Card>
 
-        <Label x:Name="lblTitulo" Content="Gestor de Servicios" HorizontalAlignment="Left" Margin="71,26,0,0" VerticalAlignment="Top" Width="165" RenderTransformOrigin="-1.002,1.421" Height="43" FontSize="16"/>
+            <materialDesign:Card
+                    materialDesign:ShadowAssist.ShadowDepth="Depth3"
+                    Height="535" Grid.Column="1" Margin="9,10,11,0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="200"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Button x:Name="btnRegistrarServicio" Content="Nuevo Servicio" HorizontalAlignment="Center" VerticalAlignment="Center" Click="btnRegistrarServicio_Click"
+                                            Background="#FF2E78CB" BorderBrush="#FF33288B" Grid.Row="0"/>
+                        <Button x:Name="btnRegistrarTour" Content="Nuevo Tour" HorizontalAlignment="Center" VerticalAlignment="Center" Click="btnRegistrarTour_Click"
+                                Background="#FF2E78CB" BorderBrush="#FF33288B" Grid.Row="1"/>
+                        <Button x:Name="btnRegistrarTransporte" Content="Nuevo Transporte" HorizontalAlignment="Center" VerticalAlignment="Center" Click="btnRegistrarTransporte_Click"
+                                Background="#FF2E78CB" BorderBrush="#FF33288B" Grid.Row="2"/>
+                    </Grid>
+                    <StackPanel Grid.Row="1">
+                        <Grid Background="LightSkyBlue"
+                                materialDesign:ShadowAssist.ShadowDepth="Depth2" Margin="10" Height="179">
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Label x:Name="lblDatos" Content="Datos" HorizontalAlignment="Center"  VerticalAlignment="Center" Grid.Row="0" FontWeight="Bold" FontSize="16"/>
+                            <TextBox x:Name="txtIdServicio" HorizontalAlignment="Center" HorizontalContentAlignment="Center" TextWrapping="Wrap"  VerticalAlignment="Center" Width="120" IsReadOnly="True" Grid.Row="1"/>
+                            <TextBox x:Name="txt1" HorizontalAlignment="Center"  TextWrapping="Wrap"  VerticalAlignment="Center" Width="250" Grid.Row="2"/>
+                            <TextBox x:Name="txt2" HorizontalAlignment="Center" TextWrapping="Wrap"  VerticalAlignment="Center" Width="250" Grid.Row="3"/>
+                            <Grid Grid.Row="4">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Button x:Name="btnActualizarServicio" Visibility="Hidden" Content="Actualizar" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="100" Click="btnActualizarServicio_Click" Grid.Column="0" Background="#FF2E78CB" BorderBrush="#FF33288B"/>
+                                <Button x:Name="btnActualizarTour" Visibility="Hidden" Content="Actualizar" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="100" Click="btnActualizarTour_Click" Grid.Column="0" Background="#FF2E78CB" BorderBrush="#FF33288B"/>
+                                <Button x:Name="btnActualizarTransporte" Visibility="Hidden" Content="Actualizar" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="100" Click="btnActualizarTransporte_Click" Grid.Column="0" Background="#FF2E78CB" BorderBrush="#FF33288B"/>
 
-        <!--Informacion Servicios-->
-        <DataGrid x:Name="dtgServicios" AutoGenerateColumns="True" ItemsSource="{Binding}" HorizontalAlignment="Left" Height="89" Margin="122,105,0,0" VerticalAlignment="Top" Width="603" SelectionChanged="dtgServicios_SelectionChanged" IsReadOnly="True"/>
-        <Button x:Name="btnRegistrarServicio" Content="Nuevo Servicio" HorizontalAlignment="Left" Margin="368,60,0,0" VerticalAlignment="Top" Width="124" RenderTransformOrigin="0.059,-0.288" Click="btnRegistrarServicio_Click"/>
+                                <Button x:Name="btnEliminarServicio" Visibility="Hidden" Content="Eliminar" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="100" Click="btnEliminarServicio_Click" Grid.Column="1" Background="#FF2E78CB" BorderBrush="#FF33288B"/>
+                                <Button x:Name="btnEliminarTour" Visibility="Hidden" Content="Eliminar" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="100" Click="btnEliminarTour_Click" Grid.Column="1"/>
+                                <Button x:Name="btnEliminarTransporte" Visibility="Hidden" Content="Eliminar" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Click="btnEliminarTransporte_Click" Grid.Column="1" Background="#FF2E78CB" BorderBrush="#FF33288B"/>
+                            </Grid>
+                        </Grid>
 
-        <!--Informacion Tour-->
-        <Button x:Name="btnRegistrarTour" Content="Nuevo Tour" HorizontalAlignment="Left" Margin="368,222,0,0" VerticalAlignment="Top" Width="124" RenderTransformOrigin="0.059,-0.288" Click="btnRegistrarTour_Click"/>
-        <DataGrid x:Name="dtgTour" AutoGenerateColumns="True" ItemsSource="{Binding}" HorizontalAlignment="Left" Height="89" Margin="122,266,0,0" VerticalAlignment="Top" Width="603" SelectionChanged="dtgTour_SelectionChanged" IsReadOnly="True"/>
+                    </StackPanel>
+                    <Label x:Name="lblmensaje" Content="" HorizontalAlignment="Center" HorizontalContentAlignment="Center"  VerticalAlignment="Center" Grid.Row="2" Margin="10" Width="361" Height="148" FontStyle="Italic"/>
+                </Grid>
+            </materialDesign:Card>
+        </Grid>
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Height="40" HorizontalAlignment="Right">
+            <Button Width="30" Height="30" Padding="0" Background="{x:Null}" BorderBrush="{x:Null}" Name="btnRecarga" Click="btnRecarga_Click">
+                <materialDesign:PackIcon Kind="ArrowRotateRight" Width="30" Height="30"/>
+            </Button>
+            <Button Width="30" Height="30" Padding="0" Background="{x:Null}" BorderBrush="{x:Null}" Name="btnMinimiza" Click="btnMinimiza_Click">
+                <materialDesign:PackIcon Kind="WindowMinimize" Width="30" Height="30"/>
+            </Button>
+            <Button Width="30" Height="30" Padding="0" Background="{x:Null}" BorderBrush="{x:Null}" Name="btnCerrar" Click="btnCerrar_Click">
+                <materialDesign:PackIcon Kind="Power" Width="30" Height="30"/>
+            </Button>
+        </StackPanel>
+        <StackPanel x:Name="StackPanelMenu" Width="222" HorizontalAlignment="Left" Margin="0" RenderTransformOrigin="0.5,0.5">
+            <StackPanel.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </StackPanel.RenderTransform>
+            <materialDesign:Card
+                materialDesign:ShadowAssist.ShadowDepth="Depth2">
+                <StackPanel Background="#002547" Height="100">
+                    <Image Source="/WpfApp-Arriendos;component/Assets/img/logo.png" VerticalAlignment="Top" Height="98"/>
+                </StackPanel>
+            </materialDesign:Card>
 
-        <!--Informacion Transporte-->
-        <Button x:Name="btnRegistrarTransporte" Content="Nuevo Transporte" HorizontalAlignment="Left" Margin="368,382,0,0" VerticalAlignment="Top" Width="124" RenderTransformOrigin="0.059,-0.288" Click="btnRegistrarTransporte_Click"/>
-        <DataGrid x:Name="dtgTransporte" AutoGenerateColumns="True" ItemsSource="{Binding}" HorizontalAlignment="Left" Height="89" Margin="122,427,0,0" VerticalAlignment="Top" Width="603" SelectionChanged="dtgTransporte_SelectionChanged" IsReadOnly="True"/>
+            <Separator Height="10" BorderBrush="Black" Background="Black"></Separator>
+            <Separator Height="10" BorderBrush="Black" Background="Black"></Separator>
+            <Separator Height="10" BorderBrush="Black" Background="Black"></Separator>
 
-        <!--Datos-->
-        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="306" Margin="754,147,0,0" Stroke="Black" VerticalAlignment="Top" Width="237"/>
-        <TextBox x:Name="txtIdServicio" HorizontalAlignment="Left" Height="23" Margin="822,216,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" IsEnabled="False"/>
-        <TextBox x:Name="txt1" HorizontalAlignment="Left" Height="23" Margin="822,256,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="txt2" HorizontalAlignment="Left" Height="23" Margin="822,296,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
-        <Label x:Name="lblDatos" Content="Datos" HorizontalAlignment="Left" Margin="861,168,0,0" VerticalAlignment="Top" Width="44"/>
-        <Button x:Name="btnActualizarServicio" Visibility="Hidden" Content="Actualizar" HorizontalAlignment="Left" Margin="786,382,0,0" VerticalAlignment="Top" Width="75" Click="btnActualizarServicio_Click" RenderTransformOrigin="0.533,-0.8"/>
-        <Button x:Name="btnEliminarServicio" Visibility="Hidden" Content="Eliminar" HorizontalAlignment="Left" Margin="900,382,0,0" VerticalAlignment="Top" Width="75" Click="btnEliminarServicio_Click"/>
-        <Label x:Name="lblmensaje" Content="" HorizontalAlignment="Left" Margin="861,427,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="btnActualizarTour" Visibility="Hidden" Content="Actualizar" HorizontalAlignment="Left" Margin="786,382,0,0" VerticalAlignment="Top" Width="75" Click="btnActualizarTour_Click" RenderTransformOrigin="0.533,-0.8"/>
-        <Button x:Name="btnEliminarTour" Visibility="Hidden" Content="Eliminar" HorizontalAlignment="Left" Margin="900,382,0,0" VerticalAlignment="Top" Width="75" Click="btnEliminarTour_Click"/>
-        <Button x:Name="btnActualizarTransporte" Visibility="Hidden" Content="Actualizar" HorizontalAlignment="Left" Margin="786,382,0,0" VerticalAlignment="Top" Width="75" Click="btnActualizarTransporte_Click" RenderTransformOrigin="0.533,-0.8"/>
-        <Button x:Name="btnEliminarTransporte" Visibility="Hidden" Content="Eliminar" HorizontalAlignment="Left" Margin="900,382,0,0" VerticalAlignment="Top" Width="75" Click="btnEliminarTransporte_Click"/>
+            <ListView>
+                <ListViewItem x:Name="listViewItem" Height="60" RenderTransformOrigin="0.5,0.5">
+                    <ListViewItem.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </ListViewItem.RenderTransform>
+                    <StackPanel Orientation="Horizontal" Margin="10 0">
+                        <materialDesign:PackIcon Kind="Home" Width="30" Height="30" VerticalAlignment="Center" Margin="5"/>
+                        <Button x:Name="btnInicio" Content="Inicio" Margin="10" VerticalAlignment="Center" Click="BtnInicio_Click" Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                                materialDesign:ButtonAssist.CornerRadius="10" Background="#FF33288B" BorderBrush="#FF33288B" Width="125"
+                                materialDesign:ShadowAssist.ShadowDepth="Depth3"/>
+                    </StackPanel>
+                </ListViewItem>
+                <ListViewItem x:Name="listViewItem1" Height="60" RenderTransformOrigin="0.5,0.5">
+                    <ListViewItem.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </ListViewItem.RenderTransform>
+                    <StackPanel Orientation="Horizontal" Margin="10 0">
+                        <materialDesign:PackIcon Kind="HomeAnalytics" Width="30" Height="30" VerticalAlignment="Center" Margin="5"/>
+                        <Button x:Name="btnDepartamento" Content="Departamento" Margin="10" VerticalAlignment="Center" Click="BtnDepartamento_Click"
+                                materialDesign:ButtonAssist.CornerRadius="10" Background="#FF33288B" BorderBrush="#FF33288B" Width="125"
+                                materialDesign:ShadowAssist.ShadowDepth="Depth3"/>
+                    </StackPanel>
+                </ListViewItem>
+                <ListViewItem x:Name="listViewItem2" Height="60" RenderTransformOrigin="0.5,0.5">
+                    <ListViewItem.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </ListViewItem.RenderTransform>
+                    <StackPanel Orientation="Horizontal" Margin="10 0">
+                        <materialDesign:PackIcon Kind="AccountBadgeHorizontal" Width="30" Height="30" VerticalAlignment="Center" Margin="5"/>
+                        <Button x:Name="btnFuncionario" Content="Funcionarios" Margin="10" VerticalAlignment="Center" Click="BtnFuncionario_Click"
+                                materialDesign:ButtonAssist.CornerRadius="10" Background="#FF33288B" BorderBrush="#FF33288B" Width="125"
+                                materialDesign:ShadowAssist.ShadowDepth="Depth3"/>
+                    </StackPanel>
+                </ListViewItem>
+                <ListViewItem x:Name="listViewItem3" Height="60" RenderTransformOrigin="0.5,0.5">
+                    <ListViewItem.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </ListViewItem.RenderTransform>
+                    <StackPanel Orientation="Horizontal" Margin="10 0">
+                        <materialDesign:PackIcon Kind="Airplay" Width="30" Height="30" VerticalAlignment="Center" Margin="5"/>
 
-
-
+                        <Button x:Name="btnServicios" Content="Servicios" Margin="10" VerticalAlignment="Center" Click="btnServicios_Click"
+                                materialDesign:ButtonAssist.CornerRadius="10" Background="#FF33288B" BorderBrush="#FF33288B" Width="125"
+                                materialDesign:ShadowAssist.ShadowDepth="Depth3"/>
+                    </StackPanel>
+                </ListViewItem>
+                <ListViewItem x:Name="listViewItem4" Height="60" RenderTransformOrigin="0.5,0.5">
+                    <ListViewItem.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </ListViewItem.RenderTransform>
+                    <StackPanel Orientation="Horizontal" Margin="10 0">
+                        <materialDesign:PackIcon Kind="ChartArc" Width="30" Height="30" VerticalAlignment="Center" Margin="5"/>
+                        <Button x:Name="btnFinanzas" Content="Finanzas" Margin="10" VerticalAlignment="Center" RenderTransformOrigin="-0.093,0.35"
+                                materialDesign:ButtonAssist.CornerRadius="10" Background="#FF33288B" BorderBrush="#FF33288B" Width="125"
+                                materialDesign:ShadowAssist.ShadowDepth="Depth3"/>
+                    </StackPanel>
+                </ListViewItem>
+            </ListView>
+        </StackPanel>
     </Grid>
 </Window>

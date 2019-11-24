@@ -26,6 +26,16 @@ namespace WpfApp_Arriendos.DirDepartamentos
         {
             InitializeComponent();
         }
+        //Botón para minimizar pestaña
+        private void btnMinimiza_Click(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
+        }
+        //Botón para cerrar pestaña
+        private void btnCerrar_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
 
         //Boton que realizar la accion de guardar los datos de Inventario en la base de datos.
         private void BtnRegistrar_Click(object sender, RoutedEventArgs e)
@@ -96,5 +106,6 @@ namespace WpfApp_Arriendos.DirDepartamentos
                 MessageBox.Show("Ha ocurrido un error, contacte al administrador: " + ex.Message, "Excepción detectada", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
+
     }
 }

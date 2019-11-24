@@ -68,6 +68,23 @@ namespace WpfApp_Arriendos.DirServicios
             depa.Show();
             this.Close();
         }
+        //Botón para recargar la página
+        private void btnRecarga_Click(object sender, RoutedEventArgs e)
+        {
+            datosServicio();
+            datosTour();
+            datosTransporte();
+        }
+        //Botón para minimizar la pestaña
+        private void btnMinimiza_Click(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
+        }
+        //Botón para cerrar la pestaña
+        private void btnCerrar_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
         #endregion Navbar
 
         #region Navegación Servicios
