@@ -82,7 +82,9 @@ namespace WpfApp_Arriendos
         //Botón que dirige a la ventana de finanzas
         private void btnFinanzas_Click(object sender, RoutedEventArgs e)
         {
-
+            DirFinanzas.GestorFinanzas Gf = new DirFinanzas.GestorFinanzas();
+            Gf.Show();
+            this.Close();
         }
         #endregion Navbar
 

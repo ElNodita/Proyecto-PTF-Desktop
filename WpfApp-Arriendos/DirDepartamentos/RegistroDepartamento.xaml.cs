@@ -99,7 +99,7 @@ namespace WpfApp_Arriendos.DirDepartamentos
         //Combo box que muestra un listado de Regiones y Comunas.
         private void SlcRegion_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (slcRegion.SelectedIndex>0)
+            if (slcRegion.SelectedIndex >= 0)
             {
                 slcComuna.IsEnabled = true;
                 int region = int.Parse(slcRegion.SelectedValue.ToString());

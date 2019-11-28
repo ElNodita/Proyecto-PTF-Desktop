@@ -7,6 +7,10 @@ namespace Negocio.Clases
 {
     public class UsuarioCollection
     {
+        //Atributos de colección
+        Usuario us;
+        Persona per;
+
         //Metodo para iniciar sesion de usuario.
         public DataTable IniciarSesion(string correo, string pass)
         {
@@ -28,7 +32,7 @@ namespace Negocio.Clases
         //Metodo que inserta datos de un nuevo Usuario hacia la base de datos.
         public bool InsertaUsuario(string correo, string pass, int perfil)
         {
-            Usuario us = new Usuario();
+            us = new Usuario();
             us.Correo = correo;
             us.Contrasena = pass;
             us.Perfil = perfil;
@@ -39,7 +43,7 @@ namespace Negocio.Clases
         //Metodo que inserta datos de una nueva Persona hacia la base de datos.
         public bool InsertaDatos(string rut, string nombre, string apepa, string apema,string contacto, DateTime fecha, string direccion,int id_usuario)
         {
-            Persona per = new Persona();
+            per = new Persona();
             per.Rut = rut;
             per.Nombre = nombre;
             per.ApellidoPa = apepa;
@@ -55,7 +59,7 @@ namespace Negocio.Clases
         //Metodo que actualiza los datos de un Usuario existente en la base de datos.
         public bool ActualizaUsuario(int id_usuario, string correo, string pass)
         {
-            Usuario us = new Usuario();
+            us = new Usuario();
             us.Id = id_usuario;
             us.Correo = correo;
             us.Contrasena = pass;
@@ -65,7 +69,7 @@ namespace Negocio.Clases
         //Metodo que actualiza los datos de una Persona existente en la base de datos.
         public bool ActualizaDatos(int id_usuario, string contacto, string direccion)
         {
-            Persona per = new Persona();
+            per = new Persona();
             per.IdUsuario = id_usuario;
             per.Contacto = contacto;
             per.Direccion = direccion;
@@ -75,7 +79,7 @@ namespace Negocio.Clases
         //Metodo que elimina un Usuario almacenado en la base de datos.
         public bool EliminaUsuario(int id_usuario)
         {
-            Usuario us = new Usuario();
+            us = new Usuario();
             us.Id = id_usuario;
             return us.Eliminar(us);
         }
@@ -83,7 +87,7 @@ namespace Negocio.Clases
         //Metodo que elimina una Persona almacenada en la base de datos.
         public bool EliminaDatos(int id_usuario)
         {
-            Persona per = new Persona();
+            per = new Persona();
             per.IdUsuario = id_usuario;
             return per.Eliminar(per);
         }

@@ -68,6 +68,13 @@ namespace WpfApp_Arriendos.DirServicios
             depa.Show();
             this.Close();
         }
+        //Botón que envía a la vista de finanzas
+        private void btnFinanzas_Click(object sender, RoutedEventArgs e)
+        {
+            DirFinanzas.GestorFinanzas Gf = new DirFinanzas.GestorFinanzas();
+            Gf.Show();
+            this.Close();
+        }
         //Botón para recargar la página
         private void btnRecarga_Click(object sender, RoutedEventArgs e)
         {

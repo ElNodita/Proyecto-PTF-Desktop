@@ -62,3 +62,7 @@ C:\Users\joser\Desktop\Proyectos\Proyecto-PTF-Desktop\WpfApp-Arriendos\bin\Debug
 C:\Users\joser\Desktop\Proyectos\Proyecto-PTF-Desktop\WpfApp-Arriendos\bin\Debug\LiveCharts.xml
 C:\Users\joser\Desktop\Proyectos\Proyecto-PTF-Desktop\WpfApp-Arriendos\bin\Debug\LiveCharts.Wpf.pdb
 C:\Users\joser\Desktop\Proyectos\Proyecto-PTF-Desktop\WpfApp-Arriendos\bin\Debug\LiveCharts.Wpf.xml
+C:\Users\joser\Desktop\Proyectos\Proyecto-PTF-Desktop\WpfApp-Arriendos\obj\Debug\DirFinanzas\GestorFinanzas.baml
+C:\Users\joser\Desktop\Proyectos\Proyecto-PTF-Desktop\WpfApp-Arriendos\obj\Debug\DirFinanzas\GestorFinanzas.g.cs
+C:\Users\joser\Desktop\Proyectos\Proyecto-PTF-Desktop\WpfApp-Arriendos\bin\Debug\itextsharp.dll
+C:\Users\joser\Desktop\Proyectos\Proyecto-PTF-Desktop\WpfApp-Arriendos\bin\Debug\itextsharp.xml

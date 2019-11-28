@@ -72,5 +72,13 @@ namespace WpfApp_Arriendos
         {
             this.WindowState = WindowState.Normal;
         }
+
+        //Botón para ir a finanzas
+        private void btnFinanzas_Click(object sender, RoutedEventArgs e)
+        {
+            DirFinanzas.GestorFinanzas Gf = new DirFinanzas.GestorFinanzas();
+            Gf.Show();
+            this.Close();
+        }
     }
 }

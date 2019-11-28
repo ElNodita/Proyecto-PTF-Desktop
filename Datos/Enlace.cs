@@ -10,7 +10,7 @@ namespace Datos
 {
     public class Enlace
     {
-        static private string cadena = "User Id=admin;Password=Termicl1;Data Source=ptfaws2019cerv.czz8qnldy1sy.us-east-1.rds.amazonaws.com:1521/ORCL;";
+        private static string cadena = "User Id=admin;Password=Termicl1;Data Source=ptfaws2019cerv.czz8qnldy1sy.us-east-1.rds.amazonaws.com:1521/ORCL;";
         //private static string cadena = "User Id=ptf2019;Password=bf2142;Data Source=192.168.1.191:1521/XE;";
 
         //Comandos para la cadena de conexion.
@@ -62,6 +62,16 @@ namespace Datos
             {
                 comando.Connection.Close();
             }
+        }
+        //Abre conexión
+        public static void ConnOpen(OracleCommand comando)
+        {
+            comando.Connection.Open();
+        }
+        //Cierra conexión
+        public static void ConnClose(OracleCommand comando)
+        {
+            comando.Connection.Close();
         }
 
         //Método que permite subir una imagen a un servidor ftp

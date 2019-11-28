@@ -8,6 +8,8 @@ namespace Negocio.Clases
 {
    public class TourCollection
     {
+        //Atributos de colección
+        Tour tour;
         //Metodo que muestra Tours guardados en la base de datos.
         public DataTable ListaTourC()
         {
@@ -17,7 +19,7 @@ namespace Negocio.Clases
         //Metodo que inserta datos de un nuevo Tour hacia la base de datos.
         public bool InsertaTourC(int id_servicio, string descripcion)
         {
-            Tour tour = new Tour();
+            tour = new Tour();
             tour.IdServicio = id_servicio;
             tour.Descripcion = descripcion;
           
@@ -29,7 +31,7 @@ namespace Negocio.Clases
         //Metodo que actualiza los datos de un Tour existente en la base de datos.
         public bool ActualizaTourC(int id_tour, string descripcion)
         {
-            Tour tour = new Tour();
+            tour = new Tour();
             tour.IdTour = id_tour;
             
             tour.Descripcion = descripcion;
@@ -42,7 +44,7 @@ namespace Negocio.Clases
         //Metodo que elimina un Tour almacenado en la base de datos.
         public bool EliminaTourC(int id_tour)
         {
-            Tour tour = new Tour();
+            tour = new Tour();
             tour.IdTour = id_tour;
             return tour.Eliminar(tour);
 

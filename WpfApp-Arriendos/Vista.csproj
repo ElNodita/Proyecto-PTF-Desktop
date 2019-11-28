@@ -35,6 +35,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="itextsharp, Version=5.5.13.1, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>packages\iTextSharp.5.5.13.1\lib\itextsharp.dll</HintPath>
+    </Reference>
     <Reference Include="LiveCharts, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
       <HintPath>packages\LiveCharts.0.9.7\lib\net45\LiveCharts.dll</HintPath>
     </Reference>
@@ -109,6 +112,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="DirFinanzas\GestorFinanzas.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="DirFuncionario\FinRegistro.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -159,6 +166,9 @@
     </Compile>
     <Compile Include="DirDepartamentos\RegistroGaleria.xaml.cs">
       <DependentUpon>RegistroGaleria.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DirFinanzas\GestorFinanzas.xaml.cs">
+      <DependentUpon>GestorFinanzas.xaml</DependentUpon>
     </Compile>
     <Compile Include="DirFuncionario\FinRegistro.xaml.cs">
       <DependentUpon>FinRegistro.xaml</DependentUpon>
@@ -214,6 +224,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Datos\Datos.csproj">
+      <Project>{F8433903-EEF7-416A-9D9C-7C4296EDF1E3}</Project>
+      <Name>Datos</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Negocio\Negocio.csproj">
       <Project>{d6581315-2e0b-4a33-ade4-d2a85b3b3796}</Project>
       <Name>Negocio</Name>
@@ -222,8 +236,6 @@
   <ItemGroup>
     <Resource Include="Assets\img\logo.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DirFinanzas\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

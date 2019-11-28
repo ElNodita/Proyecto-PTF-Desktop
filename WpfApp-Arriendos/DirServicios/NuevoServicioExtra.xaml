@@ -46,11 +46,12 @@
                             />
                     </StackPanel>
                     <TextBox
-                        Margin="10"
+                      Margin="10"
                       Name="txtCostoServicio"
                       materialDesign:HintAssist.Hint="Costo"
                       Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                       VerticalAlignment="Center" 
+                      HorizontalContentAlignment="Center"
                         Grid.Row="2"/>
                     <Label x:Name="lblmensaje" Content="" HorizontalAlignment="Center" Margin="10,24,10,25" VerticalAlignment="Center"  Grid.Row="3" Width="206"/>
                     <Button x:Name="btnRegistrarServicioExtra" Content="Registrar" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="125" Click="BtnRegistrarServicioExtra_Click" Grid.Row="4"

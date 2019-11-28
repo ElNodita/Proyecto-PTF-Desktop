@@ -47,7 +47,7 @@
                         </Grid.ColumnDefinitions>
 
                         <Label x:Name="lblBaño" Content="Baños" HorizontalAlignment="Center" Grid.Column="0" VerticalAlignment="Center" FontWeight="Bold"/>
-                        <TextBox x:Name="txtBaño" HorizontalAlignment="Center" Height="23" Grid.Column="1" TextWrapping="Wrap"  VerticalAlignment="Center" Width="110" VerticalContentAlignment="Center"/>
+                        <TextBox x:Name="txtBaño" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Height="23" Grid.Column="1" TextWrapping="Wrap"  VerticalAlignment="Center" Width="110" VerticalContentAlignment="Center"/>
                     </Grid>
                     <Grid Grid.Row="3">
                         <Grid.ColumnDefinitions>
@@ -56,7 +56,7 @@
                         </Grid.ColumnDefinitions>
 
                         <Label x:Name="lblDormitorio" Content="Dormitorios" HorizontalAlignment="Center" Grid.Column="0" VerticalAlignment="Center" FontWeight="Bold"/>
-                        <TextBox x:Name="txtDormitorio" HorizontalAlignment="Center" Height="23" Grid.Column="1" TextWrapping="Wrap" VerticalAlignment="Center" Width="110" VerticalContentAlignment="Center"/>
+                        <TextBox x:Name="txtDormitorio" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Height="23" Grid.Column="1" TextWrapping="Wrap" VerticalAlignment="Center" Width="110" VerticalContentAlignment="Center"/>
                     </Grid>
                     <Grid Grid.Row="4">
                         <Grid.ColumnDefinitions>
@@ -65,7 +65,7 @@
                         </Grid.ColumnDefinitions>
 
                         <Label x:Name="lblTv" Content="Tv" HorizontalAlignment="Center" Grid.Column="0" VerticalAlignment="Center" FontWeight="Bold"/>
-                        <TextBox x:Name="txtTv" HorizontalAlignment="Center" Height="23" Grid.Column="1" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="110" VerticalContentAlignment="Center"/>
+                        <TextBox x:Name="txtTv" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Height="23" Grid.Column="1" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="110" VerticalContentAlignment="Center"/>
                     </Grid>
                     <Grid Grid.Row="5">
                         <Grid.ColumnDefinitions>
@@ -74,7 +74,7 @@
                         </Grid.ColumnDefinitions>
 
                         <Label x:Name="lblMesa" Content="Mesas" HorizontalAlignment="Center" Grid.Column="0" VerticalAlignment="Center" FontWeight="Bold"/>
-                        <TextBox x:Name="txtMesa" HorizontalAlignment="Center" Height="23" Grid.Column="1" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="110" VerticalContentAlignment="Center"/>
+                        <TextBox x:Name="txtMesa" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Height="23" Grid.Column="1" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="110" VerticalContentAlignment="Center"/>
                     </Grid>
                     <Grid Grid.Row="6">
                         <Grid.ColumnDefinitions>
@@ -83,7 +83,7 @@
                         </Grid.ColumnDefinitions>
 
                         <Label x:Name="lblAsiento" Content="Asientos" HorizontalAlignment="Center" Grid.Column="0" VerticalAlignment="Center" FontWeight="Bold"/>
-                        <TextBox x:Name="txtAsiento" HorizontalAlignment="Center" Height="23" Grid.Column="1" TextWrapping="Wrap" VerticalAlignment="Center" Width="110" VerticalContentAlignment="Center"/>
+                        <TextBox x:Name="txtAsiento" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Height="23" Grid.Column="1" TextWrapping="Wrap" VerticalAlignment="Center" Width="110" VerticalContentAlignment="Center"/>
                     </Grid>
                     <Grid Grid.Row="7">
                         <Grid.ColumnDefinitions>
@@ -92,7 +92,7 @@
                         </Grid.ColumnDefinitions>
 
                         <Label x:Name="lblMueble" Content="Muebles" HorizontalAlignment="Center" Grid.Column="0" VerticalAlignment="Center" FontWeight="Bold"/>
-                        <TextBox x:Name="txtMueble" HorizontalAlignment="Center" Height="23" Grid.Column="1" TextWrapping="Wrap" VerticalAlignment="Center" Width="110" VerticalContentAlignment="Center"/>
+                        <TextBox x:Name="txtMueble" HorizontalAlignment="Center" Height="23" HorizontalContentAlignment="Center" Grid.Column="1" TextWrapping="Wrap" VerticalAlignment="Center" Width="110" VerticalContentAlignment="Center"/>
                     </Grid>
                     <Button x:Name="btnRegistrar" Content="Registrar" HorizontalAlignment="Center" Grid.Row="9" VerticalAlignment="Center" Width="125" Click="BtnRegistrar_Click"
                             Background="#FF2E78CB" BorderBrush="#FF33288B"/>

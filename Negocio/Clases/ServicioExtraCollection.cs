@@ -8,6 +8,8 @@ namespace Negocio.Clases
 {
     public class ServicioExtraCollection
     {
+        //Atributos de colección
+        Servicio_extra servicio;
         //Metodo que muestra los Servicios extras guardados en la base de datos.
         public DataTable ListaServicioExtraC()
         {
@@ -17,7 +19,7 @@ namespace Negocio.Clases
         //Metodo que inserta datos de un nuevo Servicio extra hacia la base de datos.
         public bool InsertaServicioExtraC(string descripcion, int costo)
         {
-            Servicio_extra servicio = new Servicio_extra();
+            servicio = new Servicio_extra();
             servicio.DescripcionServicio = descripcion;
             servicio.CostoServicio = costo;
 
@@ -28,7 +30,7 @@ namespace Negocio.Clases
         //Metodo que actualiza los datos de un Servicio extra existente en la base de datos.
         public bool ActualizaServicioExtraC(int id_servicio, string descripcion, int costo)
         {
-            Servicio_extra servicio = new Servicio_extra();
+            servicio = new Servicio_extra();
             servicio.IdServicio = id_servicio;
             servicio.DescripcionServicio = descripcion;
             servicio.CostoServicio = costo;
@@ -38,7 +40,7 @@ namespace Negocio.Clases
         //Metodo que elimina un Servicio extra almacenado en la base de datos.
         public bool EliminaServicioExtraC(int id_servicio)
         {
-            Servicio_extra servicio = new Servicio_extra();
+            servicio = new Servicio_extra();
             servicio.IdServicio = id_servicio;
             return servicio.Eliminar(servicio);
 

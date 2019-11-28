@@ -40,12 +40,14 @@
                       Name="txtPatente"
                       Margin="10"
                       materialDesign:HintAssist.Hint="Patente"
+                      HorizontalContentAlignment="Center"
                       Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                       VerticalAlignment="Center" Grid.Row="2"/>
                     <TextBox
                       Name="txtNombreConductor"
                       Margin="10"
                       materialDesign:HintAssist.Hint="Nombre Conductor"
+                      HorizontalContentAlignment="Center"
                       Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                       VerticalAlignment="Center"  Grid.Row="3"/>
 

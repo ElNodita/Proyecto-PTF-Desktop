@@ -31,6 +31,7 @@ namespace WpfApp_Arriendos
         //Boton que realiza la accion de iniciar sesion con un Usuario existente en la base de datos.
         private void BtnIniciar_Click(object sender, RoutedEventArgs e)
         {
+            Bar.Visibility = Visibility.Visible;
             try
             {
                 usuario = new UsuarioCollection();
@@ -49,11 +50,13 @@ namespace WpfApp_Arriendos
                 else
                 {
                     lblMensaje.Text = "Usuario no válido.";
+                    Bar.Visibility = Visibility.Hidden;
 
                 }
             }
             catch (Exception ex)
             {
+                Bar.Visibility = Visibility.Hidden;
                 MessageBox.Show("Ha ocurrido un error, contacte al administrador: " + ex.Message, "Excepción detectada", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }

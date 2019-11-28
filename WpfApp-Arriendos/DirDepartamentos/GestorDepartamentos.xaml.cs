@@ -59,10 +59,12 @@ namespace WpfApp_Arriendos.DirDepartamentos
             this.Close();
         }
 
-        //Boton que dirige a la vista Finanzas.
+        //Botón que dirige a la vista Finanzas.
         private void BtnFinanzas_Click(object sender, RoutedEventArgs e)
         {
-
+            DirFinanzas.GestorFinanzas Gf = new DirFinanzas.GestorFinanzas();
+            Gf.Show();
+            this.Close();
         }
 
         //Boton que dirige a la vista Servicios.

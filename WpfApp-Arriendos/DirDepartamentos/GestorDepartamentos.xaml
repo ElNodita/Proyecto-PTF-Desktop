@@ -294,7 +294,7 @@
                         <materialDesign:PackIcon Kind="ChartArc" Width="30" Height="30" VerticalAlignment="Center" Margin="5"/>
                         <Button x:Name="btnFinanzas" Content="Finanzas" Margin="10" VerticalAlignment="Center" RenderTransformOrigin="-0.093,0.35"
                                 materialDesign:ButtonAssist.CornerRadius="10" Background="#FF33288B" BorderBrush="#FF33288B" Width="125"
-                                materialDesign:ShadowAssist.ShadowDepth="Depth3"/>
+                                materialDesign:ShadowAssist.ShadowDepth="Depth3" Click="BtnFinanzas_Click"/>
                     </StackPanel>
                 </ListViewItem>
             </ListView>
