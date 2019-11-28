@@ -69,6 +69,8 @@
                                 </Grid.ColumnDefinitions>
                                 <ComboBox x:Name="slcRegion" SelectionChanged="slcRegion_SelectionChanged"
                                       materialDesign:HintAssist.Hint="Región" Grid.Column="0"  VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold"/>
+                                <ComboBox x:Name="slcComuna" SelectionChanged="slcComuna_SelectionChanged"
+                                      materialDesign:HintAssist.Hint="Comuna" Grid.Column="1"  VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold"/>
                             </Grid>
                             <Grid Grid.Row="2">
                                 <Grid.ColumnDefinitions>
@@ -115,7 +117,7 @@
             <materialDesign:Card
                 materialDesign:ShadowAssist.ShadowDepth="Depth2">
                 <StackPanel Background="#002547" Height="100">
-                    <Image Source="/WpfApp-Arriendos;component/Assets/img/logo.png" VerticalAlignment="Top" Height="98"/>
+                    <Image Name="imgLogo" Source="/WpfApp-Arriendos;component/Assets/img/logo.png" VerticalAlignment="Top" Height="98"/>
                 </StackPanel>
             </materialDesign:Card>
 

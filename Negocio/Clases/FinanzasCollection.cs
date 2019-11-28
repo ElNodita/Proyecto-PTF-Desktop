@@ -23,6 +23,12 @@ namespace Negocio.Clases
         {
             return new FinanzaRepo().ListaDepartamentoPorComuna(comuna);
         }
-        
+
+        //Método que retorna departamento para finanza
+        public DataTable DepartamentoFinanza(int departamento,int mes,int anio)
+        {
+            return new FinanzaRepo().FinanzaDepartamento(departamento,mes,anio);
+        }
+
     }
 }

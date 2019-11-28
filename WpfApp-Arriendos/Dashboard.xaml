@@ -12,12 +12,31 @@
         FontFamily="{DynamicResource MaterialDesignFont}"
         Title="Dashboard" Height="600" Width="1024" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize">
     <Grid Background="#FF2E78CB">
-
+        <Label Content="Dashboard" FontWeight="Bold" FontStyle="Italic" Margin="557,10,352,562" FontSize="18" Grid.Row="0"/>
         <Grid Background="White" Margin="222,45,0,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="350"/>
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <Image Source="/Assets/img/flecha.png" Width="65" Margin="25,160,311,337" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Label Margin="114,173,60,352" FontWeight="Bold" FontSize="16">Organiza los departamentos</Label>
+                <Label Margin="114,239,86,291" FontWeight="Bold" FontSize="16">Verifica tus funcionarios</Label>
+                <Label Margin="114,296,99,234" FontWeight="Bold" FontSize="16">Gestiona tus servicios</Label>
+                <Label Margin="114,355,99,173" FontWeight="Bold" FontSize="16">Verifica tus finanzas</Label>
+            </Grid>
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="53*"/>
+                    <RowDefinition Height="132*"/>
+                </Grid.RowDefinitions>
+                <Label HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontFamily="Roboto" FontSize="22" Height="34">Bienvenido Administrador.</Label>
+                <Label HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontFamily="Roboto" FontSize="18" Height="34" Margin="88,96,88,29" >Comienza hoy tu gestión.</Label>
+                <Image Grid.Row="1" Source="/Assets/img/agenda-transparent-1.png" HorizontalAlignment="Center" VerticalAlignment="Center" Width="300" Height="222" Margin="50,48,51,126"></Image>
+            </Grid>
+            <Image Source="/Assets/img/flecha.png" Width="65" Margin="24,221,312,276" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Image Source="/Assets/img/flecha.png" Width="65" Margin="24,284,312,213" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Image Source="/Assets/img/flecha.png" Width="65" Margin="24,342,312,155" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         </Grid>
         <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Height="40" HorizontalAlignment="Right">
             <Button Width="30" Height="30" Padding="0" Background="{x:Null}" BorderBrush="{x:Null}" Name="btnRecarga" Click="btnRecarga_Click">

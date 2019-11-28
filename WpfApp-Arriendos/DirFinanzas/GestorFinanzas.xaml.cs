@@ -7,6 +7,7 @@ using System.IO;
 using LiveCharts;
 using LiveCharts.Wpf;
 using Negocio.Clases;
+using System.Windows.Media.Imaging;
 
 namespace WpfApp_Arriendos.DirFinanzas
 {
@@ -122,17 +123,34 @@ namespace WpfApp_Arriendos.DirFinanzas
                 }
                 else
                 {
+                    int codigoDepartamento = int.Parse(slcDepartamento.SelectedValue.ToString());
+                    int comuna = int.Parse(slcComuna.SelectedValue.ToString());
+                    int mes = int.Parse(slcmes.SelectedValue.ToString());
+                    int anio = int.Parse(txtAño.Text);
+
+                    string comunaDepa = slcComuna.Text;
+                    string regionDepa = slcRegion.Text;
+                    Fc = new FinanzasCollection();
+
+                    var lista = Fc.DepartamentoFinanza(codigoDepartamento, mes, anio);
+
+                    string depaCodigo = lista.Rows[0]["DEPARTAMENTO"].ToString();
+                    int depaCosto = int.Parse(lista.Rows[0]["COSTO"].ToString());
+                    string depaTipo = lista.Rows[0]["TIPO"].ToString();
+                    string depaDireccion = lista.Rows[0]["DIRECCIÓN"].ToString();
+                    int depaMonto = int.Parse(lista.Rows[0]["MONTO"].ToString());
+                    
                     if (!Directory.Exists("C:\\Informes"))
                     {
                         DirectoryInfo di = Directory.CreateDirectory("C:\\Informes");
-                        GeneratePDF();
+                        GeneratePDF(depaCodigo,depaCosto,depaTipo,depaDireccion,comunaDepa,regionDepa,anio,mes, depaMonto);
                     }
                     else
                     {
-                        GeneratePDF();
+                        GeneratePDF(depaCodigo, depaCosto, depaTipo, depaDireccion,comunaDepa, regionDepa,anio,mes, depaMonto);
                     }
                         
-                    lblMensaje.Content = "Informe generado en escritorio.";
+                    lblMensaje.Content = "Informe generado en C:/Informes.";
                 }
             }
             catch (Exception ex)
@@ -275,85 +293,147 @@ namespace WpfApp_Arriendos.DirFinanzas
             };
             slcmes.ItemsSource = items;
         }
-        public void GeneratePDF()
+
+        //Método que genera el archivo pdf
+        public void GeneratePDF(string depaCodigo, int depaCosto,string depaTipo,string depaDireccion, string comunaDepa,string regionDepa, int anioDepa,int mesDepa,int montoDepa)
         {
-            DateTime fecha = DateTime.Now;
+            DateTime hoy = DateTime.Now;
+            string fecha = DateTime.Now.Day+""+DateTime.Now.Month + "" + DateTime.Now.Year+""+DateTime.Now.Hour+""+DateTime.Now.Minute+""+DateTime.Now.Second;
             Document doc = new Document(PageSize.A4, 10f, 10f, 10f, 0f);
+            
             // Indicamos donde vamos a guardar el documento
+            PdfWriter writer = PdfWriter.GetInstance(doc,
+                        new FileStream(@"C:\Informes\"+comunaDepa+depaCodigo+fecha+ ".pdf", FileMode.Create));
+            // Le colocamos el título y el autor
+            // **Nota: Esto no será visible en el documento
+            doc.AddTitle("Reporte Departamento");
+            doc.AddCreator("Turismo Real");
 
-                PdfWriter writer = PdfWriter.GetInstance(doc,
-                            new FileStream(@"C:\Informes\Prueba.pdf", FileMode.Create));
-                // Le colocamos el título y el autor
-                // **Nota: Esto no será visible en el documento
-                doc.AddTitle("Mi primer PDF");
-                doc.AddCreator("Turismo Real");
+            // Abrimos el archivo
+            doc.Open();
 
-                // Abrimos el archivo
-                doc.Open();
+            iTextSharp.text.Font _standardFont = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 8, iTextSharp.text.Font.NORMAL, BaseColor.BLACK);
+            Paragraph parrafo2 = new Paragraph(string.Format("              REPORTE DEPARTAMENTO"), new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 16));
+            parrafo2.SpacingBefore = 200;
+            parrafo2.SpacingAfter = 0;
+            parrafo2.Alignment = 1; //0-Left, 1 middle,2 Right
+            doc.Add(parrafo2);
 
-                iTextSharp.text.Font _standardFont = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 8, iTextSharp.text.Font.NORMAL, BaseColor.BLACK);
-                Paragraph parrafo2 = new Paragraph(string.Format("              REPORTE DEPARTAMENTO"), new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 16));
-                parrafo2.SpacingBefore = 200;
-                parrafo2.SpacingAfter = 0;
-                parrafo2.Alignment = 1; //0-Left, 1 middle,2 Right
-                doc.Add(parrafo2);
+            var para = new Paragraph(hoy.ToString());
+            para.Alignment = 2;
+            para.Font.Size = 12;
+            doc.Add(para);
 
-                iTextSharp.text.Image img = iTextSharp.text.Image.GetInstance("ms-appx:///Assets/img/logo.png");
-                img.SetAbsolutePosition(0, 750);
-                doc.Add(img);
-                img.ScaleToFit(115f, 50F);
+            // Escribimos el encabezamiento en el documento
+            doc.Add(new Paragraph("Datos Generales"));
+            doc.Add(Chunk.NEWLINE);
 
-                var para = new Paragraph(fecha.ToString());
-                para.Alignment = 2;
-                para.Font.Size = 12;
-                doc.Add(para);
+            // Creamos una tabla que contendrá el nombre, apellido y país
+            // de nuestros visitante.
+            PdfPTable tblPrueba = new PdfPTable(6);
+            tblPrueba.WidthPercentage = 80;
 
-                // Escribimos el encabezamiento en el documento
-                doc.Add(new Paragraph("Mi primer documento PDF"));
-                doc.Add(Chunk.NEWLINE);
+            // Configuramos el título de las columnas de la tabla
+            PdfPCell codigo = new PdfPCell(new Phrase("Código", _standardFont));
+            codigo.BorderWidth = 0;
+            codigo.BorderWidthBottom = 0.75f;
 
-                // Creamos una tabla que contendrá el nombre, apellido y país
-                // de nuestros visitante.
-                PdfPTable tblPrueba = new PdfPTable(3);
-                tblPrueba.WidthPercentage = 100;
+            PdfPCell costo = new PdfPCell(new Phrase("Costo", _standardFont));
+            costo.BorderWidth = 0;
+            costo.BorderWidthBottom = 0.75f;
 
-                // Configuramos el título de las columnas de la tabla
-                PdfPCell clNombre = new PdfPCell(new Phrase("Nombre", _standardFont));
-                clNombre.BorderWidth = 0;
-                clNombre.BorderWidthBottom = 0.75f;
+            PdfPCell tipo = new PdfPCell(new Phrase("Tipo", _standardFont));
+            tipo.BorderWidth = 0;
+            tipo.BorderWidthBottom = 0.75f;
 
-                PdfPCell clApellido = new PdfPCell(new Phrase("Apellido", _standardFont));
-                clApellido.BorderWidth = 0;
-                clApellido.BorderWidthBottom = 0.75f;
+            PdfPCell direccion = new PdfPCell(new Phrase("Dirección", _standardFont));
+            direccion.BorderWidth = 0;
+            direccion.BorderWidthBottom = 0.75f;
 
-                PdfPCell clPais = new PdfPCell(new Phrase("País", _standardFont));
-                clPais.BorderWidth = 0;
-                clPais.BorderWidthBottom = 0.75f;
+            PdfPCell comuna = new PdfPCell(new Phrase("Comuna", _standardFont));
+            comuna.BorderWidth = 0;
+            comuna.BorderWidthBottom = 0.75f;
 
-                // Añadimos las celdas a la tabla
-                tblPrueba.AddCell(clNombre);
-                tblPrueba.AddCell(clApellido);
-                tblPrueba.AddCell(clPais);
+            PdfPCell region = new PdfPCell(new Phrase("Región", _standardFont));
+            region.BorderWidth = 0;
+            region.BorderWidthBottom = 0.75f;
 
-                // Llenamos la tabla con información
-                clNombre = new PdfPCell(new Phrase("Roberto", _standardFont));
-                clNombre.BorderWidth = 0;
+            // Añadimos las celdas a la tabla
+            tblPrueba.AddCell(codigo);
+            tblPrueba.AddCell(costo);
+            tblPrueba.AddCell(tipo);
+            tblPrueba.AddCell(direccion);
+            tblPrueba.AddCell(comuna);
+            tblPrueba.AddCell(region);
 
-                clApellido = new PdfPCell(new Phrase("Torres", _standardFont));
-                clApellido.BorderWidth = 0;
+            // Llenamos la tabla con información
+            codigo = new PdfPCell(new Phrase(depaCodigo, _standardFont));
+            codigo.BorderWidth = 0;
 
-                clPais = new PdfPCell(new Phrase("Puerto Rico", _standardFont));
-                clPais.BorderWidth = 0;
+            costo = new PdfPCell(new Phrase(depaCosto.ToString(), _standardFont));
+            costo.BorderWidth = 0;
 
-                // Añadimos las celdas a la tabla
-                tblPrueba.AddCell(clNombre);
-                tblPrueba.AddCell(clApellido);
-                tblPrueba.AddCell(clPais);
+            tipo = new PdfPCell(new Phrase(depaTipo, _standardFont));
+            tipo.BorderWidth = 0;
 
-                doc.Add(tblPrueba);
+            direccion = new PdfPCell(new Phrase(depaDireccion, _standardFont));
+            direccion.BorderWidth = 0;
 
-                doc.Close();
-                writer.Close();
+            comuna = new PdfPCell(new Phrase(comunaDepa, _standardFont));
+            comuna.BorderWidth = 0;
+
+            region = new PdfPCell(new Phrase(regionDepa, _standardFont));
+            region.BorderWidth = 0;
+
+            // Añadimos las celdas a la tabla
+            tblPrueba.AddCell(codigo);
+            tblPrueba.AddCell(costo);
+            tblPrueba.AddCell(tipo);
+            tblPrueba.AddCell(direccion);
+            tblPrueba.AddCell(comuna);
+            tblPrueba.AddCell(region);
+
+            doc.Add(tblPrueba);
+
+            doc.Add(new Paragraph("Ingresos"));
+            doc.Add(Chunk.NEWLINE);
+
+            PdfPTable tblIngreso = new PdfPTable(3);
+            tblIngreso.WidthPercentage = 80;
+
+            PdfPCell Anio = new PdfPCell(new Phrase("Año", _standardFont));
+            Anio.BorderWidth = 0;
+            Anio.BorderWidthBottom = 0.75f;
+
+            PdfPCell Mes = new PdfPCell(new Phrase("Mes", _standardFont));
+            Mes.BorderWidth = 0;
+            Mes.BorderWidthBottom = 0.75f;
+
+            PdfPCell Monto = new PdfPCell(new Phrase("Monto", _standardFont));
+            Monto.BorderWidth = 0;
+            Monto.BorderWidthBottom = 0.75f;
+
+            tblIngreso.AddCell(Anio);
+            tblIngreso.AddCell(Mes);
+            tblIngreso.AddCell(Monto);
+
+            Anio = new PdfPCell(new Phrase(anioDepa.ToString(), _standardFont));
+            Anio.BorderWidth = 0;
+
+            Mes = new PdfPCell(new Phrase(mesDepa.ToString(), _standardFont));
+            Mes.BorderWidth = 0;
+
+            Monto = new PdfPCell(new Phrase(montoDepa.ToString(), _standardFont));
+            Monto.BorderWidth = 0;
+
+            tblIngreso.AddCell(Anio);
+            tblIngreso.AddCell(Mes);
+            tblIngreso.AddCell(Monto);
+
+            doc.Add(tblIngreso);
+
+            doc.Close();
+            writer.Close();
              
         }
         #endregion Métodos Custom
