@@ -26,15 +26,15 @@
                 Padding="32" Height="440">
                 <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                        <RowDefinition/>
+                        <RowDefinition Height="75*"/>
+                        <RowDefinition Height="76*"/>
+                        <RowDefinition Height="120*"/>
+                        <RowDefinition Height="30*"/>
+                        <RowDefinition Height="75*"/>
                     </Grid.RowDefinitions>
-                    <Label x:Name="lblTitulo" Content="Ingrese descripción del Tour" HorizontalAlignment="Center" VerticalAlignment="Center"  Grid.Row="0" FontWeight="Bold" FontSize="14"/>
+                    <Label x:Name="lblTitulo" Content="Ingrese descripción del Tour" HorizontalAlignment="Center" VerticalAlignment="Center"  Grid.Row="0" FontWeight="Bold" FontSize="14" Height="27" Margin="16,24" Width="194"/>
                     <ComboBox x:Name="cbxIdServicioTour"
-                                      materialDesign:HintAssist.Hint="Seleccione Servicio" Grid.Row="1" Width="150" VerticalAlignment="Center"/>
+                                      materialDesign:HintAssist.Hint="Seleccione Servicio" Grid.Row="1" VerticalAlignment="Center" Height="28" Margin="38,24"/>
                     <StackPanel Grid.Row="2">
                         <TextBox
                             Name="txtDescripcionTour"
@@ -44,12 +44,12 @@
                             AcceptsReturn="True"
                             TextWrapping="Wrap"
                             VerticalScrollBarVisibility="Auto"
-                            materialDesign:HintAssist.Hint="Anote Descripción"
+                            materialDesign:HintAssist.Hint="Anote Descripción" Height="106"
                             />
                     </StackPanel>
-                    <Label x:Name="lblmensaje" Content="" HorizontalAlignment="Center" Margin="10,24,10,25" VerticalAlignment="Center"  Grid.Row="3" Width="206"/>
-                    <Button x:Name="btnRegistrarTour" Content="Registrar" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="125" Click="btnRegistrarTour_Click" Grid.Row="4"
-                             Background="#FF2E78CB" BorderBrush="#FF33288B"/>
+                    <Label x:Name="lblmensaje" Content="" HorizontalAlignment="Center" Margin="10,3,10,5" VerticalAlignment="Center"  Grid.Row="3" Width="206" Height="22"/>
+                    <Button x:Name="btnRegistrarTour" Content="Registrar" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="126" Click="btnRegistrarTour_Click" Grid.Row="4"
+                             Background="#FF2E78CB" BorderBrush="#FF33288B" Margin="50,21,50,22"/>
                 </Grid>
             </materialDesign:Card>
         </Grid>

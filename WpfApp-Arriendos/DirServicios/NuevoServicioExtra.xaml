@@ -26,13 +26,13 @@
                 Padding="32" Height="440">
                 <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                        <RowDefinition/>
+                        <RowDefinition Height="75*"/>
+                        <RowDefinition Height="137*"/>
+                        <RowDefinition Height="49*"/>
+                        <RowDefinition Height="40*"/>
+                        <RowDefinition Height="75*"/>
                     </Grid.RowDefinitions>
-                    <Label x:Name="lblTitulo" Content="Ingrese los campos solicitados" HorizontalAlignment="Center" VerticalAlignment="Center"  Grid.Row="0" FontWeight="Bold" FontSize="14"/>
+                    <Label x:Name="lblTitulo" Content="Ingrese los campos solicitados" HorizontalAlignment="Center" VerticalAlignment="Center"  Grid.Row="0" FontWeight="Bold" FontSize="14" Height="27" Margin="8,24" Width="210"/>
                     <StackPanel Grid.Row="1">
                         <TextBox
                             Name="txtDescripcionServicio"
@@ -42,20 +42,20 @@
                             AcceptsReturn="True"
                             TextWrapping="Wrap"
                             VerticalScrollBarVisibility="Auto"
-                            materialDesign:HintAssist.Hint="Anote Descripción"
+                            materialDesign:HintAssist.Hint="Anote Descripción" Height="124"
                             />
                     </StackPanel>
                     <TextBox
-                      Margin="10"
+                      Margin="10,10,10,3"
                       Name="txtCostoServicio"
                       materialDesign:HintAssist.Hint="Costo"
                       Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                       VerticalAlignment="Center" 
                       HorizontalContentAlignment="Center"
-                        Grid.Row="2"/>
-                    <Label x:Name="lblmensaje" Content="" HorizontalAlignment="Center" Margin="10,24,10,25" VerticalAlignment="Center"  Grid.Row="3" Width="206"/>
-                    <Button x:Name="btnRegistrarServicioExtra" Content="Registrar" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="125" Click="BtnRegistrarServicioExtra_Click" Grid.Row="4"
-                             Background="#FF2E78CB" BorderBrush="#FF33288B"/>
+                        Grid.Row="2" Height="36"/>
+                    <Label x:Name="lblmensaje" Content="" HorizontalAlignment="Center" Margin="10,9,10,5" VerticalAlignment="Center"  Grid.Row="3" Width="206" Height="26"/>
+                    <Button x:Name="btnRegistrarServicioExtra" Content="Registrar" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="126" Click="BtnRegistrarServicioExtra_Click" Grid.Row="4"
+                             Background="#FF2E78CB" BorderBrush="#FF33288B" Margin="50,21,50,22"/>
                 </Grid>
             </materialDesign:Card>
         </Grid>
