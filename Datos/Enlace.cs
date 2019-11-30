@@ -10,7 +10,7 @@ namespace Datos
 {
     public class Enlace
     {
-        private static string cadena = "User Id=admin;Password=Termicl1;Data Source=ptfaws2019cerv.czz8qnldy1sy.us-east-1.rds.amazonaws.com:1521/ORCL;";
+        private static string cadena = "User Id=admin;Password=Termicl1;Data Source=ptfawscerv2019.c4m8bxq2fyap.us-east-1.rds.amazonaws.com:1521/ORCL;";
         //Comandos para la cadena de conexion.
         public static OracleCommand ComandoSP()
         {
