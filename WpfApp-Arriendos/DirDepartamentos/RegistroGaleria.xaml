@@ -38,7 +38,7 @@
                     <TextBox x:Name="txtRuta" HorizontalAlignment="Center" Height="23" TextWrapping="Wrap" IsReadOnly="True" VerticalAlignment="Center"  Grid.Row="2" Margin="0,6" Width="176"/>
                     <Button x:Name="btnGuardar" Content="Guardar" HorizontalAlignment="Center" Grid.Row="3" VerticalAlignment="Center" Width="125" Click="BtnGuardar_Click"
                             Background="#FF2E78CB" BorderBrush="#FF33288B"/>
-                    <Label x:Name="lblMensaje" HorizontalAlignment="Center" Grid.Row="4" VerticalAlignment="Center" Margin="0,13,0,12" Width="176" FontStyle="Italic"/>
+                    <Label x:Name="lblMensaje" HorizontalAlignment="Center" Grid.Row="4" VerticalAlignment="Center" Width="176" FontStyle="Italic" Height="35"/>
                 </Grid>
             </materialDesign:Card>
         </Grid>
