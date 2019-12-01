@@ -266,7 +266,7 @@ namespace WpfApp_Arriendos.DirFinanzas
 
             slcDepartamento.ItemsSource = departamento.DefaultView;
             slcDepartamento.SelectedValuePath = "DEPARTAMENTO";
-            slcDepartamento.DisplayMemberPath = "DIRECCION";
+            slcDepartamento.DisplayMemberPath = "DIRECCIÓN";
 
             slcDepartamento.Items.Refresh();
         }
